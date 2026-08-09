@@ -167,6 +167,11 @@
 @layer utilities {
   .text-balance { text-wrap: balance; }
 
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
+
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
   @keyframes marqueeLeft {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }

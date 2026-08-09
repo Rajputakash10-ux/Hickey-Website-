@@ -75,12 +75,12 @@ export default function ProductCard({ product: p, onAddToCart, index = 0 }: Prod
       </div>
 
       {/* Info */}
-      <div className="p-5 flex flex-col gap-2 flex-1">
+      <div className="p-3 sm:p-5 flex flex-col gap-2 flex-1">
         <span className="font-sans text-[9px] tracking-widest uppercase text-gold-500 font-semibold">{p.category}</span>
-        <h3 className="font-serif text-lg font-normal text-cream-100 leading-tight">{p.title}</h3>
-        <p className="font-sans text-xs text-cream-300 opacity-55 leading-relaxed flex-1">{p.description}</p>
+        <h3 className="font-serif text-base sm:text-lg font-normal text-cream-100 leading-tight">{p.title}</h3>
+        <p className="font-sans text-xs text-cream-300 opacity-55 leading-relaxed flex-1 hidden sm:block">{p.description}</p>
         <div className="flex items-baseline gap-2 mt-2">
-          <span className="font-serif text-xl text-gold-400">{CURRENCY}{p.price.toLocaleString('en-IN')}</span>
+          <span className="font-serif text-lg sm:text-xl text-gold-400">{CURRENCY}{p.price.toLocaleString('en-IN')}</span>
           {p.compareAtPrice && (
             <>
               <span className="font-sans text-xs text-cream-400 opacity-40 line-through">{CURRENCY}{p.compareAtPrice.toLocaleString('en-IN')}</span>

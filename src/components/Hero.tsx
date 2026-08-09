@@ -28,7 +28,7 @@ export default function Hero(_props: HeroProps) {
   }, []);
 
   return (
-    <section ref={ref} className="relative w-full overflow-hidden bg-ink-950" style={{ height: '100svh', minHeight: 600, maxHeight: 1000 }} aria-label="Hero">
+    <section ref={ref} className="relative w-full overflow-hidden bg-ink-950" style={{ height: '100svh', minHeight: 500, maxHeight: 1000 }} aria-label="Hero">
       {/* Parallax background */}
       <motion.div className="absolute inset-0 will-change-transform" style={{ y: imgY }}>
         <AnimatePresence mode="sync">
@@ -52,17 +52,17 @@ export default function Hero(_props: HeroProps) {
       {/* Content */}
       <motion.div
         style={{ y: textY, opacity }}
-        className="absolute inset-0 flex flex-col items-center justify-end pb-20 sm:pb-28 text-center px-6"
+        className="absolute inset-0 flex flex-col items-center justify-end pb-16 sm:pb-28 text-center px-5 sm:px-6"
       >
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="flex flex-col items-center gap-5 max-w-3xl"
+          className="flex flex-col items-center gap-4 sm:gap-5 max-w-3xl w-full"
         >
           <span className="section-label">A New Culture of Connection</span>
 
-          <h1 className="heading-display text-balance" style={{ fontSize: 'clamp(2.8rem, 7vw, 6rem)' }}>
+          <h1 className="heading-display text-balance" style={{ fontSize: 'clamp(2rem, 7vw, 6rem)' }}>
             Rewriting how couples<br className="hidden sm:block" /> do date night.
           </h1>
 
@@ -70,7 +70,7 @@ export default function Hero(_props: HeroProps) {
             Novel intimate sensory experiences, monthly date night rituals for modern relationships.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 mt-2 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-3 mt-2 w-full sm:w-auto px-2 sm:px-0">
             <Link to="/experience" className="btn-gold w-full sm:w-auto gap-2 py-3.5 px-7">
               Claim Free Sensory Experience <ArrowRight size={13} />
             </Link>

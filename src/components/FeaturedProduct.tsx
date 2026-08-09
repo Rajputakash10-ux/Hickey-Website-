@@ -34,7 +34,7 @@ export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedPro
       style={{ background: 'var(--color-ink-900)' }}
     >
       <div className="container-site">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
 
           {/* Image */}
           <motion.div
@@ -45,7 +45,7 @@ export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedPro
           >
             <div
               className="relative aspect-[4/5] overflow-hidden cursor-pointer"
-              style={{ border: '1px solid rgba(201,163,90,0.15)' }}
+              style={{ border: '1px solid rgba(201,149,106,0.15)', maxHeight: 520 }}
               onMouseEnter={() => p.images.length > 1 && setImgIndex(1)}
               onMouseLeave={() => setImgIndex(0)}
             >

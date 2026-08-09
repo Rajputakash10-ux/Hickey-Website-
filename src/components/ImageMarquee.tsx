@@ -18,16 +18,19 @@ const TRACK = [...IMAGES, ...IMAGES];
 
 export default function ImageMarquee() {
   return (
-    <section className="overflow-hidden py-3" style={{ background: 'var(--color-ink-950)', borderTop: '1px solid rgba(201,149,106,0.1)', borderBottom: '1px solid rgba(201,149,106,0.1)' }}>
+    <section
+      className="overflow-hidden py-2 sm:py-3"
+      style={{ background: 'var(--color-ink-950)', borderTop: '1px solid rgba(201,149,106,0.1)', borderBottom: '1px solid rgba(201,149,106,0.1)' }}
+    >
       <div
-        className="flex gap-3"
+        className="flex gap-2 sm:gap-3"
         style={{ animation: 'marqueeLeft 32s linear infinite', width: 'max-content' }}
       >
         {TRACK.map((img, i) => (
           <div
             key={i}
             className="flex-shrink-0 overflow-hidden"
-            style={{ width: 220, height: 280, border: '1px solid rgba(201,149,106,0.08)' }}
+            style={{ width: 'clamp(140px, 30vw, 220px)', height: 'clamp(180px, 38vw, 280px)', border: '1px solid rgba(201,149,106,0.08)' }}
           >
             <img
               src={img.src}

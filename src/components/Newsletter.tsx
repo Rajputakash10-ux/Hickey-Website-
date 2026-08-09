@@ -48,7 +48,7 @@ export default function Newsletter() {
               <p className="font-sans text-sm text-cream-300 opacity-60">Check your inbox for your free experience.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-md px-2 sm:px-0">
               <input
                 type="email"
                 value={email}

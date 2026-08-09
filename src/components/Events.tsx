@@ -25,7 +25,7 @@ export default function Events() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: 'rgba(201,163,90,0.08)' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: 'rgba(201,149,106,0.08)' }}>
           {EVENTS.map((event, i) => (
             <motion.article
               key={event.id}

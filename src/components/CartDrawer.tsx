@@ -30,7 +30,7 @@ export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQ
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-md z-50 flex flex-col"
+            className="fixed top-0 right-0 bottom-0 w-full sm:max-w-md z-50 flex flex-col"
             style={{ background: 'var(--color-ink-900)', borderLeft: '1px solid rgba(201,163,90,0.1)' }}
           >
             {/* Header */}

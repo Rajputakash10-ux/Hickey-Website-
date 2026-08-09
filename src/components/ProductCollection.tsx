@@ -79,7 +79,7 @@ export default function ProductCollection({ products, onAddToCart }: ProductColl
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px"
+            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px"
             style={{ background: 'rgba(201,163,90,0.08)' }}
           >
             {filtered.map((product, i) => (

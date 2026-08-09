@@ -6,7 +6,7 @@ export default function FeatureBar() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-8 border-y" style={{ borderColor: 'rgba(201,163,90,0.12)', background: 'var(--color-ink-900)' }}>
+    <section className="py-5 sm:py-8 border-y" style={{ borderColor: 'rgba(201,149,106,0.12)', background: 'var(--color-ink-900)' }}>
       <div
         ref={scrollRef}
         className="flex gap-0 overflow-x-auto scrollbar-none"
@@ -18,8 +18,8 @@ export default function FeatureBar() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.08, duration: 0.5 }}
-            className="flex items-center gap-4 px-8 py-4 flex-shrink-0 group transition-colors duration-200 cursor-pointer"
-            style={{ borderRight: i < FEATURE_BAR_ITEMS.length - 1 ? '1px solid rgba(201,163,90,0.1)' : 'none', minWidth: 220 }}
+            className="flex items-center gap-3 px-5 sm:px-8 py-3 sm:py-4 flex-shrink-0 group transition-colors duration-200 cursor-pointer"
+            style={{ borderRight: i < FEATURE_BAR_ITEMS.length - 1 ? '1px solid rgba(201,149,106,0.1)' : 'none', minWidth: 180 }}
           >
             <div
               className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-200"
