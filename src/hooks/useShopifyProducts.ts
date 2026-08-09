@@ -27,8 +27,9 @@ export function useShopifyProducts(): UseShopifyProductsResult {
         // If Shopify returns empty, keep local fallback
       })
       .catch(err => {
-        console.warn('Shopify fetch failed — using local data:', err.message);
-        setError(err.message);
+        const safeMessage = String(err.message).replace(/[\r\n]/g, ' ');
+        console.warn('Shopify fetch failed — using local data:', safeMessage);
+        setError(safeMessage);
       })
       .finally(() => setLoading(false));
   }, []);
