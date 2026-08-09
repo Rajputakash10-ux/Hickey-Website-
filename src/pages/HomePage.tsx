@@ -1,6 +1,5 @@
 import type { Product } from '../types';
 import Hero from '../components/Hero';
-import FeatureBar from '../components/FeatureBar';
 import ImageMarquee from '../components/ImageMarquee';
 import FeaturedProduct from '../components/FeaturedProduct';
 import ProductCollection from '../components/ProductCollection';
@@ -22,7 +21,6 @@ export default function HomePage({ featured, products, loading, onAddToCart, onC
   return (
     <main>
       <Hero onAddToCart={() => { onAddToCart(featured, 1); onCartOpen(); }} />
-      <FeatureBar />
       <ImageMarquee />
       <FeaturedProduct product={featured} loading={loading} onAddToCart={onAddToCart} />
       <ProductCollection products={products} loading={loading} onAddToCart={onAddToCart} />
