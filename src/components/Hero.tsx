@@ -83,20 +83,6 @@ export default function Hero(_props: HeroProps) {
         >
           <span className="section-label">A New Culture of Connection</span>
 
-          <h1
-            className="heading-display"
-            style={{ fontSize: 'clamp(2.2rem, 9vw, 5.5rem)', lineHeight: 1.08 }}
-          >
-            Rewriting how<br />couples do<br className="sm:hidden" /> date night.
-          </h1>
-
-          <p
-            className="font-sans text-cream-300 leading-relaxed opacity-80 max-w-sm"
-            style={{ fontSize: 'clamp(0.875rem, 3.5vw, 1rem)' }}
-          >
-            Novel intimate sensory experiences, monthly date night rituals for modern relationships.
-          </p>
-
           <div className="flex flex-col sm:flex-row gap-3 mt-1 w-full sm:w-auto">
             <Link
               to="/experience"
