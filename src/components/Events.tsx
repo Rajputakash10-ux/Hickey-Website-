@@ -22,9 +22,6 @@ export default function Events() {
           className="mb-10 lg:mb-14"
         >
           <span className="section-label">Events</span>
-          <h2 className="heading-display mt-3" style={{ fontSize: 'clamp(2rem, 7vw, 3.5rem)' }}>
-            Experiences worth<br />dressing up for.
-          </h2>
         </motion.div>
       </div>
 
