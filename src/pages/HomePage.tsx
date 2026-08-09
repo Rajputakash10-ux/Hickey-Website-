@@ -21,7 +21,7 @@ interface HomePageProps {
   onCartOpen: () => void;
 }
 
-export default function HomePage({ featured, onAddToCart, onCartOpen }: HomePageProps) {
+export default function HomePage({ featured, onAddToCart }: HomePageProps) {
   return (
     <main>
       <Hero />
