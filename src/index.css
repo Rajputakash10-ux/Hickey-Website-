@@ -175,6 +175,11 @@
     padding-right: 1.5rem;
   }
 
+  /* Cormorant Garamond alias for display headings */
+  .font-display {
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  }
+
   @media (min-width: 640px) {
     .container-site { padding-left: 2rem; padding-right: 2rem; }
   }

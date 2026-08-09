@@ -1,6 +1,7 @@
-import ProductCollection from '../components/ProductCollection';
-import Newsletter from '../components/Newsletter';
 import type { Product } from '../types';
+import ProductSection from '../components/ProductSection';
+import FinalCTA from '../components/FinalCTA';
+import { MAIN_PRODUCT } from '../data';
 
 interface ShopPageProps {
   products: Product[];
@@ -8,20 +9,20 @@ interface ShopPageProps {
   onAddToCart: (product: Product, qty: number) => void;
 }
 
-export default function ShopPage({ products, loading, onAddToCart }: ShopPageProps) {
+export default function ShopPage({ onAddToCart }: ShopPageProps) {
   return (
-    <main className="pt-20" style={{ background: '#24152F' }}>
-      <div className="container-site py-16">
-        <span className="section-label">The Shop</span>
-        <h1 className="heading-display mt-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
-          All Products
+    <main style={{ paddingTop: 64 }}>
+      <div
+        className="py-10 text-center"
+        style={{ background: '#24152F', borderBottom: '1px solid rgba(201,164,92,0.08)' }}
+      >
+        <span className="section-label">Shop</span>
+        <h1 className="heading-display mt-2" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+          HICKEY Intimacy Dark Chocolate
         </h1>
-        <p className="font-sans text-cream-300 opacity-60 mt-4 max-w-lg" style={{ fontSize: '0.95rem' }}>
-          Curated sensory rituals, intimacy kits and date night experiences for modern couples.
-        </p>
       </div>
-      <ProductCollection products={products} loading={loading} onAddToCart={onAddToCart} />
-      <Newsletter />
+      <ProductSection product={MAIN_PRODUCT} onAddToCart={onAddToCart} />
+      <FinalCTA />
     </main>
   );
 }

@@ -1,12 +1,11 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import AnnouncementBar from './components/AnnouncementBar';
 import Navbar from './components/Navbar';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
-import ExperiencePage from './pages/ExperiencePage';
-import JournalPage from './pages/JournalPage';
 import AboutPage from './pages/AboutPage';
 import { useCart } from './hooks/useCart';
 import { useShopifyProducts } from './hooks/useShopifyProducts';
@@ -23,6 +22,7 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen" style={{ overflowX: 'hidden' }}>
+      <AnnouncementBar />
       <Navbar cartCount={cart.totalItems} onCartOpen={() => cart.setIsOpen(true)} />
 
       <Routes>
@@ -48,9 +48,9 @@ function AppContent() {
             />
           }
         />
-        <Route path="/experience" element={<ExperiencePage />} />
-        <Route path="/journal" element={<JournalPage />} />
         <Route path="/about" element={<AboutPage />} />
+        {/* Redirect /product to /shop */}
+        <Route path="/product" element={<ShopPage products={products} loading={loading} onAddToCart={cart.addItem} />} />
       </Routes>
 
       <Footer />

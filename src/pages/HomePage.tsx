@@ -1,10 +1,17 @@
 import type { Product } from '../types';
 import Hero from '../components/Hero';
-import ProductHighlight from '../components/ProductHighlight';
+import TrustStrip from '../components/TrustStrip';
+import ProductSection from '../components/ProductSection';
+import ExperienceSteps from '../components/ExperienceSteps';
+import ScratchCardFeature from '../components/ScratchCardFeature';
+import IngredientsSection from '../components/IngredientsSection';
 import WhyHickey from '../components/WhyHickey';
+import LifestyleSection from '../components/LifestyleSection';
 import HowItWorks from '../components/HowItWorks';
 import Testimonials from '../components/Testimonials';
+import FAQSection from '../components/FAQSection';
 import FinalCTA from '../components/FinalCTA';
+import MobileShopCTA from '../components/MobileShopCTA';
 
 interface HomePageProps {
   featured: Product;
@@ -14,15 +21,22 @@ interface HomePageProps {
   onCartOpen: () => void;
 }
 
-export default function HomePage({ featured, loading, onAddToCart, onCartOpen }: HomePageProps) {
+export default function HomePage({ featured, onAddToCart, onCartOpen }: HomePageProps) {
   return (
     <main>
-      <Hero onShopClick={() => { onAddToCart(featured, 1); onCartOpen(); }} />
-      <ProductHighlight product={featured} loading={loading} onAddToCart={onAddToCart} />
+      <Hero onAddToCart={() => { onAddToCart(featured, 1); onCartOpen(); }} />
+      <TrustStrip />
+      <ProductSection product={featured} onAddToCart={onAddToCart} />
+      <ExperienceSteps />
+      <ScratchCardFeature />
+      <IngredientsSection />
       <WhyHickey />
+      <LifestyleSection />
       <HowItWorks />
       <Testimonials />
-      <FinalCTA onShopClick={() => { onAddToCart(featured, 1); onCartOpen(); }} />
+      <FAQSection />
+      <FinalCTA />
+      <MobileShopCTA />
     </main>
   );
 }

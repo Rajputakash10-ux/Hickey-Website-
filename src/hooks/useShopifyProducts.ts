@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getProducts, shopifyToProduct } from '../lib/shopify';
-import { PRODUCTS, FEATURED_PRODUCT } from '../data';
+import { PRODUCTS, MAIN_PRODUCT } from '../data';
+const FEATURED_PRODUCT = MAIN_PRODUCT;
 import type { Product } from '../types';
 
 interface UseShopifyProductsResult {
