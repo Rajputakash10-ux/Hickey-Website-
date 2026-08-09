@@ -42,13 +42,26 @@ export default function Hero(_props: HeroProps) {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      {/* Slides */}
+      {/* Hero video background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        style={{ zIndex: 0 }}
+      >
+        <source src="/assets/hero-video.mp4" type="video/mp4" />
+      </video>
+
+      {/* Fallback slide image if video fails */}
       <AnimatePresence mode="sync">
         <motion.img
           key={current}
           src={SLIDES[current].src}
           alt={SLIDES[current].alt}
           className="absolute inset-0 w-full h-full object-cover object-center"
+          style={{ zIndex: -1 }}
           initial={{ opacity: 0, scale: 1.04 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
