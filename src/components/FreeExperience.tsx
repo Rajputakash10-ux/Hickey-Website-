@@ -44,20 +44,20 @@ export default function FreeExperience() {
               A free 5-day digital date night experience designed for modern couples. One ritual per day, delivered to your inbox.
             </p>
 
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-2">
               {STEPS.map((step, i) => (
                 <motion.div
                   key={step.num}
                   initial={{ opacity: 0, x: -20 }}
                   animate={isVisible ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.2 + i * 0.08, duration: 0.5 }}
-                  className="flex items-center gap-4 py-3 px-4 rounded-lg"
+                  className="flex items-center gap-3 py-2.5 px-3 rounded-lg"
                   style={{ border: '1px solid rgba(201,163,90,0.1)', background: 'rgba(10,6,8,0.3)' }}
                 >
-                  <span className="font-sans text-[10px] tracking-widest text-gold-500 font-semibold w-6 flex-shrink-0">{step.num}</span>
-                  <div className="w-px h-5 flex-shrink-0" style={{ background: 'rgba(201,163,90,0.2)' }} />
-                  <span className="font-serif text-sm text-cream-100">{step.label}</span>
-                  <span className="font-sans text-xs text-cream-400 opacity-50">{step.desc}</span>
+                  <span className="font-sans text-[10px] tracking-widest text-gold-500 font-semibold flex-shrink-0" style={{ width: 20 }}>{step.num}</span>
+                  <div className="w-px h-4 flex-shrink-0" style={{ background: 'rgba(201,163,90,0.2)' }} />
+                  <span className="font-serif text-sm text-cream-100 flex-shrink-0">{step.label}</span>
+                  <span className="font-sans text-xs text-cream-400 opacity-50 truncate">{step.desc}</span>
                 </motion.div>
               ))}
             </div>

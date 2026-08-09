@@ -21,37 +21,32 @@ interface ProductCollectionProps {
 export default function ProductCollection({ products, onAddToCart }: ProductCollectionProps) {
   const { ref, isVisible } = useScrollReveal();
   const [active, setActive] = useState<ProductCategory>('all');
-
   const filtered = active === 'all' ? products : products.filter(p => p.category === active);
 
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-24 lg:py-32"
-      style={{ background: 'var(--color-ink-950)' }}
+      style={{ background: 'var(--color-ink-950)', paddingTop: 'clamp(3rem, 8vw, 6rem)', paddingBottom: 'clamp(3rem, 8vw, 6rem)' }}
     >
       <div className="container-site">
-        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="mb-14"
+          className="mb-8 lg:mb-14"
         >
           <span className="section-label">The Collection</span>
-          <h2 className="heading-display mt-3" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
+          <h2 className="heading-display mt-2" style={{ fontSize: 'clamp(1.8rem, 6vw, 3.5rem)' }}>
             Rituals worth staying in for.
           </h2>
         </motion.div>
 
-        {/* Category filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-wrap gap-2 mb-12"
+        {/* Horizontal scrollable filter pills */}
+        <div
+          className="flex gap-2 mb-8 overflow-x-auto scrollbar-none -mx-5 px-5 sm:mx-0 sm:px-0 sm:flex-wrap"
           role="tablist"
           aria-label="Filter products by category"
+          style={{ scrollSnapType: 'x mandatory' }}
         >
           {CATEGORIES.map(cat => (
             <button
@@ -59,28 +54,33 @@ export default function ProductCollection({ products, onAddToCart }: ProductColl
               role="tab"
               aria-selected={active === cat.value}
               onClick={() => setActive(cat.value)}
-              className="px-5 py-2 rounded-full font-sans text-xs tracking-widest uppercase transition-all duration-200"
+              className="flex-shrink-0 font-sans tracking-widest uppercase transition-all duration-200"
               style={{
+                padding: '0.5rem 1.1rem',
+                minHeight: 40,
+                borderRadius: 9999,
+                fontSize: '0.65rem',
+                scrollSnapAlign: 'start',
                 background: active === cat.value ? 'var(--color-wine-700)' : 'transparent',
-                border: active === cat.value ? '1px solid var(--color-wine-600)' : '1px solid rgba(201,163,90,0.15)',
-                color: active === cat.value ? 'var(--color-cream-100)' : 'rgba(245,237,224,0.5)',
+                border: active === cat.value ? '1px solid var(--color-wine-600)' : '1px solid rgba(201,149,106,0.2)',
+                color: active === cat.value ? 'var(--color-cream-100)' : 'rgba(245,232,220,0.55)',
               }}
             >
               {cat.label}
             </button>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Grid */}
+        {/* 2-col mobile grid, 3-col lg, 4-col xl */}
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px"
-            style={{ background: 'rgba(201,163,90,0.08)' }}
+            transition={{ duration: 0.25 }}
+            className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-px"
+            style={{ background: 'transparent' }}
           >
             {filtered.map((product, i) => (
               <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} index={i} />

@@ -48,7 +48,7 @@ export default function Newsletter() {
               <p className="font-sans text-sm text-cream-300 opacity-60">Check your inbox for your free experience.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-md px-2 sm:px-0">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full max-w-md">
               <input
                 type="email"
                 value={email}
@@ -56,12 +56,12 @@ export default function Newsletter() {
                 placeholder="your@email.com"
                 required
                 aria-label="Email address for newsletter"
-                className="flex-1 px-5 py-3.5 rounded-full font-sans text-sm text-cream-100 placeholder-cream-400 outline-none"
-                style={{ background: 'rgba(10,6,8,0.5)', border: '1px solid rgba(201,163,90,0.2)' }}
+                className="w-full px-5 rounded-full font-sans text-sm text-cream-100 placeholder-cream-400 outline-none"
+                style={{ background: 'rgba(10,6,8,0.5)', border: '1px solid rgba(201,163,90,0.2)', minHeight: 52 }}
                 onFocus={e => (e.currentTarget.style.borderColor = 'rgba(201,163,90,0.5)')}
                 onBlur={e => (e.currentTarget.style.borderColor = 'rgba(201,163,90,0.2)')}
               />
-              <button type="submit" className="btn-gold gap-2 flex-shrink-0">
+              <button type="submit" className="btn-gold gap-2 w-full" style={{ minHeight: 52 }}>
                 Subscribe <ArrowRight size={13} />
               </button>
             </form>

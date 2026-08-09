@@ -22,7 +22,7 @@ function AppContent() {
   const { products, featured, loading } = useShopifyProducts();
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen" style={{ overflowX: 'hidden' }}>
       <Navbar cartCount={cart.totalItems} onCartOpen={() => cart.setIsOpen(true)} />
 
       <Routes>

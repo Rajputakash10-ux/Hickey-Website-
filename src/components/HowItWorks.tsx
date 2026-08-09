@@ -14,7 +14,7 @@ export default function HowItWorks() {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-24 lg:py-36 overflow-hidden"
+      className="py-16 lg:py-36 overflow-hidden"
       style={{ background: 'var(--color-ink-900)' }}
     >
       <div className="container-site">
@@ -22,15 +22,46 @@ export default function HowItWorks() {
           initial={{ opacity: 0, y: 24 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="mb-20 max-w-2xl"
+          className="mb-12 lg:mb-20 max-w-2xl"
         >
           <span className="section-label">How It Works</span>
-          <h2 className="heading-display mt-3" style={{ fontSize: 'clamp(2rem, 4vw, 3.8rem)' }}>
+          <h2 className="heading-display mt-3" style={{ fontSize: 'clamp(2rem, 7vw, 3.8rem)' }}>
             Your world of date night,<br />designed beautifully.
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(201,163,90,0.08)' }}>
+        {/* Mobile: vertical storytelling */}
+        <div className="flex flex-col lg:hidden">
+          {STEPS.map((step, i) => (
+            <motion.div
+              key={step.num}
+              initial={{ opacity: 0, x: -24 }}
+              animate={isVisible ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.12 }}
+              className="flex gap-5 py-7"
+              style={{ borderBottom: i < STEPS.length - 1 ? '1px solid rgba(201,163,90,0.08)' : 'none' }}
+            >
+              <div className="flex flex-col items-center flex-shrink-0" style={{ width: 48 }}>
+                <span
+                  className="font-serif font-light leading-none"
+                  style={{ fontSize: '3.5rem', color: 'rgba(201,163,90,0.15)', lineHeight: 1 }}
+                >
+                  {step.num}
+                </span>
+                {i < STEPS.length - 1 && (
+                  <div className="flex-1 w-px mt-3" style={{ background: 'rgba(201,163,90,0.08)', minHeight: 24 }} />
+                )}
+              </div>
+              <div className="flex flex-col gap-1.5 pt-1">
+                <h3 className="font-serif text-xl font-normal text-cream-100">{step.title}</h3>
+                <p className="font-sans text-sm text-cream-300 opacity-60 leading-relaxed">{step.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Desktop: 4-col grid */}
+        <div className="hidden lg:grid grid-cols-4 gap-px" style={{ background: 'rgba(201,163,90,0.08)' }}>
           {STEPS.map((step, i) => (
             <motion.div
               key={step.num}

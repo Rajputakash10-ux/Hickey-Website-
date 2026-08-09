@@ -10,7 +10,7 @@ export default function FeatureBar() {
       <div
         ref={scrollRef}
         className="flex gap-0 overflow-x-auto scrollbar-none"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
       >
         {FEATURE_BAR_ITEMS.map((item, i) => (
           <motion.button
@@ -19,7 +19,7 @@ export default function FeatureBar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.08, duration: 0.5 }}
             className="flex items-center gap-3 px-5 sm:px-8 py-3 sm:py-4 flex-shrink-0 group transition-colors duration-200 cursor-pointer"
-            style={{ borderRight: i < FEATURE_BAR_ITEMS.length - 1 ? '1px solid rgba(201,149,106,0.1)' : 'none', minWidth: 180 }}
+            style={{ borderRight: i < FEATURE_BAR_ITEMS.length - 1 ? '1px solid rgba(201,149,106,0.1)' : 'none', minWidth: 180, scrollSnapAlign: 'start' }}
           >
             <div
               className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-200"

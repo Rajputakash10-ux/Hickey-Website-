@@ -19,8 +19,14 @@ const TRACK = [...IMAGES, ...IMAGES];
 export default function ImageMarquee() {
   return (
     <section
-      className="overflow-hidden py-2 sm:py-3"
-      style={{ background: 'var(--color-ink-950)', borderTop: '1px solid rgba(201,149,106,0.1)', borderBottom: '1px solid rgba(201,149,106,0.1)' }}
+      className="py-2 sm:py-3"
+      style={{
+        background: 'var(--color-ink-950)',
+        borderTop: '1px solid rgba(201,149,106,0.1)',
+        borderBottom: '1px solid rgba(201,149,106,0.1)',
+        overflow: 'hidden',
+        maxWidth: '100vw',
+      }}
     >
       <div
         className="flex gap-2 sm:gap-3"
