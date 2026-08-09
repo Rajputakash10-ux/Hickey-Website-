@@ -1,5 +1,36 @@
 import type { Product, Review, Ingredient, FAQItem, NavLink } from '../types';
 
+export interface Article {
+  id: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  category: string;
+  readTime: string;
+  date: string;
+}
+
+export interface Stat {
+  value: string;
+  label: string;
+}
+
+export interface FeatureBarItem {
+  icon: string;
+  title: string;
+  subtitle: string;
+}
+
+export interface Event {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  date: string;
+  location: string;
+  href: string;
+}
+
 export const CURRENCY = '₹';
 
 // ── Configurable product price — change here to update everywhere ──────────────
@@ -41,6 +72,81 @@ export const MAIN_PRODUCT: Product = {
 };
 
 export const PRODUCTS: Product[] = [MAIN_PRODUCT];
+export const FEATURED_PRODUCT: Product = MAIN_PRODUCT;
+
+export const FEATURE_BAR_ITEMS: FeatureBarItem[] = [
+  { icon: '🚚', title: 'Free Shipping', subtitle: 'On all orders' },
+  { icon: '🔒', title: 'Discreet Packaging', subtitle: 'Plain outer box' },
+  { icon: '🍫', title: 'Premium Chocolate', subtitle: 'Artisan crafted' },
+  { icon: '🎴', title: 'Free Scratch Card', subtitle: 'In every pack' },
+];
+
+export const STATS: Stat[] = [
+  { value: '10K+', label: 'Happy Couples' },
+  { value: '4.9★', label: 'Average Rating' },
+  { value: '60g', label: 'Premium Chocolate' },
+  { value: '100%', label: 'Discreet Delivery' },
+];
+
+export const ARTICLES: Article[] = [
+  {
+    id: 'a1',
+    title: 'The Art of the Intentional Date Night',
+    excerpt: 'How slowing down and being present can transform an ordinary evening into something you both remember.',
+    image: '/src/assets/hickey-1.png',
+    category: 'Rituals',
+    readTime: '4 min read',
+    date: 'March 2025',
+  },
+  {
+    id: 'a2',
+    title: 'Why Dark Chocolate and Intimacy Go Hand in Hand',
+    excerpt: 'A look at the science and tradition behind chocolate as a symbol of connection and desire.',
+    image: '/src/assets/hickey-2.png',
+    category: 'Ingredients',
+    readTime: '5 min read',
+    date: 'February 2025',
+  },
+  {
+    id: 'a3',
+    title: 'Gift Ideas That Actually Mean Something',
+    excerpt: 'Moving beyond generic gifts — how to give something that sparks a real moment between two people.',
+    image: '/src/assets/hickey-3.png',
+    category: 'Gifting',
+    readTime: '3 min read',
+    date: 'January 2025',
+  },
+];
+
+export const EVENTS: Event[] = [
+  {
+    id: 'e1',
+    title: "Valentine's Pop-Up, Mumbai",
+    description: 'An exclusive in-store experience celebrating intimacy and connection. Limited spots available.',
+    image: '/src/assets/hickey-1.png',
+    date: 'Feb 14, 2025',
+    location: 'Mumbai',
+    href: '/events/valentines-mumbai',
+  },
+  {
+    id: 'e2',
+    title: 'Couples Night, Bangalore',
+    description: 'A curated evening for couples — chocolate tasting, scratch card games and more.',
+    image: '/src/assets/hickey-2.png',
+    date: 'Mar 8, 2025',
+    location: 'Bangalore',
+    href: '/events/couples-night-bangalore',
+  },
+  {
+    id: 'e3',
+    title: 'Anniversary Drop Launch, Delhi',
+    description: 'Be the first to experience our limited anniversary drop with an exclusive launch event.',
+    image: '/src/assets/hickey-3.png',
+    date: 'Apr 5, 2025',
+    location: 'Delhi',
+    href: '/events/anniversary-drop-delhi',
+  },
+];
 
 export const REVIEWS: Review[] = [
   {

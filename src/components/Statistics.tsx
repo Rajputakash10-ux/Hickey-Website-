@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { STATS } from '../data';
+import type { Stat } from '../data';
 
 export default function Statistics() {
   const { ref, isVisible } = useScrollReveal();
@@ -13,7 +14,7 @@ export default function Statistics() {
     >
       <div className="container-site">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(201,164,92,0.06)' }}>
-          {STATS.map((stat, i) => (
+          {STATS.map((stat: Stat, i: number) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}

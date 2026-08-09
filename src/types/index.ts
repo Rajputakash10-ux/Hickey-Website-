@@ -13,6 +13,9 @@ export interface Product {
   weight?: string;
   variantId?: string;
   whatsInside?: string[];
+  dropNumber?: number;
+  dropDate?: string;
+  limited?: number;
 }
 
 export interface ProductImage {

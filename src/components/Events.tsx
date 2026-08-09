@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { EVENTS } from '../data';
+import type { Event } from '../data';
 
 export default function Events() {
   const { ref, isVisible } = useScrollReveal();
@@ -35,7 +36,7 @@ export default function Events() {
           paddingRight: '1.25rem',
         }}
       >
-        {EVENTS.map((event, i) => (
+        {EVENTS.map((event: Event, i: number) => (
           <motion.article
             key={event.id}
             initial={{ opacity: 0, y: 20 }}
@@ -72,7 +73,7 @@ export default function Events() {
       {/* Desktop: grid */}
       <div className="container-site">
         <div className="hidden lg:grid grid-cols-3 gap-px" style={{ background: 'rgba(201,164,92,0.08)' }}>
-          {EVENTS.map((event, i) => (
+          {EVENTS.map((event: Event, i: number) => (
             <motion.article
               key={event.id}
               initial={{ opacity: 0, y: 30 }}

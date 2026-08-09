@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FEATURE_BAR_ITEMS } from '../data';
+import type { FeatureBarItem } from '../data';
 
 export default function FeatureBar() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -12,7 +13,7 @@ export default function FeatureBar() {
         className="flex gap-0 overflow-x-auto scrollbar-none"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
       >
-        {FEATURE_BAR_ITEMS.map((item, i) => (
+        {FEATURE_BAR_ITEMS.map((item: FeatureBarItem, i: number) => (
           <motion.button
             key={item.title}
             initial={{ opacity: 0, y: 12 }}

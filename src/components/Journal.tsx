@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { ARTICLES } from '../data';
+import type { Article } from '../data';
 
 export default function Journal() {
   const { ref, isVisible } = useScrollReveal();
@@ -32,7 +33,7 @@ export default function Journal() {
 
         {/* Mobile: vertical stack */}
         <div className="flex flex-col gap-4 lg:hidden">
-          {ARTICLES.map((article, i) => (
+          {ARTICLES.map((article: Article, i: number) => (
             <motion.article
               key={article.id}
               initial={{ opacity: 0, y: 20 }}
@@ -62,7 +63,7 @@ export default function Journal() {
 
         {/* Desktop: grid */}
         <div className="hidden lg:grid grid-cols-3 gap-px" style={{ background: 'rgba(201,164,92,0.08)' }}>
-          {ARTICLES.map((article, i) => (
+          {ARTICLES.map((article: Article, i: number) => (
             <motion.article
               key={article.id}
               initial={{ opacity: 0, y: 30 }}
