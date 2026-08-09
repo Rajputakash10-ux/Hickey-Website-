@@ -31,10 +31,10 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
           background: scrolled
-            ? 'rgba(10,6,8,0.92)'
-            : 'linear-gradient(to bottom, rgba(10,6,8,0.7) 0%, transparent 100%)',
-          backdropFilter: scrolled ? 'blur(16px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(201,163,90,0.1)' : 'none',
+            ? 'rgba(8,5,10,0.94)'
+            : 'linear-gradient(to bottom, rgba(8,5,10,0.75) 0%, transparent 100%)',
+          backdropFilter: scrolled ? 'blur(20px)' : 'none',
+          borderBottom: scrolled ? '1px solid rgba(201,149,106,0.12)' : 'none',
         }}
       >
         <div className="container-site">
@@ -111,7 +111,7 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-40 lg:hidden flex flex-col pt-16"
-            style={{ background: 'rgba(10,6,8,0.98)', backdropFilter: 'blur(20px)' }}
+            style={{ background: 'rgba(8,5,10,0.98)', backdropFilter: 'blur(24px)' }}
           >
             <nav className="flex flex-col items-center justify-center flex-1 gap-8">
               {NAV_LINKS.map((link, i) => (

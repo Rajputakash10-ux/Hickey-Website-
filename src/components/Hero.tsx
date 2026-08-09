@@ -46,8 +46,8 @@ export default function Hero(_props: HeroProps) {
       </motion.div>
 
       {/* Overlays */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(10,6,8,0.95) 0%, rgba(10,6,8,0.5) 45%, rgba(10,6,8,0.15) 100%)' }} aria-hidden="true" />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, rgba(10,6,8,0.4) 0%, transparent 30%)' }} aria-hidden="true" />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(8,5,10,0.97) 0%, rgba(8,5,10,0.55) 45%, rgba(8,5,10,0.18) 100%)' }} aria-hidden="true" />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, rgba(8,5,10,0.45) 0%, transparent 30%)' }} aria-hidden="true" />
 
       {/* Content */}
       <motion.div

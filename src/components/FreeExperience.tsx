@@ -20,7 +20,7 @@ export default function FreeExperience() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="py-24 lg:py-36 relative overflow-hidden"
-      style={{ background: 'var(--color-wine-900)' }}
+      style={{ background: 'linear-gradient(135deg, var(--color-wine-900) 0%, var(--color-ink-900) 60%, var(--color-wine-800) 100%)' }}
     >
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 70% 50%, rgba(107,26,46,0.35) 0%, transparent 60%)' }} aria-hidden="true" />
 

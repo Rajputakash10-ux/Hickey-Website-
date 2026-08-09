@@ -4,28 +4,28 @@
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
-  --color-ink-950: #0a0608;
-  --color-ink-900: #110d0f;
-  --color-ink-800: #1a1215;
-  --color-ink-700: #261a1e;
+  --color-ink-950: #08050a;
+  --color-ink-900: #0f0812;
+  --color-ink-800: #180d1c;
+  --color-ink-700: #221528;
 
-  --color-wine-900: #2d0a14;
-  --color-wine-800: #4a1020;
-  --color-wine-700: #6b1a2e;
-  --color-wine-600: #8b2240;
-  --color-wine-500: #a82d52;
-  --color-wine-400: #c44070;
-  --color-wine-300: #d4708a;
+  --color-wine-900: #1e0520;
+  --color-wine-800: #3a0a40;
+  --color-wine-700: #5c1266;
+  --color-wine-600: #7a1a88;
+  --color-wine-500: #9b2aaa;
+  --color-wine-400: #c060cc;
+  --color-wine-300: #d490dc;
 
-  --color-gold-500: #c9a35a;
-  --color-gold-400: #d4b472;
-  --color-gold-300: #e0c890;
+  --color-gold-500: #c9956a;
+  --color-gold-400: #dba882;
+  --color-gold-300: #ecc4a8;
 
-  --color-cream-100: #fdf8f2;
-  --color-cream-200: #f5ede0;
-  --color-cream-300: #e8d9c4;
-  --color-cream-400: #d4c0a0;
-  --color-cream-500: #b89878;
+  --color-cream-100: #fdf6f0;
+  --color-cream-200: #f5e8dc;
+  --color-cream-300: #e8d0bc;
+  --color-cream-400: #d4b49a;
+  --color-cream-500: #b8907a;
 
   --tracking-ultra: 0.25em;
   --tracking-wide-xl: 0.15em;
