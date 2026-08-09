@@ -9,10 +9,10 @@ export default function Statistics() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="py-20 lg:py-28"
-      style={{ background: 'var(--color-ink-950)', borderTop: '1px solid rgba(201,163,90,0.08)', borderBottom: '1px solid rgba(201,163,90,0.08)' }}
+      style={{ background: '#24152F', borderTop: '1px solid rgba(201,164,92,0.08)', borderBottom: '1px solid rgba(201,164,92,0.08)' }}
     >
       <div className="container-site">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(201,163,90,0.06)' }}>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(201,164,92,0.06)' }}>
           {STATS.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -20,7 +20,7 @@ export default function Statistics() {
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="flex flex-col items-center justify-center py-12 px-6 text-center"
-              style={{ background: 'var(--color-ink-950)' }}
+              style={{ background: '#24152F' }}
             >
               <span
                 className="font-serif font-light text-gold-400 leading-none"

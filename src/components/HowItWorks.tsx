@@ -15,7 +15,7 @@ export default function HowItWorks() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="py-16 lg:py-36 overflow-hidden"
-      style={{ background: 'var(--color-ink-900)' }}
+      style={{ background: '#321D3D' }}
     >
       <div className="container-site">
         <motion.div
@@ -39,17 +39,17 @@ export default function HowItWorks() {
               animate={isVisible ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.12 }}
               className="flex gap-5 py-7"
-              style={{ borderBottom: i < STEPS.length - 1 ? '1px solid rgba(201,163,90,0.08)' : 'none' }}
+              style={{ borderBottom: i < STEPS.length - 1 ? '1px solid rgba(201,164,92,0.08)' : 'none' }}
             >
               <div className="flex flex-col items-center flex-shrink-0" style={{ width: 48 }}>
                 <span
                   className="font-serif font-light leading-none"
-                  style={{ fontSize: '3.5rem', color: 'rgba(201,163,90,0.15)', lineHeight: 1 }}
+                  style={{ fontSize: '3.5rem', color: 'rgba(201,164,92,0.15)', lineHeight: 1 }}
                 >
                   {step.num}
                 </span>
                 {i < STEPS.length - 1 && (
-                  <div className="flex-1 w-px mt-3" style={{ background: 'rgba(201,163,90,0.08)', minHeight: 24 }} />
+                  <div className="flex-1 w-px mt-3" style={{ background: 'rgba(201,164,92,0.08)', minHeight: 24 }} />
                 )}
               </div>
               <div className="flex flex-col gap-1.5 pt-1">
@@ -61,7 +61,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Desktop: 4-col grid */}
-        <div className="hidden lg:grid grid-cols-4 gap-px" style={{ background: 'rgba(201,163,90,0.08)' }}>
+        <div className="hidden lg:grid grid-cols-4 gap-px" style={{ background: 'rgba(201,164,92,0.08)' }}>
           {STEPS.map((step, i) => (
             <motion.div
               key={step.num}
@@ -69,11 +69,11 @@ export default function HowItWorks() {
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.12 }}
               className="p-8 lg:p-10 flex flex-col gap-5"
-              style={{ background: 'var(--color-ink-900)' }}
+              style={{ background: '#321D3D' }}
             >
               <span
                 className="font-serif font-light leading-none"
-                style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', color: 'rgba(201,163,90,0.12)' }}
+                style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', color: 'rgba(201,164,92,0.12)' }}
               >
                 {step.num}
               </span>

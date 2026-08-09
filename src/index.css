@@ -4,28 +4,44 @@
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
-  --color-ink-950: #08050a;
-  --color-ink-900: #0f0812;
-  --color-ink-800: #180d1c;
-  --color-ink-700: #221528;
+  /* Deep royal purple / dark plum */
+  --color-plum-950: #160D1E;
+  --color-plum-900: #24152F;
+  --color-plum-800: #321D3D;
+  --color-plum-700: #40234B;
+  --color-plum-600: #523060;
 
-  --color-wine-900: #1e0520;
-  --color-wine-800: #3a0a40;
-  --color-wine-700: #5c1266;
-  --color-wine-600: #7a1a88;
-  --color-wine-500: #9b2aaa;
-  --color-wine-400: #c060cc;
-  --color-wine-300: #d490dc;
+  /* Chocolate brown */
+  --color-choc-950: #1A0E0B;
+  --color-choc-900: #2A1713;
+  --color-choc-800: #4A281E;
+  --color-choc-700: #6B3A2C;
 
-  --color-gold-500: #c9956a;
-  --color-gold-400: #dba882;
-  --color-gold-300: #ecc4a8;
+  /* Luxury gold — use sparingly */
+  --color-gold-500: #C9A45C;
+  --color-gold-400: #D8B873;
+  --color-gold-300: #E8CE9A;
 
-  --color-cream-100: #fdf6f0;
-  --color-cream-200: #f5e8dc;
-  --color-cream-300: #e8d0bc;
-  --color-cream-400: #d4b49a;
-  --color-cream-500: #b8907a;
+  /* Warm cream */
+  --color-cream-100: #F4EDE3;
+  --color-cream-200: #EDE0D2;
+  --color-cream-300: #D9C8B4;
+  --color-cream-400: #BFA98E;
+  --color-cream-500: #9E8468;
+
+  /* Legacy aliases — kept so existing Tailwind classes still resolve */
+  --color-ink-950: #160D1E;
+  --color-ink-900: #24152F;
+  --color-ink-800: #321D3D;
+  --color-ink-700: #40234B;
+
+  --color-wine-900: #24152F;
+  --color-wine-800: #321D3D;
+  --color-wine-700: #40234B;
+  --color-wine-600: #523060;
+  --color-wine-500: #6B3A72;
+  --color-wine-400: #C9A45C;
+  --color-wine-300: #D8B873;
 
   --tracking-ultra: 0.25em;
   --tracking-wide-xl: 0.15em;
@@ -37,13 +53,13 @@
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
   body {
-    background-color: var(--color-ink-950);
+    background-color: var(--color-plum-900);
     color: var(--color-cream-200);
     font-family: var(--font-sans);
     overflow-x: hidden;
   }
 
-  ::selection { background: var(--color-wine-700); color: var(--color-cream-100); }
+  ::selection { background: var(--color-plum-700); color: var(--color-cream-100); }
 
   :focus-visible {
     outline: 2px solid var(--color-gold-500);
@@ -52,13 +68,14 @@
 }
 
 @layer components {
+  /* Primary button — deep plum */
   .btn-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     padding: 0.75rem 2rem;
-    background: var(--color-wine-700);
+    background: var(--color-plum-700);
     color: var(--color-cream-100);
     font-family: var(--font-sans);
     font-size: 0.7rem;
@@ -66,18 +83,19 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     border-radius: 9999px;
-    border: 1px solid var(--color-wine-600);
+    border: 1px solid var(--color-plum-600);
     cursor: pointer;
     transition: all 0.25s ease;
     white-space: nowrap;
     text-decoration: none;
   }
   .btn-primary:hover {
-    background: var(--color-wine-600);
-    border-color: var(--color-wine-500);
+    background: var(--color-plum-600);
+    border-color: rgba(201,164,92,0.4);
     transform: translateY(-1px);
   }
 
+  /* Outline button */
   .btn-outline {
     display: inline-flex;
     align-items: center;
@@ -92,18 +110,19 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     border-radius: 9999px;
-    border: 1px solid rgba(253,248,242,0.25);
+    border: 1px solid rgba(244,237,227,0.22);
     cursor: pointer;
     transition: all 0.25s ease;
     white-space: nowrap;
     text-decoration: none;
   }
   .btn-outline:hover {
-    border-color: var(--color-cream-200);
+    border-color: var(--color-gold-500);
     color: var(--color-cream-100);
     transform: translateY(-1px);
   }
 
+  /* Gold CTA — used sparingly */
   .btn-gold {
     display: inline-flex;
     align-items: center;
@@ -111,7 +130,7 @@
     gap: 0.5rem;
     padding: 0.75rem 2rem;
     background: var(--color-gold-500);
-    color: var(--color-ink-950);
+    color: var(--color-plum-950);
     font-family: var(--font-sans);
     font-size: 0.7rem;
     font-weight: 700;
@@ -172,7 +191,6 @@
 
   .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
 
-  /* Prevent any child from causing horizontal overflow */
   .overflow-x-clip { overflow-x: clip; }
 
   .line-clamp-2 {

@@ -18,9 +18,9 @@ export default function Newsletter() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="py-24 lg:py-32 relative overflow-hidden"
-      style={{ background: 'var(--color-wine-900)' }}
+      style={{ background: '#40234B' }}
     >
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(107,26,46,0.4) 0%, transparent 65%)' }} aria-hidden="true" />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(22,13,30,0.5) 0%, transparent 65%)' }} aria-hidden="true" />
 
       <div className="container-site relative">
         <motion.div
@@ -30,8 +30,8 @@ export default function Newsletter() {
           className="max-w-xl mx-auto text-center flex flex-col items-center gap-7"
         >
           <div>
-            <span className="section-label" style={{ color: 'var(--color-gold-400)' }}>For You</span>
-            <h2 className="heading-display mt-3" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
+            <span className="section-label">For You</span>
+            <h2 className="heading-display mt-3" style={{ fontSize: 'clamp(2rem, 7vw, 3.5rem)' }}>
               Something Special<br />For You
             </h2>
             <p className="font-sans text-cream-300 opacity-65 mt-4 leading-relaxed">
@@ -41,7 +41,7 @@ export default function Newsletter() {
 
           {submitted ? (
             <div className="flex flex-col items-center gap-3 py-4">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'rgba(201,163,90,0.15)', border: '1px solid rgba(201,163,90,0.3)' }}>
+              <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'rgba(201,164,92,0.12)', border: '1px solid rgba(201,164,92,0.25)' }}>
                 <span className="text-gold-400 text-xl">✓</span>
               </div>
               <p className="font-serif text-xl text-cream-100">Welcome to HICKEY.</p>
@@ -57,9 +57,9 @@ export default function Newsletter() {
                 required
                 aria-label="Email address for newsletter"
                 className="w-full px-5 rounded-full font-sans text-sm text-cream-100 placeholder-cream-400 outline-none"
-                style={{ background: 'rgba(10,6,8,0.5)', border: '1px solid rgba(201,163,90,0.2)', minHeight: 52 }}
-                onFocus={e => (e.currentTarget.style.borderColor = 'rgba(201,163,90,0.5)')}
-                onBlur={e => (e.currentTarget.style.borderColor = 'rgba(201,163,90,0.2)')}
+                style={{ background: 'rgba(22,13,30,0.5)', border: '1px solid rgba(201,164,92,0.2)', minHeight: 52 }}
+                onFocus={e => (e.currentTarget.style.borderColor = 'rgba(201,164,92,0.5)')}
+                onBlur={e => (e.currentTarget.style.borderColor = 'rgba(201,164,92,0.2)')}
               />
               <button type="submit" className="btn-gold gap-2 w-full" style={{ minHeight: 52 }}>
                 Subscribe <ArrowRight size={13} />

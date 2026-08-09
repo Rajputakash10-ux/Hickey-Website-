@@ -6,7 +6,7 @@ export default function FeatureBar() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-5 sm:py-8 border-y" style={{ borderColor: 'rgba(201,149,106,0.12)', background: 'var(--color-ink-900)' }}>
+    <section className="py-5 sm:py-8 border-y" style={{ borderColor: 'rgba(201,164,92,0.12)', background: '#321D3D' }}>
       <div
         ref={scrollRef}
         className="flex gap-0 overflow-x-auto scrollbar-none"

@@ -30,10 +30,9 @@ export default function ProductCard({ product: p, onAddToCart, index = 0 }: Prod
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, delay: index * 0.06 }}
       className="group flex flex-col overflow-hidden"
-      style={{ background: 'var(--color-ink-900)', border: '1px solid rgba(201,149,106,0.1)' }}
+      style={{ background: '#321D3D', border: '1px solid rgba(201,164,92,0.1)' }}
     >
-      {/* Image */}
-      <div className="relative overflow-hidden" style={{ aspectRatio: '4/5', background: 'var(--color-ink-800)' }}>
+      <div className="relative overflow-hidden" style={{ aspectRatio: '4/5', background: '#40234B' }}>
         <img
           src={p.images[0].src}
           alt={p.images[0].alt}
@@ -41,13 +40,12 @@ export default function ProductCard({ product: p, onAddToCart, index = 0 }: Prod
           loading="lazy"
         />
         {p.badge && (
-          <div className="absolute top-2 left-2 px-2 py-1 rounded-full" style={{ background: 'var(--color-wine-800)', border: '1px solid var(--color-wine-700)' }}>
+          <div className="absolute top-2 left-2 px-2 py-1 rounded-full" style={{ background: '#40234B', border: '1px solid #523060' }}>
             <span className="font-sans text-[8px] font-semibold tracking-widest uppercase text-cream-200">{p.badge}</span>
           </div>
         )}
       </div>
 
-      {/* Info */}
       <div className="flex flex-col gap-1.5 flex-1" style={{ padding: 'clamp(0.6rem, 3vw, 1.1rem)' }}>
         <span className="font-sans text-[8px] tracking-widest uppercase text-gold-500 font-semibold">{p.category}</span>
         <h3 className="font-serif font-normal text-cream-100 leading-tight" style={{ fontSize: 'clamp(0.85rem, 3.5vw, 1.05rem)' }}>
@@ -63,11 +61,10 @@ export default function ProductCard({ product: p, onAddToCart, index = 0 }: Prod
             </span>
           )}
           {discount > 0 && (
-            <span className="font-sans text-[8px] tracking-wide uppercase text-wine-300 font-semibold">−{discount}%</span>
+            <span className="font-sans text-[8px] tracking-wide uppercase text-gold-300 font-semibold">−{discount}%</span>
           )}
         </div>
 
-        {/* Always visible on mobile, hover on desktop */}
         <button
           onClick={handleAdd}
           className="w-full btn-primary mt-2 gap-1.5"

@@ -26,7 +26,7 @@ export default function ProductCollection({ products, onAddToCart }: ProductColl
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      style={{ background: 'var(--color-ink-950)', paddingTop: 'clamp(3rem, 8vw, 6rem)', paddingBottom: 'clamp(3rem, 8vw, 6rem)' }}
+      style={{ background: '#24152F', paddingTop: 'clamp(3rem, 8vw, 6rem)', paddingBottom: 'clamp(3rem, 8vw, 6rem)' }}
     >
       <div className="container-site">
         <motion.div
@@ -41,7 +41,6 @@ export default function ProductCollection({ products, onAddToCart }: ProductColl
           </h2>
         </motion.div>
 
-        {/* Horizontal scrollable filter pills */}
         <div
           className="flex gap-2 mb-8 overflow-x-auto scrollbar-none -mx-5 px-5 sm:mx-0 sm:px-0 sm:flex-wrap"
           role="tablist"
@@ -61,9 +60,9 @@ export default function ProductCollection({ products, onAddToCart }: ProductColl
                 borderRadius: 9999,
                 fontSize: '0.65rem',
                 scrollSnapAlign: 'start',
-                background: active === cat.value ? 'var(--color-wine-700)' : 'transparent',
-                border: active === cat.value ? '1px solid var(--color-wine-600)' : '1px solid rgba(201,149,106,0.2)',
-                color: active === cat.value ? 'var(--color-cream-100)' : 'rgba(245,232,220,0.55)',
+                background: active === cat.value ? '#40234B' : 'transparent',
+                border: active === cat.value ? '1px solid #523060' : '1px solid rgba(201,164,92,0.2)',
+                color: active === cat.value ? 'var(--color-cream-100)' : 'rgba(244,237,227,0.55)',
               }}
             >
               {cat.label}
@@ -71,7 +70,6 @@ export default function ProductCollection({ products, onAddToCart }: ProductColl
           ))}
         </div>
 
-        {/* 2-col mobile grid, 3-col lg, 4-col xl */}
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
@@ -80,7 +78,6 @@ export default function ProductCollection({ products, onAddToCart }: ProductColl
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-px"
-            style={{ background: 'transparent' }}
           >
             {filtered.map((product, i) => (
               <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} index={i} />

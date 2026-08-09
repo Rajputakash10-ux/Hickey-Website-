@@ -31,7 +31,7 @@ export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedPro
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="overflow-hidden"
-      style={{ background: 'var(--color-ink-900)', paddingTop: 'clamp(3rem, 8vw, 6rem)', paddingBottom: 'clamp(3rem, 8vw, 6rem)' }}
+      style={{ background: '#321D3D', paddingTop: 'clamp(3rem, 8vw, 6rem)', paddingBottom: 'clamp(3rem, 8vw, 6rem)' }}
     >
       <div className="container-site">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
@@ -43,7 +43,6 @@ export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedPro
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            {/* Thumbnail strip on mobile */}
             {p.images.length > 1 && (
               <div className="flex gap-2 mb-3 lg:hidden">
                 {p.images.slice(0, 4).map((img, i) => (
@@ -53,7 +52,7 @@ export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedPro
                     className="flex-shrink-0 overflow-hidden transition-all"
                     style={{
                       width: 52, height: 52,
-                      border: `1px solid ${i === imgIndex ? 'var(--color-gold-500)' : 'rgba(201,149,106,0.15)'}`,
+                      border: `1px solid ${i === imgIndex ? 'var(--color-gold-500)' : 'rgba(201,164,92,0.15)'}`,
                     }}
                     aria-label={`View image ${i + 1}`}
                   >
@@ -68,7 +67,7 @@ export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedPro
               style={{
                 aspectRatio: '4/5',
                 maxHeight: 'clamp(320px, 70vw, 560px)',
-                border: '1px solid rgba(201,149,106,0.15)',
+                border: '1px solid rgba(201,164,92,0.15)',
               }}
               onMouseEnter={() => p.images.length > 1 && setImgIndex(1)}
               onMouseLeave={() => setImgIndex(0)}
@@ -87,7 +86,7 @@ export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedPro
                 />
               </AnimatePresence>
               {p.badge && (
-                <div className="absolute top-3 left-3 px-3 py-1.5 rounded-full" style={{ background: 'var(--color-wine-700)', border: '1px solid var(--color-wine-600)' }}>
+                <div className="absolute top-3 left-3 px-3 py-1.5 rounded-full" style={{ background: '#40234B', border: '1px solid #523060' }}>
                   <span className="font-sans text-[9px] font-semibold tracking-widest uppercase text-cream-100">{p.badge}</span>
                 </div>
               )}
@@ -95,13 +94,13 @@ export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedPro
 
             <div className="flex gap-2 mt-3 flex-wrap">
               {p.dropNumber && (
-                <div className="px-3 py-1.5 rounded-full" style={{ border: '1px solid rgba(201,149,106,0.2)', background: 'rgba(201,149,106,0.05)' }}>
+                <div className="px-3 py-1.5 rounded-full" style={{ border: '1px solid rgba(201,164,92,0.2)', background: 'rgba(201,164,92,0.05)' }}>
                   <span className="font-sans text-[9px] tracking-widest uppercase text-gold-500">Drop {String(p.dropNumber).padStart(2, '0')} — {p.dropDate}</span>
                 </div>
               )}
               {p.limited && (
-                <div className="px-3 py-1.5 rounded-full" style={{ border: '1px solid rgba(92,18,102,0.4)', background: 'rgba(92,18,102,0.1)' }}>
-                  <span className="font-sans text-[9px] tracking-widest uppercase text-wine-300">Limited {p.limited} Kits</span>
+                <div className="px-3 py-1.5 rounded-full" style={{ border: '1px solid rgba(64,35,75,0.5)', background: 'rgba(64,35,75,0.2)' }}>
+                  <span className="font-sans text-[9px] tracking-widest uppercase text-gold-300">Limited {p.limited} Kits</span>
                 </div>
               )}
             </div>
@@ -116,10 +115,7 @@ export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedPro
           >
             <div>
               <span className="section-label">This Month's Drop</span>
-              <h2
-                className="heading-display mt-2"
-                style={{ fontSize: 'clamp(2rem, 7vw, 4.5rem)' }}
-              >
+              <h2 className="heading-display mt-2" style={{ fontSize: 'clamp(2rem, 7vw, 4.5rem)' }}>
                 {p.title}
               </h2>
               {p.subtitle && (
@@ -139,7 +135,7 @@ export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedPro
                 <ul className="space-y-2">
                   {p.whatsInside.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: 'rgba(201,149,106,0.15)', border: '1px solid rgba(201,149,106,0.3)' }}>
+                      <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: 'rgba(201,164,92,0.12)', border: '1px solid rgba(201,164,92,0.25)' }}>
                         <Check size={9} className="text-gold-500" />
                       </div>
                       <span className="font-sans text-sm text-cream-300 opacity-70">{item}</span>
@@ -149,10 +145,9 @@ export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedPro
               </div>
             )}
 
-            {/* Price */}
             <div
               className="flex items-baseline gap-3 py-4"
-              style={{ borderTop: '1px solid rgba(201,149,106,0.1)', borderBottom: '1px solid rgba(201,149,106,0.1)' }}
+              style={{ borderTop: '1px solid rgba(201,164,92,0.1)', borderBottom: '1px solid rgba(201,164,92,0.1)' }}
             >
               <span className="font-serif font-light text-gold-400" style={{ fontSize: 'clamp(2rem, 7vw, 3rem)' }}>
                 {CURRENCY}{p.price.toLocaleString('en-IN')}
@@ -162,14 +157,13 @@ export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedPro
                   <span className="font-sans text-cream-400 opacity-40 line-through" style={{ fontSize: 'clamp(0.9rem, 3vw, 1.1rem)' }}>
                     {CURRENCY}{p.compareAtPrice.toLocaleString('en-IN')}
                   </span>
-                  <span className="font-sans text-[9px] tracking-widest uppercase font-semibold text-wine-300 px-2.5 py-1 rounded-full" style={{ background: 'rgba(92,18,102,0.2)', border: '1px solid rgba(92,18,102,0.3)' }}>
+                  <span className="font-sans text-[9px] tracking-widest uppercase font-semibold text-gold-300 px-2.5 py-1 rounded-full" style={{ background: 'rgba(64,35,75,0.3)', border: '1px solid rgba(64,35,75,0.5)' }}>
                     Save {discount}%
                   </span>
                 </>
               )}
             </div>
 
-            {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-3">
               <motion.button
                 onClick={handleAdd}

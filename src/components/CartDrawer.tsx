@@ -31,10 +31,10 @@ export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQ
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="fixed top-0 right-0 bottom-0 w-full sm:max-w-md z-50 flex flex-col"
-            style={{ background: 'var(--color-ink-900)', borderLeft: '1px solid rgba(201,163,90,0.1)' }}
+            style={{ background: '#321D3D', borderLeft: '1px solid rgba(201,164,92,0.1)' }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-6" style={{ borderBottom: '1px solid rgba(201,163,90,0.08)' }}>
+            <div className="flex items-center justify-between p-6" style={{ borderBottom: '1px solid rgba(201,164,92,0.08)' }}>
               <div className="flex items-center gap-3">
                 <ShoppingBag size={18} className="text-gold-500" />
                 <span className="font-serif text-xl font-light text-cream-100">Your Cart</span>
@@ -51,7 +51,7 @@ export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQ
             <div className="flex-1 overflow-y-auto p-6">
               {items.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full gap-5 text-center">
-                  <ShoppingBag size={36} style={{ color: 'rgba(201,163,90,0.2)' }} />
+                  <ShoppingBag size={36} style={{ color: 'rgba(201,164,92,0.2)' }} />
                   <div>
                     <p className="font-serif text-lg text-cream-200 opacity-60">Your cart is empty.</p>
                     <p className="font-sans text-xs text-cream-400 opacity-40 mt-1">Add something beautiful.</p>
@@ -62,7 +62,7 @@ export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQ
                 <div className="space-y-6">
                   {items.map(item => (
                     <div key={item.product.id} className="flex gap-4">
-                      <div className="w-20 h-20 flex-shrink-0 overflow-hidden" style={{ border: '1px solid rgba(201,163,90,0.1)', background: 'var(--color-ink-800)' }}>
+                      <div className="w-20 h-20 flex-shrink-0 overflow-hidden" style={{ border: '1px solid rgba(201,164,92,0.1)', background: '#40234B' }}>
                         <img src={item.product.images[0].src} alt={item.product.images[0].alt} className="w-full h-full object-cover" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -76,7 +76,7 @@ export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQ
                           </button>
                         </div>
                         <div className="flex items-center justify-between mt-3">
-                          <div className="flex items-center rounded-full overflow-hidden" style={{ border: '1px solid rgba(201,163,90,0.15)' }}>
+                          <div className="flex items-center rounded-full overflow-hidden" style={{ border: '1px solid rgba(201,164,92,0.15)' }}>
                             <button onClick={() => onUpdateQuantity(item.product.id, item.quantity - 1)} aria-label="Decrease" className="w-8 h-8 flex items-center justify-center text-cream-300 hover:text-gold-400 transition-colors">
                               <Minus size={11} />
                             </button>
@@ -91,7 +91,7 @@ export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQ
                     </div>
                   ))}
 
-                  <div className="flex items-start gap-3 p-4 rounded-lg" style={{ border: '1px solid rgba(201,163,90,0.12)', background: 'rgba(201,163,90,0.04)' }}>
+                  <div className="flex items-start gap-3 p-4 rounded-lg" style={{ border: '1px solid rgba(201,164,92,0.12)', background: 'rgba(201,164,92,0.04)' }}>
                     <Gift size={14} className="text-gold-500 flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="font-sans text-[10px] tracking-widest uppercase text-gold-500 font-semibold">Free with every pack</p>
@@ -104,7 +104,7 @@ export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQ
 
             {/* Footer */}
             {items.length > 0 && (
-              <div className="p-6 space-y-4" style={{ borderTop: '1px solid rgba(201,163,90,0.08)' }}>
+              <div className="p-6 space-y-4" style={{ borderTop: '1px solid rgba(201,164,92,0.08)' }}>
                 <div className="flex items-center justify-between">
                   <span className="font-sans text-sm text-cream-300 opacity-60">Subtotal</span>
                   <span className="font-serif text-2xl text-gold-400">{CURRENCY}{subtotal.toLocaleString('en-IN')}</span>

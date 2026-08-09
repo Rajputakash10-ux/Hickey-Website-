@@ -18,7 +18,7 @@ export default function Testimonials() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="py-16 lg:py-32 overflow-hidden"
-      style={{ background: 'var(--color-ink-900)' }}
+      style={{ background: '#321D3D' }}
     >
       <div className="container-site">
         <motion.div
@@ -34,17 +34,16 @@ export default function Testimonials() {
             </h2>
           </div>
           <div className="hidden sm:flex gap-2 flex-shrink-0">
-            <button onClick={() => scroll('left')} aria-label="Previous reviews" className="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style={{ border: '1px solid rgba(201,163,90,0.2)', color: 'var(--color-cream-300)' }}>
+            <button onClick={() => scroll('left')} aria-label="Previous reviews" className="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style={{ border: '1px solid rgba(201,164,92,0.2)', color: 'var(--color-cream-300)' }}>
               <ChevronLeft size={16} />
             </button>
-            <button onClick={() => scroll('right')} aria-label="Next reviews" className="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style={{ border: '1px solid rgba(201,163,90,0.2)', color: 'var(--color-cream-300)' }}>
+            <button onClick={() => scroll('right')} aria-label="Next reviews" className="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style={{ border: '1px solid rgba(201,164,92,0.2)', color: 'var(--color-cream-300)' }}>
               <ChevronRight size={16} />
             </button>
           </div>
         </motion.div>
       </div>
 
-      {/* Carousel — full bleed on mobile for snap effect */}
       <div
         ref={scrollRef}
         className="flex overflow-x-auto scrollbar-none"
@@ -66,8 +65,8 @@ export default function Testimonials() {
             style={{
               width: 'min(calc(100vw - 2.5rem), 360px)',
               scrollSnapAlign: 'start',
-              border: '1px solid rgba(201,163,90,0.1)',
-              background: 'var(--color-ink-800)',
+              border: '1px solid rgba(201,164,92,0.1)',
+              background: '#40234B',
             }}
           >
             <div className="flex gap-1">
@@ -78,8 +77,8 @@ export default function Testimonials() {
             <p className="font-serif text-base font-normal text-cream-200 leading-relaxed opacity-85 flex-1">
               "{review.text}"
             </p>
-            <div className="flex items-center gap-3 pt-4" style={{ borderTop: '1px solid rgba(201,163,90,0.08)' }}>
-              <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 font-sans text-xs font-semibold text-cream-100" style={{ background: 'var(--color-wine-800)', border: '1px solid var(--color-wine-700)' }}>
+            <div className="flex items-center gap-3 pt-4" style={{ borderTop: '1px solid rgba(201,164,92,0.08)' }}>
+              <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 font-sans text-xs font-semibold text-cream-100" style={{ background: '#321D3D', border: '1px solid rgba(201,164,92,0.2)' }}>
                 {review.initials}
               </div>
               <div>

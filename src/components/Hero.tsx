@@ -57,8 +57,8 @@ export default function Hero(_props: HeroProps) {
       </AnimatePresence>
 
       {/* Overlays */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(8,5,10,0.97) 0%, rgba(8,5,10,0.5) 40%, rgba(8,5,10,0.15) 100%)' }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, rgba(8,5,10,0.5) 0%, transparent 25%)' }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(22,13,30,0.97) 0%, rgba(36,21,47,0.5) 40%, rgba(36,21,47,0.1) 100%)' }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, rgba(36,21,47,0.5) 0%, transparent 25%)' }} />
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-end" style={{ paddingBottom: 'max(5rem, env(safe-area-inset-bottom) + 4rem)' }}>

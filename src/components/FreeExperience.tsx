@@ -20,9 +20,9 @@ export default function FreeExperience() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="py-24 lg:py-36 relative overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, var(--color-wine-900) 0%, var(--color-ink-900) 60%, var(--color-wine-800) 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #160D1E 0%, #321D3D 60%, #24152F 100%)' }}
     >
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 70% 50%, rgba(107,26,46,0.35) 0%, transparent 60%)' }} aria-hidden="true" />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 70% 50%, rgba(64,35,75,0.4) 0%, transparent 60%)' }} aria-hidden="true" />
 
       <div className="container-site relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -35,7 +35,7 @@ export default function FreeExperience() {
             className="flex flex-col gap-7"
           >
             <div>
-              <span className="section-label" style={{ color: 'var(--color-gold-400)' }}>Free for Every Couple</span>
+              <span className="section-label">Free for Every Couple</span>
               <h2 className="heading-display mt-3" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 4rem)' }}>
                 The Virtual<br />Sensory Experience
               </h2>
@@ -52,10 +52,10 @@ export default function FreeExperience() {
                   animate={isVisible ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.2 + i * 0.08, duration: 0.5 }}
                   className="flex items-center gap-3 py-2.5 px-3 rounded-lg"
-                  style={{ border: '1px solid rgba(201,163,90,0.1)', background: 'rgba(10,6,8,0.3)' }}
+                  style={{ border: '1px solid rgba(201,164,92,0.1)', background: 'rgba(22,13,30,0.4)' }}
                 >
                   <span className="font-sans text-[10px] tracking-widest text-gold-500 font-semibold flex-shrink-0" style={{ width: 20 }}>{step.num}</span>
-                  <div className="w-px h-4 flex-shrink-0" style={{ background: 'rgba(201,163,90,0.2)' }} />
+                  <div className="w-px h-4 flex-shrink-0" style={{ background: 'rgba(201,164,92,0.2)' }} />
                   <span className="font-serif text-sm text-cream-100 flex-shrink-0">{step.label}</span>
                   <span className="font-sans text-xs text-cream-400 opacity-50 truncate">{step.desc}</span>
                 </motion.div>
@@ -69,11 +69,11 @@ export default function FreeExperience() {
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="flex flex-col gap-6 p-8 lg:p-10"
-            style={{ border: '1px solid rgba(201,163,90,0.15)', background: 'rgba(10,6,8,0.4)' }}
+            style={{ border: '1px solid rgba(201,164,92,0.15)', background: 'rgba(22,13,30,0.5)' }}
           >
             {submitted ? (
               <div className="flex flex-col items-center justify-center gap-4 py-8 text-center">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ background: 'rgba(201,163,90,0.15)', border: '1px solid rgba(201,163,90,0.3)' }}>
+                <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ background: 'rgba(201,164,92,0.12)', border: '1px solid rgba(201,164,92,0.25)' }}>
                   <span className="text-gold-400 text-2xl">✓</span>
                 </div>
                 <h3 className="font-serif text-2xl text-cream-100">You're in.</h3>
@@ -94,9 +94,9 @@ export default function FreeExperience() {
                     required
                     aria-label="Email address"
                     className="w-full px-5 py-3.5 rounded-full font-sans text-sm text-cream-100 placeholder-cream-400 outline-none"
-                    style={{ background: 'rgba(10,6,8,0.6)', border: '1px solid rgba(201,163,90,0.2)' }}
-                    onFocus={e => (e.currentTarget.style.borderColor = 'rgba(201,163,90,0.5)')}
-                    onBlur={e => (e.currentTarget.style.borderColor = 'rgba(201,163,90,0.2)')}
+                    style={{ background: 'rgba(22,13,30,0.7)', border: '1px solid rgba(201,164,92,0.2)' }}
+                    onFocus={e => (e.currentTarget.style.borderColor = 'rgba(201,164,92,0.5)')}
+                    onBlur={e => (e.currentTarget.style.borderColor = 'rgba(201,164,92,0.2)')}
                   />
                   <button type="submit" className="btn-gold gap-2 py-3.5">
                     Claim Free Experience <ArrowRight size={13} />

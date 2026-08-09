@@ -21,9 +21,9 @@ export default function ImageMarquee() {
     <section
       className="py-2 sm:py-3"
       style={{
-        background: 'var(--color-ink-950)',
-        borderTop: '1px solid rgba(201,149,106,0.1)',
-        borderBottom: '1px solid rgba(201,149,106,0.1)',
+        background: '#24152F',
+        borderTop: '1px solid rgba(201,164,92,0.1)',
+        borderBottom: '1px solid rgba(201,164,92,0.1)',
         overflow: 'hidden',
         maxWidth: '100vw',
       }}
@@ -36,7 +36,7 @@ export default function ImageMarquee() {
           <div
             key={i}
             className="flex-shrink-0 overflow-hidden"
-            style={{ width: 'clamp(140px, 30vw, 220px)', height: 'clamp(180px, 38vw, 280px)', border: '1px solid rgba(201,149,106,0.08)' }}
+            style={{ width: 'clamp(140px, 30vw, 220px)', height: 'clamp(180px, 38vw, 280px)', border: '1px solid rgba(201,164,92,0.08)' }}
           >
             <img
               src={img.src}

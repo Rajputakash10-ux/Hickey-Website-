@@ -36,9 +36,9 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
-          background: scrolled ? 'rgba(8,5,10,0.95)' : 'linear-gradient(to bottom, rgba(8,5,10,0.8) 0%, transparent 100%)',
+          background: scrolled ? 'rgba(36,21,47,0.97)' : 'linear-gradient(to bottom, rgba(36,21,47,0.85) 0%, transparent 100%)',
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(201,149,106,0.1)' : 'none',
+          borderBottom: scrolled ? '1px solid rgba(201,164,92,0.12)' : 'none',
           paddingTop: 'env(safe-area-inset-top)',
         }}
       >
@@ -89,9 +89,8 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
               >
                 <ShoppingBag size={17} />
                 {cartCount > 0 && (
-                  <span
-                    className="absolute flex items-center justify-center rounded-full font-sans font-bold text-cream-100"
-                    style={{ top: 6, right: 6, width: 16, height: 16, fontSize: 9, background: 'var(--color-wine-600)' }}
+                  <span className="absolute flex items-center justify-center rounded-full font-sans font-bold text-cream-100"
+                    style={{ top: 6, right: 6, width: 16, height: 16, fontSize: 9, background: '#40234B' }}
                   >
                     {cartCount}
                   </span>
@@ -120,7 +119,7 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="fixed inset-0 z-40 lg:hidden flex flex-col"
-            style={{ background: 'var(--color-ink-950)', paddingTop: 'calc(60px + env(safe-area-inset-top))' }}
+            style={{ background: '#24152F', paddingTop: 'calc(60px + env(safe-area-inset-top))' }}
           >
             {/* Nav links */}
             <nav className="flex flex-col flex-1 justify-center px-8 gap-1" aria-label="Mobile navigation">
@@ -135,7 +134,7 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                     to={link.href}
                     className="flex items-center justify-between py-4 transition-colors"
                     style={{
-                      borderBottom: '1px solid rgba(201,149,106,0.08)',
+                      borderBottom: '1px solid rgba(201,164,92,0.08)',
                       color: pathname === link.href ? 'var(--color-gold-400)' : 'var(--color-cream-100)',
                     }}
                   >
