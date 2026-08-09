@@ -19,11 +19,11 @@ export default function FeatureBar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.08, duration: 0.5 }}
             className="flex items-center gap-3 px-5 sm:px-8 py-3 sm:py-4 flex-shrink-0 group transition-colors duration-200 cursor-pointer"
-            style={{ borderRight: i < FEATURE_BAR_ITEMS.length - 1 ? '1px solid rgba(201,149,106,0.1)' : 'none', minWidth: 180, scrollSnapAlign: 'start' }}
+            style={{ borderRight: i < FEATURE_BAR_ITEMS.length - 1 ? '1px solid rgba(201,164,92,0.1)' : 'none', minWidth: 180, scrollSnapAlign: 'start' }}
           >
             <div
               className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-200"
-              style={{ background: 'var(--color-wine-900)', border: '1px solid var(--color-wine-700)' }}
+              style={{ background: '#24152F', border: '1px solid #40234B' }}
             >
               <span className="text-wine-400 text-sm group-hover:text-gold-400 transition-colors">{item.icon}</span>
             </div>

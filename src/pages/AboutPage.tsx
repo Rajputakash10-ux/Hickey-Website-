@@ -3,7 +3,7 @@ import Newsletter from '../components/Newsletter';
 
 export default function AboutPage() {
   return (
-    <main className="pt-20" style={{ background: 'var(--color-ink-950)' }}>
+    <main className="pt-20" style={{ background: '#24152F' }}>
       <div className="container-site py-16 lg:py-24">
         <div className="max-w-2xl">
           <span className="section-label">Our Story</span>
@@ -22,7 +22,7 @@ export default function AboutPage() {
               src="/assets/hickey-lifestyle.jpg"
               alt="HICKEY — crafted for connection"
               className="w-full aspect-[4/5] object-cover"
-              style={{ border: '1px solid rgba(201,163,90,0.1)' }}
+              style={{ border: '1px solid rgba(201,164,92,0.1)' }}
             />
           </motion.div>
           <motion.div
@@ -40,7 +40,7 @@ export default function AboutPage() {
             <p className="font-sans text-sm text-cream-300 opacity-60 leading-relaxed">
               Every product is crafted with intention. Every detail — from the packaging to the scratch card — is designed to make the moment feel special.
             </p>
-            <div className="pt-4" style={{ borderTop: '1px solid rgba(201,163,90,0.1)' }}>
+            <div className="pt-4" style={{ borderTop: '1px solid rgba(201,164,92,0.1)' }}>
               <p className="font-sans text-xs tracking-widest uppercase text-gold-500 font-semibold">Crafted for Connection</p>
               <p className="font-sans text-xs text-cream-400 opacity-40 mt-1">hickey.co.in · support@hickey.co.in</p>
             </div>

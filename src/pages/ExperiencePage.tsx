@@ -3,7 +3,7 @@ import Newsletter from '../components/Newsletter';
 
 export default function ExperiencePage() {
   return (
-    <main className="pt-20" style={{ background: 'var(--color-ink-950)' }}>
+    <main className="pt-20" style={{ background: '#24152F' }}>
       <div className="container-site py-16">
         <span className="section-label">5-Day Experience</span>
         <h1 className="heading-display mt-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>

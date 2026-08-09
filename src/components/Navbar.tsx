@@ -160,7 +160,7 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
               </Link>
               <div className="flex items-center justify-center gap-4 mt-6">
                 <a href="https://www.instagram.com/hickey.co.in" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="font-sans text-xs tracking-widest uppercase text-cream-400 opacity-50 hover:opacity-100 transition-opacity">Instagram</a>
-                <span className="w-px h-3" style={{ background: 'rgba(201,149,106,0.2)' }} />
+                <span className="w-px h-3" style={{ background: 'rgba(201,164,92,0.2)' }} />
                 <a href="mailto:support@hickey.co.in" aria-label="Email" className="font-sans text-xs tracking-widest uppercase text-cream-400 opacity-50 hover:opacity-100 transition-opacity">Contact</a>
               </div>
             </motion.div>

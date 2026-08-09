@@ -12,7 +12,7 @@ export default function Events() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="py-16 lg:py-32 overflow-hidden"
-      style={{ background: 'var(--color-ink-950)' }}
+      style={{ background: '#24152F' }}
     >
       <div className="container-site">
         <motion.div
@@ -45,8 +45,8 @@ export default function Events() {
             style={{
               width: 'min(80vw, 320px)',
               scrollSnapAlign: 'start',
-              background: 'var(--color-ink-900)',
-              border: '1px solid rgba(201,149,106,0.1)',
+              background: '#321D3D',
+              border: '1px solid rgba(201,164,92,0.1)',
             }}
           >
             <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>
@@ -56,7 +56,7 @@ export default function Events() {
             <div className="p-5 flex flex-col gap-2.5 flex-1">
               <div className="flex items-center gap-2">
                 <span className="font-sans text-[10px] tracking-widest uppercase text-gold-500 font-semibold">{event.date}</span>
-                <span className="w-1 h-1 rounded-full" style={{ background: 'var(--color-wine-600)' }} />
+                <span className="w-1 h-1 rounded-full" style={{ background: '#523060' }} />
                 <span className="font-sans text-[10px] tracking-widest uppercase text-cream-400 opacity-60">{event.location}</span>
               </div>
               <h3 className="font-serif text-lg text-cream-100 leading-snug">{event.title}</h3>
@@ -71,7 +71,7 @@ export default function Events() {
 
       {/* Desktop: grid */}
       <div className="container-site">
-        <div className="hidden lg:grid grid-cols-3 gap-px" style={{ background: 'rgba(201,149,106,0.08)' }}>
+        <div className="hidden lg:grid grid-cols-3 gap-px" style={{ background: 'rgba(201,164,92,0.08)' }}>
           {EVENTS.map((event, i) => (
             <motion.article
               key={event.id}
@@ -79,7 +79,7 @@ export default function Events() {
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="group flex flex-col"
-              style={{ background: 'var(--color-ink-950)' }}
+              style={{ background: '#24152F' }}
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img src={event.image} alt={event.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
@@ -88,7 +88,7 @@ export default function Events() {
               <div className="p-7 flex flex-col gap-3 flex-1">
                 <div className="flex items-center gap-3">
                   <span className="font-sans text-[10px] tracking-widest uppercase text-gold-500 font-semibold">{event.date}</span>
-                  <span className="w-1 h-1 rounded-full bg-wine-600" />
+                  <span className="w-1 h-1 rounded-full bg-plum-600" />
                   <span className="font-sans text-[10px] tracking-widest uppercase text-cream-400 opacity-60">{event.location}</span>
                 </div>
                 <h3 className="font-serif text-xl text-cream-100 leading-snug">{event.title}</h3>
