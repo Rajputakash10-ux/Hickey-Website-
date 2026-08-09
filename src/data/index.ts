@@ -1,135 +1,46 @@
-import type { Product, Review, Event, Article, NavLink } from '../types';
+import type { Product, Review, Ingredient, FAQItem, NavLink } from '../types';
 
 export const CURRENCY = '₹';
 
+// ── Configurable product price — change here to update everywhere ──────────────
+export const PRODUCT_PRICE = 599;
+export const PRODUCT_COMPARE_PRICE = 799;
+
 export const NAV_LINKS: NavLink[] = [
-  { label: 'Home', href: '/' },
   { label: 'Shop', href: '/shop' },
-  { label: '5-Day Experience', href: '/experience' },
-  { label: 'Journal', href: '/journal' },
-  { label: 'About', href: '/about' },
+  { label: 'Why HICKEY', href: '/#why-hickey' },
+  { label: 'Ingredients', href: '/#ingredients' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'FAQ', href: '/#faq' },
 ];
 
-export const FEATURED_PRODUCT: Product = {
-  id: 'velvet-hour-kit',
-  title: 'The Velvet Hour',
-  subtitle: 'Evening Ritual Kit',
+export const MAIN_PRODUCT: Product = {
+  id: 'hickey-intimacy-chocolate',
+  title: 'HICKEY',
+  subtitle: 'Intimacy Dark Chocolate',
   description:
-    'An evening ritual for two. Dark chocolate, warm amber candlelight and a game that turns conversation into connection.',
-  price: 1899,
-  compareAtPrice: 2499,
+    'A premium dark chocolate crafted for intimate moments, shared experiences and connection between couples. 60g of rich, indulgent dark chocolate — with a free Secret Position Scratch Card inside every pack.',
+  price: PRODUCT_PRICE,
+  compareAtPrice: PRODUCT_COMPARE_PRICE,
   images: [
-    { src: '/assets/hickey-hero.jpg', alt: 'The Velvet Hour evening ritual kit' },
-    { src: '/assets/hickey-package.jpg', alt: 'The Velvet Hour packaging detail' },
+    { src: '/src/assets/hickey-1.png', alt: 'HICKEY Intimacy Dark Chocolate — front pack' },
+    { src: '/src/assets/hickey-2.png', alt: 'HICKEY Intimacy Dark Chocolate — back pack' },
+    { src: '/src/assets/hickey-3.png', alt: 'HICKEY dark chocolate pieces' },
+    { src: '/src/assets/hickey-4.png', alt: 'HICKEY Secret Position Scratch Card' },
+    { src: '/src/assets/hickey-5.png', alt: 'HICKEY product lifestyle' },
   ],
-  category: 'kits',
-  badge: 'This Month\'s Drop',
+  category: 'consumables',
+  badge: 'Bestseller',
   available: true,
-  dropNumber: 8,
-  dropDate: 'Jan 2025',
-  limited: 200,
+  weight: '60g',
   whatsInside: [
     '1 × HICKEY Intimacy Dark Chocolate (60g)',
-    '1 × Amber Soy Candle — Oud & Sandalwood',
-    '1 × Secret Position Scratch Card',
-    '1 × Conversation Ritual Card Deck (32 cards)',
-    '1 × Premium Gift Box',
+    '1 × FREE Secret Position Scratch Card',
+    '1 × Premium Discreet Packaging',
   ],
 };
 
-export const PRODUCTS: Product[] = [
-  {
-    id: 'hickey-intimacy-chocolate',
-    title: 'HICKEY Dark Chocolate',
-    subtitle: 'Intimacy Chocolate',
-    description: 'Premium dark chocolate crafted for shared moments.',
-    price: 599,
-    compareAtPrice: 799,
-    images: [
-      { src: '/assets/hickey-hero.jpg', alt: 'HICKEY Intimacy Dark Chocolate' },
-      { src: '/assets/hickey-chocolate-pieces.jpg', alt: 'HICKEY chocolate pieces' },
-    ],
-    category: 'consumables',
-    badge: 'Bestseller',
-    available: true,
-    weight: '60g',
-  },
-  {
-    id: 'velvet-hour-kit',
-    title: 'The Velvet Hour',
-    subtitle: 'Evening Ritual Kit',
-    description: 'Dark chocolate, candlelight and a game for two.',
-    price: 1899,
-    compareAtPrice: 2499,
-    images: [
-      { src: '/assets/hickey-package.jpg', alt: 'The Velvet Hour kit' },
-      { src: '/assets/hickey-lifestyle.jpg', alt: 'The Velvet Hour lifestyle' },
-    ],
-    category: 'kits',
-    badge: 'Drop 08',
-    available: true,
-    dropNumber: 8,
-  },
-  {
-    id: 'scratch-card-game',
-    title: 'Secret Position Game',
-    subtitle: 'Scratch Card Set',
-    description: 'A playful scratch card game designed for couples.',
-    price: 299,
-    compareAtPrice: 399,
-    images: [
-      { src: '/assets/hickey-scratch-card.jpg', alt: 'Secret Position Scratch Card' },
-      { src: '/assets/hickey-lifestyle-2.jpg', alt: 'Scratch card lifestyle' },
-    ],
-    category: 'games',
-    badge: 'Fan Favourite',
-    available: true,
-  },
-  {
-    id: 'ritual-gift-box',
-    title: 'The Ritual Gift Box',
-    subtitle: 'Premium Gift Set',
-    description: 'Three evenings of connection in one premium gift box.',
-    price: 2999,
-    compareAtPrice: 3999,
-    images: [
-      { src: '/assets/hickey-lifestyle-3.jpg', alt: 'The Ritual Gift Box' },
-      { src: '/assets/hickey-package.jpg', alt: 'Gift box packaging' },
-    ],
-    category: 'gifts',
-    badge: 'Gift Ready',
-    available: true,
-  },
-  {
-    id: 'date-night-kit',
-    title: 'Date Night Kit',
-    subtitle: 'Complete Experience',
-    description: 'Everything you need for an unforgettable evening.',
-    price: 1799,
-    compareAtPrice: 2399,
-    images: [
-      { src: '/assets/hickey-lifestyle-4.jpg', alt: 'Date Night Kit' },
-      { src: '/assets/hickey-hero.jpg', alt: 'Date Night Kit contents' },
-    ],
-    category: 'kits',
-    available: true,
-  },
-  {
-    id: 'conversation-cards',
-    title: 'Conversation Ritual Cards',
-    subtitle: 'Card Deck',
-    description: '32 cards that turn conversation into connection.',
-    price: 499,
-    compareAtPrice: 699,
-    images: [
-      { src: '/assets/hickey-lifestyle-5.jpg', alt: 'Conversation Ritual Cards' },
-      { src: '/assets/hickey-lifestyle-2.jpg', alt: 'Cards in use' },
-    ],
-    category: 'games',
-    badge: 'New',
-    available: true,
-  },
-];
+export const PRODUCTS: Product[] = [MAIN_PRODUCT];
 
 export const REVIEWS: Review[] = [
   {
@@ -139,7 +50,7 @@ export const REVIEWS: Review[] = [
     city: 'Mumbai',
     rating: 5,
     text: 'Made our usual date night feel completely different. The packaging alone sets the mood — and the scratch card was such a fun surprise.',
-    product: 'The Velvet Hour Kit',
+    product: 'HICKEY Intimacy Dark Chocolate',
     date: 'December 2024',
   },
   {
@@ -149,7 +60,7 @@ export const REVIEWS: Review[] = [
     city: 'Bangalore',
     rating: 5,
     text: 'Beautiful packaging and the scratch card was such a fun surprise. We ended up ordering two more packs as anniversary gifts.',
-    product: 'HICKEY Dark Chocolate',
+    product: 'HICKEY Intimacy Dark Chocolate',
     date: 'January 2025',
   },
   {
@@ -159,7 +70,7 @@ export const REVIEWS: Review[] = [
     city: 'Delhi',
     rating: 5,
     text: 'The whole experience feels much more premium than regular chocolate. It\'s thoughtful, tasteful and genuinely different.',
-    product: 'Date Night Kit',
+    product: 'HICKEY Intimacy Dark Chocolate',
     date: 'February 2025',
   },
   {
@@ -169,7 +80,7 @@ export const REVIEWS: Review[] = [
     city: 'Hyderabad',
     rating: 5,
     text: 'Gifted this to my partner and the reaction was priceless. The discreet packaging was a nice touch — arrived looking like a luxury gift.',
-    product: 'The Ritual Gift Box',
+    product: 'HICKEY Intimacy Dark Chocolate',
     date: 'March 2025',
   },
   {
@@ -178,86 +89,113 @@ export const REVIEWS: Review[] = [
     name: 'Sneha A.',
     city: 'Pune',
     rating: 5,
-    text: 'We did the 5-day experience together and it genuinely brought us closer. Highly recommend for any couple.',
-    product: '5-Day Experience',
+    text: 'We opened it together and the scratch card turned a simple evening into something we still talk about. Highly recommend.',
+    product: 'HICKEY Intimacy Dark Chocolate',
     date: 'March 2025',
   },
 ];
 
-export const EVENTS: Event[] = [
+export const INGREDIENTS: Ingredient[] = [
   {
-    id: 'e1',
-    image: '/assets/hickey-lifestyle-3.jpg',
-    date: 'Feb 14, 2025',
-    location: 'Mumbai',
-    title: 'The Valentine\'s Ritual Evening',
-    description: 'An intimate pop-up experience for couples.',
-    href: '#',
+    id: 'maca',
+    name: 'Maca Root Powder',
+    origin: 'Peruvian',
+    description: 'A celebrated Andean root, traditionally used to support energy and vitality. Adds an earthy warmth to every bite.',
+    icon: '🌿',
   },
   {
-    id: 'e2',
-    image: '/assets/hickey-lifestyle-4.jpg',
-    date: 'Mar 8, 2025',
-    location: 'Bangalore',
-    title: 'Sensory Tasting Night',
-    description: 'A guided sensory chocolate tasting for two.',
-    href: '#',
+    id: 'damiana',
+    name: 'Damiana Leaf',
+    origin: 'Mexican',
+    description: 'A fragrant herb with a long history in traditional wellness rituals. Known for its calming, mood-lifting qualities.',
+    icon: '🍃',
   },
   {
-    id: 'e3',
-    image: '/assets/hickey-lifestyle-5.jpg',
-    date: 'Apr 5, 2025',
-    location: 'Delhi',
-    title: 'The Connection Workshop',
-    description: 'An evening of conversation, play and connection.',
-    href: '#',
-  },
-];
-
-export const ARTICLES: Article[] = [
-  {
-    id: 'a1',
-    image: '/assets/hickey-lifestyle.jpg',
-    category: 'Relationship Culture',
-    title: 'Why Modern Couples Are Choosing Rituals Over Routine',
-    excerpt: 'The science behind intentional date nights and why they work.',
-    readTime: '4 min read',
-    date: 'Jan 2025',
-    href: '#',
+    id: 'ashwagandha',
+    name: 'Ashwagandha',
+    origin: 'KSM-66®',
+    description: 'India\'s most revered adaptogen. Supports calm focus and helps the body ease into the present moment.',
+    icon: '🌱',
   },
   {
-    id: 'a2',
-    image: '/assets/hickey-lifestyle-2.jpg',
-    category: 'Date Ideas',
-    title: 'The Art of Staying In: A Guide to the Perfect Home Date',
-    excerpt: 'How to turn your living room into the most romantic place in the city.',
-    readTime: '6 min read',
-    date: 'Feb 2025',
-    href: '#',
+    id: 'ginseng',
+    name: 'Korean Red Ginseng',
+    origin: 'Korean',
+    description: 'A prized root used for centuries in Eastern wellness traditions. Brings warmth and a sense of grounded energy.',
+    icon: '🫚',
   },
   {
-    id: 'a3',
-    image: '/assets/hickey-lifestyle-3.jpg',
-    category: 'Connection',
-    title: 'Sensory Play and Intimacy: What the Research Says',
-    excerpt: 'Exploring how shared sensory experiences deepen emotional bonds.',
-    readTime: '5 min read',
-    date: 'Mar 2025',
-    href: '#',
+    id: 'cayenne',
+    name: 'Cayenne Pepper',
+    origin: 'South American',
+    description: 'A gentle heat that warms from within. Adds a subtle, lingering spice that makes the chocolate unforgettable.',
+    icon: '🌶️',
+  },
+  {
+    id: 'nutmeg',
+    name: 'Nutmeg',
+    origin: 'Indonesian',
+    description: 'A warm, aromatic spice with deep roots in Indian and global culinary traditions. Adds depth and complexity.',
+    icon: '🫙',
+  },
+  {
+    id: 'cinnamon',
+    name: 'Ceylon Cinnamon',
+    origin: 'Sri Lankan',
+    description: 'The finest cinnamon in the world. Delicate, sweet and warming — it rounds out the chocolate beautifully.',
+    icon: '🪵',
   },
 ];
 
-export const STATS = [
-  { value: '14k+', label: 'Couples Joined' },
-  { value: '4.9', label: 'Average Rating' },
-  { value: '08', label: 'Monthly Drops' },
-  { value: '30+', label: 'Events Hosted' },
-];
-
-export const FEATURE_BAR_ITEMS = [
-  { icon: '◈', title: 'Sensory Products', subtitle: 'Consumables, kits & rituals' },
-  { icon: '◉', title: 'Monthly Drops', subtitle: 'Themed limited releases' },
-  { icon: '◎', title: 'Immersive Events', subtitle: 'IRL experiences & pop-ups' },
-  { icon: '◇', title: 'Digital Games', subtitle: '5-day sensory experiences' },
-  { icon: '◆', title: 'Community Rewards', subtitle: 'Points, perks & early access' },
+export const FAQ_ITEMS: FAQItem[] = [
+  {
+    id: 'faq-1',
+    question: 'What is HICKEY?',
+    answer: 'HICKEY is a premium intimacy dark chocolate crafted for couples. It\'s designed to make shared moments more memorable — combining rich dark chocolate with a playful free Secret Position Scratch Card in every pack.',
+  },
+  {
+    id: 'faq-2',
+    question: 'What does HICKEY contain?',
+    answer: 'HICKEY Intimacy Dark Chocolate contains premium dark chocolate blended with Maca Root Powder, Damiana Leaf, Ashwagandha (KSM-66®), Korean Red Ginseng, Cayenne Pepper, Nutmeg and Ceylon Cinnamon. Full ingredient details are on the packaging.',
+  },
+  {
+    id: 'faq-3',
+    question: 'Who is HICKEY for?',
+    answer: 'HICKEY is crafted for adult couples who want to make their shared moments more intentional and memorable. It\'s perfect for date nights, anniversaries, gifts, or simply turning an ordinary evening into something special.',
+  },
+  {
+    id: 'faq-4',
+    question: 'What comes inside the package?',
+    answer: 'Every HICKEY pack includes: 1 × HICKEY Intimacy Dark Chocolate (60g) and 1 × FREE Secret Position Scratch Card — all in premium, discreet packaging.',
+  },
+  {
+    id: 'faq-5',
+    question: 'Is the scratch card free?',
+    answer: 'Yes — absolutely free. The Secret Position Scratch Card is included with every single HICKEY pack at no extra cost. It\'s part of the experience.',
+  },
+  {
+    id: 'faq-6',
+    question: 'How does the scratch card work?',
+    answer: 'The scratch card is a playful surprise included in every pack. Scratch the surface together to reveal a secret position — it\'s designed to spark curiosity, laughter and connection between couples.',
+  },
+  {
+    id: 'faq-7',
+    question: 'How should I store the chocolate?',
+    answer: 'Store HICKEY in a cool, dry place away from direct sunlight. Ideal storage temperature is between 16–18°C. Avoid refrigeration as it can affect the texture and bloom of the chocolate.',
+  },
+  {
+    id: 'faq-8',
+    question: 'Is HICKEY suitable as a gift?',
+    answer: 'Absolutely. HICKEY arrives in premium, discreet packaging that makes it a thoughtful and elegant gift for anniversaries, birthdays, Valentine\'s Day, or any occasion where you want to give something genuinely different.',
+  },
+  {
+    id: 'faq-9',
+    question: 'Do you offer discreet packaging?',
+    answer: 'Yes. All HICKEY orders are shipped in plain, discreet outer packaging with no branding visible on the outside. The premium HICKEY experience is revealed only when opened.',
+  },
+  {
+    id: 'faq-10',
+    question: 'How do I place an order?',
+    answer: 'Simply click "Shop HICKEY" or "Add to Cart" on this page, select your quantity and proceed to checkout. We accept all major payment methods and ship across India.',
+  },
 ];

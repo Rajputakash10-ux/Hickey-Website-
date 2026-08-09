@@ -11,11 +11,8 @@ export interface Product {
   available: boolean;
   tags?: string[];
   weight?: string;
-  dropNumber?: number;
-  dropDate?: string;
-  limited?: number;
-  whatsInside?: string[];
   variantId?: string;
+  whatsInside?: string[];
 }
 
 export interface ProductImage {
@@ -41,25 +38,18 @@ export interface Review {
   date: string;
 }
 
-export interface Event {
+export interface Ingredient {
   id: string;
-  image: string;
-  date: string;
-  location: string;
-  title: string;
+  name: string;
+  origin?: string;
   description: string;
-  href: string;
+  icon: string;
 }
 
-export interface Article {
+export interface FAQItem {
   id: string;
-  image: string;
-  category: string;
-  title: string;
-  excerpt: string;
-  readTime: string;
-  date: string;
-  href: string;
+  question: string;
+  answer: string;
 }
 
 export interface NavLink {
