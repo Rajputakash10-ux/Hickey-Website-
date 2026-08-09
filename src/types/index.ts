@@ -15,6 +15,7 @@ export interface Product {
   dropDate?: string;
   limited?: number;
   whatsInside?: string[];
+  variantId?: string;
 }
 
 export interface ProductImage {

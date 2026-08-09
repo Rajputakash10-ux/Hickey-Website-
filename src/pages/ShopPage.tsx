@@ -3,10 +3,12 @@ import Newsletter from '../components/Newsletter';
 import type { Product } from '../types';
 
 interface ShopPageProps {
+  products: Product[];
+  loading: boolean;
   onAddToCart: (product: Product, qty: number) => void;
 }
 
-export default function ShopPage({ onAddToCart }: ShopPageProps) {
+export default function ShopPage({ products, loading, onAddToCart }: ShopPageProps) {
   return (
     <main className="pt-20" style={{ background: 'var(--color-ink-950)' }}>
       <div className="container-site py-16">
@@ -18,7 +20,7 @@ export default function ShopPage({ onAddToCart }: ShopPageProps) {
           Curated sensory rituals, intimacy kits and date night experiences for modern couples.
         </p>
       </div>
-      <ProductCollection onAddToCart={onAddToCart} />
+      <ProductCollection products={products} loading={loading} onAddToCart={onAddToCart} />
       <Newsletter />
     </main>
   );

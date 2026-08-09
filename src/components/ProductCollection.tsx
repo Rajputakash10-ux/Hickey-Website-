@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { PRODUCTS } from '../data';
 import ProductCard from './ProductCard';
 import type { Product, ProductCategory } from '../types';
 
@@ -14,14 +13,16 @@ const CATEGORIES: { label: string; value: ProductCategory }[] = [
 ];
 
 interface ProductCollectionProps {
+  products: Product[];
+  loading?: boolean;
   onAddToCart: (product: Product, qty: number) => void;
 }
 
-export default function ProductCollection({ onAddToCart }: ProductCollectionProps) {
+export default function ProductCollection({ products, onAddToCart }: ProductCollectionProps) {
   const { ref, isVisible } = useScrollReveal();
   const [active, setActive] = useState<ProductCategory>('all');
 
-  const filtered = active === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === active);
+  const filtered = active === 'all' ? products : products.filter(p => p.category === active);
 
   return (
     <section

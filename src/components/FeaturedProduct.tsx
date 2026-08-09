@@ -3,18 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, ArrowRight, Check } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { FEATURED_PRODUCT, CURRENCY } from '../data';
+import { CURRENCY } from '../data';
 import type { Product } from '../types';
 
 interface FeaturedProductProps {
+  product: Product;
+  loading?: boolean;
   onAddToCart: (product: Product, qty: number) => void;
 }
 
-export default function FeaturedProduct({ onAddToCart }: FeaturedProductProps) {
+export default function FeaturedProduct({ product: p, onAddToCart }: FeaturedProductProps) {
   const { ref, isVisible } = useScrollReveal();
   const [imgIndex, setImgIndex] = useState(0);
   const [added, setAdded] = useState(false);
-  const p = FEATURED_PRODUCT;
 
   const handleAdd = () => {
     onAddToCart(p, 1);

@@ -1,24 +1,39 @@
 import { useState, useCallback } from 'react';
 import type { Product, CartItem } from '../types';
+import { createCart, addToCart } from '../lib/shopify';
 
 export function useCart() {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [checkoutUrl, setCheckoutUrl] = useState<string | null>(null);
+  const [cartId, setCartId] = useState<string | null>(null);
 
-  const addItem = useCallback((product: Product, quantity = 1) => {
+  const addItem = useCallback(async (product: Product, quantity = 1) => {
     setItems(prev => {
       const existing = prev.find(i => i.product.id === product.id);
       if (existing) {
         return prev.map(i =>
-          i.product.id === product.id
-            ? { ...i, quantity: i.quantity + quantity }
-            : i
+          i.product.id === product.id ? { ...i, quantity: i.quantity + quantity } : i
         );
       }
       return [...prev, { product, quantity }];
     });
     setIsOpen(true);
-  }, []);
+
+    if (!product.variantId) return;
+    try {
+      if (!cartId) {
+        const cart = await createCart(product.variantId, quantity);
+        setCartId(cart.id);
+        setCheckoutUrl(cart.checkoutUrl);
+      } else {
+        const cart = await addToCart(cartId, product.variantId, quantity);
+        setCheckoutUrl(cart.checkoutUrl);
+      }
+    } catch (e) {
+      console.error('Shopify cart error', e);
+    }
+  }, [cartId]);
 
   const updateQuantity = useCallback((id: string, qty: number) => {
     if (qty < 1) return removeItem(id);
@@ -32,5 +47,5 @@ export function useCart() {
   const totalItems = items.reduce((s, i) => s + i.quantity, 0);
   const subtotal = items.reduce((s, i) => s + i.product.price * i.quantity, 0);
 
-  return { items, isOpen, setIsOpen, addItem, updateQuantity, removeItem, totalItems, subtotal };
+  return { items, isOpen, setIsOpen, addItem, updateQuantity, removeItem, totalItems, subtotal, checkoutUrl };
 }

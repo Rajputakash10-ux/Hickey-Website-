@@ -9,6 +9,7 @@ import ExperiencePage from './pages/ExperiencePage';
 import JournalPage from './pages/JournalPage';
 import AboutPage from './pages/AboutPage';
 import { useCart } from './hooks/useCart';
+import { useShopifyProducts } from './hooks/useShopifyProducts';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -18,14 +19,35 @@ function ScrollToTop() {
 
 function AppContent() {
   const cart = useCart();
+  const { products, featured, loading } = useShopifyProducts();
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar cartCount={cart.totalItems} onCartOpen={() => cart.setIsOpen(true)} />
 
       <Routes>
-        <Route path="/" element={<HomePage onAddToCart={cart.addItem} onCartOpen={() => cart.setIsOpen(true)} />} />
-        <Route path="/shop" element={<ShopPage onAddToCart={cart.addItem} />} />
+        <Route
+          path="/"
+          element={
+            <HomePage
+              featured={featured}
+              products={products}
+              loading={loading}
+              onAddToCart={cart.addItem}
+              onCartOpen={() => cart.setIsOpen(true)}
+            />
+          }
+        />
+        <Route
+          path="/shop"
+          element={
+            <ShopPage
+              products={products}
+              loading={loading}
+              onAddToCart={cart.addItem}
+            />
+          }
+        />
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/journal" element={<JournalPage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -40,6 +62,7 @@ function AppContent() {
         subtotal={cart.subtotal}
         onUpdateQuantity={cart.updateQuantity}
         onRemove={cart.removeItem}
+        checkoutUrl={cart.checkoutUrl}
       />
     </div>
   );

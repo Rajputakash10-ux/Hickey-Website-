@@ -12,17 +12,20 @@ import Journal from '../components/Journal';
 import Newsletter from '../components/Newsletter';
 
 interface HomePageProps {
+  featured: Product;
+  products: Product[];
+  loading: boolean;
   onAddToCart: (product: Product, qty: number) => void;
   onCartOpen: () => void;
 }
 
-export default function HomePage({ onAddToCart, onCartOpen }: HomePageProps) {
+export default function HomePage({ featured, products, loading, onAddToCart, onCartOpen }: HomePageProps) {
   return (
     <main>
-      <Hero onAddToCart={() => { onAddToCart({ id: 'velvet-hour-kit', title: 'The Velvet Hour', subtitle: 'Evening Ritual Kit', description: '', price: 1899, compareAtPrice: 2499, images: [{ src: '/assets/hickey-hero.jpg', alt: 'The Velvet Hour' }], category: 'kits', available: true }, 1); onCartOpen(); }} />
+      <Hero onAddToCart={() => { onAddToCart(featured, 1); onCartOpen(); }} />
       <FeatureBar />
-      <FeaturedProduct onAddToCart={onAddToCart} />
-      <ProductCollection onAddToCart={onAddToCart} />
+      <FeaturedProduct product={featured} loading={loading} onAddToCart={onAddToCart} />
+      <ProductCollection products={products} loading={loading} onAddToCart={onAddToCart} />
       <HowItWorks />
       <Statistics />
       <Testimonials />

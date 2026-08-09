@@ -10,9 +10,10 @@ interface CartDrawerProps {
   subtotal: number;
   onUpdateQuantity: (id: string, qty: number) => void;
   onRemove: (id: string) => void;
+  checkoutUrl?: string | null;
 }
 
-export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQuantity, onRemove }: CartDrawerProps) {
+export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQuantity, onRemove, checkoutUrl }: CartDrawerProps) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -109,7 +110,13 @@ export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQ
                   <span className="font-serif text-2xl text-gold-400">{CURRENCY}{subtotal.toLocaleString('en-IN')}</span>
                 </div>
                 <p className="font-sans text-xs text-cream-400 opacity-40">Shipping calculated at checkout</p>
-                <button className="btn-primary w-full py-3.5">Proceed to Checkout</button>
+                <a
+                  href={checkoutUrl ?? '#'}
+                  className="btn-primary w-full py-3.5 text-center block"
+                  onClick={!checkoutUrl ? (e) => e.preventDefault() : undefined}
+                >
+                  Proceed to Checkout
+                </a>
                 <button onClick={onClose} className="w-full text-center font-sans text-xs tracking-widest uppercase text-cream-300 opacity-50 hover:opacity-100 hover:text-gold-400 transition-all py-2">
                   Continue Shopping
                 </button>
