@@ -2,11 +2,9 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-interface FinalCTAProps {
-  onShopClick: () => void;
-}
+import { Link } from 'react-router-dom';
 
-export default function FinalCTA({ onShopClick }: FinalCTAProps) {
+export default function FinalCTA() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
@@ -36,14 +34,13 @@ export default function FinalCTA({ onShopClick }: FinalCTAProps) {
           <p className="font-sans text-cream-300 leading-relaxed" style={{ fontSize: '0.95rem', opacity: 0.65 }}>
             Premium dark chocolate. Free scratch card. Discreet delivery.
           </p>
-          <motion.button
-            onClick={onShopClick}
+          <Link
+            to="/shop"
             className="btn-gold gap-2"
-            style={{ minHeight: 54, fontSize: '0.72rem', paddingLeft: '2.5rem', paddingRight: '2.5rem' }}
-            whileTap={{ scale: 0.97 }}
+            style={{ minHeight: 54, fontSize: '0.72rem', paddingLeft: '2.5rem', paddingRight: '2.5rem', display: 'inline-flex', alignItems: 'center' }}
           >
             Shop HICKEY <ArrowRight size={14} />
-          </motion.button>
+          </Link>
           <p className="font-sans text-cream-400" style={{ fontSize: '0.72rem', opacity: 0.4 }}>
             ₹599 · Free shipping · Ships within 24h
           </p>

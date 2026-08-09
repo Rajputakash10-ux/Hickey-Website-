@@ -2,11 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-interface HeroProps {
-  onShopClick: () => void;
-}
-
-export default function Hero({ onShopClick }: HeroProps) {
+export default function Hero() {
   return (
     <section
       className="relative w-full overflow-hidden"
@@ -51,8 +47,8 @@ export default function Hero({ onShopClick }: HeroProps) {
 
           <div className="flex flex-col sm:flex-row gap-3 pt-1">
             <button
-              onClick={onShopClick}
               className="btn-gold gap-2 justify-center"
+              onClick={() => document.getElementById('product')?.scrollIntoView({ behavior: 'smooth' })}
               style={{ minHeight: 52, fontSize: '0.7rem' }}
             >
               Shop HICKEY <ArrowRight size={14} />

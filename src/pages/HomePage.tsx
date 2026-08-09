@@ -24,7 +24,7 @@ interface HomePageProps {
 export default function HomePage({ featured, onAddToCart, onCartOpen }: HomePageProps) {
   return (
     <main>
-      <Hero onAddToCart={() => { onAddToCart(featured, 1); onCartOpen(); }} />
+      <Hero />
       <TrustStrip />
       <ProductSection product={featured} onAddToCart={onAddToCart} />
       <ExperienceSteps />
