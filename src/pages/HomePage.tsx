@@ -8,8 +8,6 @@ import HowItWorks from '../components/HowItWorks';
 import Statistics from '../components/Statistics';
 import Testimonials from '../components/Testimonials';
 import FreeExperience from '../components/FreeExperience';
-import Events from '../components/Events';
-import Journal from '../components/Journal';
 import Newsletter from '../components/Newsletter';
 
 interface HomePageProps {
@@ -32,8 +30,6 @@ export default function HomePage({ featured, products, loading, onAddToCart, onC
       <Statistics />
       <Testimonials />
       <FreeExperience />
-      <Events />
-      <Journal />
       <Newsletter />
     </main>
   );
