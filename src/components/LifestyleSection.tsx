@@ -28,7 +28,7 @@ export default function LifestyleSection() {
         aria-hidden="true"
       >
         <motion.img
-          src="/src/assets/hickey-2.png"
+          src="/assets/hickey-2.png"
           alt=""
           className="h-full w-auto object-contain opacity-20"
           style={{ maxWidth: '60%', filter: 'blur(1px)' }}

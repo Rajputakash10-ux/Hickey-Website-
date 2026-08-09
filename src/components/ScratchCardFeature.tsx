@@ -58,7 +58,7 @@ export default function ScratchCardFeature() {
                 style={{ filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.6))' }}
               >
                 <img
-                  src="/src/assets/hickey-4.png"
+                  src="/assets/hickey-4.png"
                   alt="HICKEY Secret Position Scratch Card — free with every pack"
                   className="w-full h-auto object-contain"
                 />

@@ -154,7 +154,7 @@ export default function Hero(_props: HeroProps) {
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
             >
               <img
-                src="/src/assets/hickey-1.png"
+                src="/assets/hickey-1.png"
                 alt="HICKEY Intimacy Dark Chocolate — 60g premium pack"
                 className="w-full h-auto object-contain"
                 style={{ filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.6))' }}
@@ -171,7 +171,7 @@ export default function Hero(_props: HeroProps) {
               whileHover={{ rotate: 3, scale: 1.04, transition: { duration: 0.3 } }}
             >
               <img
-                src="/src/assets/hickey-4.png"
+                src="/assets/hickey-4.png"
                 alt="HICKEY Secret Position Scratch Card — free with every pack"
                 className="w-full h-auto object-contain"
                 style={{ filter: 'drop-shadow(0 12px 30px rgba(0,0,0,0.5))' }}
@@ -202,7 +202,7 @@ export default function Hero(_props: HeroProps) {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <img
-                src="/src/assets/hickey-3.png"
+                src="/assets/hickey-3.png"
                 alt="HICKEY dark chocolate pieces"
                 className="w-full h-auto object-contain"
                 style={{ filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.4))' }}
