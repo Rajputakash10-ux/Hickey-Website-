@@ -18,7 +18,9 @@ export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQ
 
   const handleCheckout = () => {
     if (checkoutUrl) {
-      window.location.href = checkoutUrl;
+      const url = new URL(checkoutUrl);
+      url.hostname = '2t2ym7-dv.myshopify.com';
+      window.location.href = url.toString();
     }
   };
   return (
