@@ -2,26 +2,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 
 const SLIDES = [
-  '/assets/etx-1.png', '/assets/etx-2.png', '/assets/etx-3.png',
-  '/assets/etx-4.png', '/assets/etx-5.png', '/assets/etx-6.png',
-  '/assets/hickey-1.png', '/assets/hickey-2.png', '/assets/hickey-3.png',
-  '/assets/hickey-4.png', '/assets/hickey-5.png', '/assets/hickey-6.png',
+  '/assets/neimage/file_000000002914820bb4d33fa9e2d3e9ca.png',
+  '/assets/neimage/file_000000002e64820b860bf6a5eb1ebb67.png',
+  '/assets/neimage/file_000000004118820b84c9a2baedfca2d6.png',
+  '/assets/neimage/file_00000000823c820b94eb679898635077.png',
 ];
 
-// Alternate Ken Burns zoom direction per slide
 const KB = [
   { scale: [1.08, 1.0], origin: '60% 40%' },
   { scale: [1.0, 1.08], origin: '40% 60%' },
   { scale: [1.1, 1.02], origin: '50% 30%' },
   { scale: [1.02, 1.1], origin: '55% 55%' },
-  { scale: [1.08, 1.0], origin: '45% 50%' },
-  { scale: [1.0, 1.08], origin: '50% 45%' },
-  { scale: [1.06, 1.0], origin: '60% 50%' },
-  { scale: [1.0, 1.06], origin: '40% 50%' },
-  { scale: [1.08, 1.02], origin: '50% 60%' },
-  { scale: [1.02, 1.08], origin: '50% 40%' },
-  { scale: [1.06, 1.0], origin: '55% 45%' },
-  { scale: [1.0, 1.06], origin: '45% 55%' },
 ];
 
 const DURATION = 3200; // ms per slide
