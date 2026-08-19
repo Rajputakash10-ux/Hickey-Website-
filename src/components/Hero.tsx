@@ -86,33 +86,27 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Social proof */}
+          {/* Product rating */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex items-center gap-3 pt-1"
+            className="flex items-center gap-4 pt-1"
           >
-            <div className="flex -space-x-1.5">
-              {['PM', 'AN', 'RS', 'KR'].map((initials, i) => (
-                <div
-                  key={i}
-                  className="w-7 h-7 rounded-full flex items-center justify-center font-sans font-bold"
-                  style={{ fontSize: '0.45rem', background: `hsl(${280 + i * 15}, 40%, ${28 + i * 4}%)`, border: '1.5px solid #160D1E', color: 'var(--color-cream-200)', letterSpacing: '0.05em' }}
-                >
-                  {initials}
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center gap-1.5">
-              <div className="flex gap-0.5" aria-label="5 star rating">
+            <div className="flex flex-col gap-0.5">
+              <div className="flex gap-0.5" aria-label="4.9 out of 5 stars">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={10} fill="var(--color-gold-500)" stroke="none" aria-hidden="true" />
+                  <Star key={i} size={12} fill="var(--color-gold-500)" stroke="none" aria-hidden="true" />
                 ))}
               </div>
-              <span className="font-sans text-cream-400" style={{ fontSize: '0.72rem', opacity: 0.6 }}>
-                Loved by 14,000+ couples
+              <span className="font-sans text-cream-400" style={{ fontSize: '0.68rem', opacity: 0.55 }}>
+                4.9 / 5 · 200+ verified reviews
               </span>
+            </div>
+            <div style={{ width: 1, height: 28, background: 'rgba(201,164,92,0.2)' }} />
+            <div className="flex flex-col gap-0.5">
+              <span className="font-serif text-gold-400 font-light" style={{ fontSize: '1.1rem', lineHeight: 1 }}>14K+</span>
+              <span className="font-sans text-cream-400" style={{ fontSize: '0.68rem', opacity: 0.55 }}>Happy couples</span>
             </div>
           </motion.div>
         </motion.div>

@@ -42,7 +42,7 @@ export default function WhyHickey() {
         >
           <span className="section-label">Why HICKEY</span>
           <h2 className="heading-display mt-3" style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)' }}>
-            Not just a chocolate.
+            Why HICKEY?
           </h2>
         </motion.div>
 

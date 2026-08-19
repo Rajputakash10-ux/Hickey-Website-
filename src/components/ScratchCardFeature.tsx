@@ -19,7 +19,6 @@ export default function ScratchCardFeature() {
       }}
       aria-label="Secret Position Scratch Card"
     >
-      {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 50% 60% at 50% 50%, rgba(201,164,92,0.06) 0%, transparent 70%)' }}
@@ -36,47 +35,36 @@ export default function ScratchCardFeature() {
             transition={{ duration: 0.8 }}
             className="flex items-center justify-center order-2 lg:order-1"
           >
-            <div className="relative" style={{ maxWidth: 360, width: '100%' }}>
-              {/* Glow */}
+            <div className="relative" style={{ maxWidth: 380, width: '100%' }}>
               <div
-                className="absolute inset-0 rounded-2xl pointer-events-none"
-                style={{
-                  background: 'radial-gradient(circle, rgba(201,164,92,0.15) 0%, transparent 70%)',
-                  filter: 'blur(30px)',
-                  transform: 'scale(1.2)',
-                }}
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: 'radial-gradient(circle, rgba(201,164,92,0.15) 0%, transparent 70%)', filter: 'blur(30px)', transform: 'scale(1.2)' }}
                 aria-hidden="true"
               />
 
-              {/* Card */}
               <motion.div
-                className="relative cursor-pointer"
+                className="relative cursor-pointer overflow-hidden"
                 onHoverStart={() => setHovered(true)}
                 onHoverEnd={() => setHovered(false)}
-                animate={hovered ? { rotate: [-2, 2, -1, 1, 0], scale: 1.03 } : { rotate: 0, scale: 1 }}
+                animate={hovered ? { scale: 1.03 } : { scale: 1 }}
                 transition={{ duration: 0.4 }}
-                style={{ filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.6))' }}
+                style={{ filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.6))', border: '1px solid rgba(201,164,92,0.15)' }}
               >
                 <img
-                  src="/assets/hickey-4.png"
+                  src="/assets/hickey-scratch.jpg"
                   alt="HICKEY Secret Position Scratch Card — free with every pack"
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto object-cover"
+                  style={{ aspectRatio: '3/4', objectPosition: 'center' }}
                 />
-
-                {/* Scratch shimmer overlay on hover */}
                 <motion.div
-                  className="absolute inset-0 rounded-lg pointer-events-none"
+                  className="absolute inset-0 pointer-events-none"
                   animate={hovered ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  style={{
-                    background: 'linear-gradient(135deg, transparent 30%, rgba(201,164,92,0.15) 50%, transparent 70%)',
-                    backgroundSize: '200% 200%',
-                  }}
+                  style={{ background: 'linear-gradient(135deg, transparent 30%, rgba(201,164,92,0.12) 50%, transparent 70%)' }}
                   aria-hidden="true"
                 />
               </motion.div>
 
-              {/* FREE badge */}
               <motion.div
                 className="absolute flex flex-col items-center justify-center rounded-full"
                 style={{
@@ -94,7 +82,6 @@ export default function ScratchCardFeature() {
                 </span>
               </motion.div>
 
-              {/* Hover hint */}
               <motion.p
                 className="text-center font-sans mt-4"
                 animate={hovered ? { opacity: 1 } : { opacity: 0.4 }}
@@ -140,14 +127,7 @@ export default function ScratchCardFeature() {
                 >
                   <div
                     className="flex items-center justify-center rounded-full flex-shrink-0 font-sans font-bold"
-                    style={{
-                      width: 36, height: 36,
-                      background: 'rgba(201,164,92,0.1)',
-                      border: '1px solid rgba(201,164,92,0.25)',
-                      fontSize: '0.65rem',
-                      color: 'var(--color-gold-500)',
-                      letterSpacing: '0.05em',
-                    }}
+                    style={{ width: 36, height: 36, background: 'rgba(201,164,92,0.1)', border: '1px solid rgba(201,164,92,0.25)', fontSize: '0.65rem', color: 'var(--color-gold-500)', letterSpacing: '0.05em' }}
                   >
                     {String(i + 1).padStart(2, '0')}
                   </div>
@@ -159,11 +139,7 @@ export default function ScratchCardFeature() {
               ))}
             </div>
 
-            <Link
-              to="/shop"
-              className="btn-gold gap-2 self-start"
-              style={{ minHeight: 50, fontSize: '0.68rem' }}
-            >
+            <Link to="/shop" className="btn-gold gap-2 self-start" style={{ minHeight: 50, fontSize: '0.68rem' }}>
               Reveal the Experience <ArrowRight size={13} />
             </Link>
           </motion.div>

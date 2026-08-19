@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Menu, X } from 'lucide-react';
+import { ShoppingBag, Menu, X, Star } from 'lucide-react';
 
 interface NavbarProps {
   cartCount: number;
@@ -13,6 +13,17 @@ const NAV = [
   { label: 'Why HICKEY', href: '/#why-hickey' },
   { label: 'How It Works', href: '/#how-it-works' },
   { label: 'FAQ', href: '/#faq' },
+];
+
+const MARQUEE_PHOTOS = [
+  '/assets/etx-1.png',
+  '/assets/etx-2.png',
+  '/assets/etx-3.png',
+  '/assets/etx-4.png',
+  '/assets/etx-1.png',
+  '/assets/etx-2.png',
+  '/assets/etx-3.png',
+  '/assets/etx-4.png',
 ];
 
 export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
@@ -113,13 +124,7 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                 {cartCount > 0 && (
                   <span
                     className="absolute flex items-center justify-center rounded-full font-sans font-bold"
-                    style={{
-                      top: 8, right: 8,
-                      width: 15, height: 15,
-                      fontSize: 8,
-                      background: 'var(--color-gold-500)',
-                      color: '#160D1E',
-                    }}
+                    style={{ top: 8, right: 8, width: 15, height: 15, fontSize: 8, background: 'var(--color-gold-500)', color: '#160D1E' }}
                   >
                     {cartCount}
                   </span>
@@ -137,6 +142,39 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
             </div>
           </div>
         </div>
+
+        {/* Photo marquee strip — visible when scrolled */}
+        <AnimatePresence>
+          {scrolled && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 52, opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+              style={{ borderTop: '1px solid rgba(201,164,92,0.08)' }}
+            >
+              <div
+                className="flex items-center gap-2 h-full"
+                style={{ animation: 'marqueeLeft 18s linear infinite', width: 'max-content' }}
+              >
+                {MARQUEE_PHOTOS.map((src, i) => (
+                  <div
+                    key={i}
+                    className="flex-shrink-0 overflow-hidden"
+                    style={{
+                      width: 44, height: 44,
+                      border: '1px solid rgba(201,164,92,0.15)',
+                      background: '#321D3D',
+                    }}
+                  >
+                    <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" aria-hidden="true" />
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Mobile menu */}
@@ -150,6 +188,14 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
             className="fixed inset-0 z-40 lg:hidden flex flex-col"
             style={{ background: '#160D1E', paddingTop: 64 }}
           >
+            {/* Rating strip in mobile menu */}
+            <div className="flex items-center justify-center gap-2 py-3" style={{ borderBottom: '1px solid rgba(201,164,92,0.08)' }}>
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => <Star key={i} size={10} fill="var(--color-gold-500)" stroke="none" />)}
+              </div>
+              <span className="font-sans text-cream-400" style={{ fontSize: '0.65rem', opacity: 0.6 }}>4.9 · 14,000+ couples</span>
+            </div>
+
             <nav className="flex flex-col flex-1 justify-center px-8 gap-0" aria-label="Mobile navigation">
               {NAV.map((link, i) => (
                 <motion.div
@@ -160,19 +206,12 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                   style={{ borderBottom: '1px solid rgba(201,164,92,0.07)' }}
                 >
                   {link.href.startsWith('/#') ? (
-                    <button
-                      onClick={() => handleAnchor(link.href)}
-                      className="w-full text-left py-5 bg-transparent border-none cursor-pointer"
-                    >
-                      <span className="font-serif font-light text-cream-100" style={{ fontSize: 'clamp(1.6rem, 6vw, 2.2rem)' }}>
-                        {link.label}
-                      </span>
+                    <button onClick={() => handleAnchor(link.href)} className="w-full text-left py-5 bg-transparent border-none cursor-pointer">
+                      <span className="font-serif font-light text-cream-100" style={{ fontSize: 'clamp(1.6rem, 6vw, 2.2rem)' }}>{link.label}</span>
                     </button>
                   ) : (
                     <Link to={link.href} className="block py-5">
-                      <span className="font-serif font-light text-cream-100" style={{ fontSize: 'clamp(1.6rem, 6vw, 2.2rem)' }}>
-                        {link.label}
-                      </span>
+                      <span className="font-serif font-light text-cream-100" style={{ fontSize: 'clamp(1.6rem, 6vw, 2.2rem)' }}>{link.label}</span>
                     </Link>
                   )}
                 </motion.div>
