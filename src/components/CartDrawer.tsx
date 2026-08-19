@@ -128,8 +128,24 @@ export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQ
                   className="btn-gold w-full py-4"
                   style={{ fontSize: '0.7rem', opacity: (!checkoutUrl || checkoutLoading) ? 0.6 : 1, cursor: (!checkoutUrl || checkoutLoading) ? 'not-allowed' : 'pointer' }}
                 >
-                  {checkoutLoading ? 'Preparing Checkout…' : 'Checkout'}
+                  {checkoutLoading ? 'Preparing Checkout…' : 'Proceed to Checkout →'}
                 </button>
+
+                {/* Payment trust badges */}
+                <div className="flex flex-col items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap justify-center">
+                    {['UPI', 'Razorpay', 'Visa', 'Mastercard', 'NetBanking'].map(method => (
+                      <span
+                        key={method}
+                        className="font-sans text-[9px] tracking-wide uppercase px-2 py-1"
+                        style={{ border: '1px solid rgba(201,164,92,0.15)', color: 'rgba(244,237,227,0.4)', background: 'rgba(201,164,92,0.04)' }}
+                      >
+                        {method}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="font-sans text-[10px] text-cream-400 opacity-30">🔒 Secure checkout powered by Shopify</p>
+                </div>
                 <button onClick={onClose} className="w-full text-center font-sans text-xs tracking-widest uppercase text-cream-300 opacity-40 hover:opacity-80 hover:text-gold-400 transition-all py-2">
                   Continue Shopping
                 </button>
