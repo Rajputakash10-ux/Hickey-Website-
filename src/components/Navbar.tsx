@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Menu, X, Star } from 'lucide-react';
+import { ShoppingBag, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   cartCount: number;
@@ -13,17 +13,6 @@ const NAV = [
   { label: 'Why HICKEY', href: '/#why-hickey' },
   { label: 'How It Works', href: '/#how-it-works' },
   { label: 'FAQ', href: '/#faq' },
-];
-
-const MARQUEE_PHOTOS = [
-  '/assets/etx-1.png',
-  '/assets/etx-2.png',
-  '/assets/etx-3.png',
-  '/assets/etx-4.png',
-  '/assets/etx-1.png',
-  '/assets/etx-2.png',
-  '/assets/etx-3.png',
-  '/assets/etx-4.png',
 ];
 
 export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
@@ -55,17 +44,17 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
   return (
     <>
       <header
-        className="fixed left-0 right-0 top-0 z-50 transition-all duration-400"
+        className="fixed left-0 right-0 top-0 z-50"
         style={{
           background: scrolled ? 'rgba(22,13,30,0.95)' : 'transparent',
           backdropFilter: scrolled ? 'blur(16px)' : 'none',
           borderBottom: scrolled ? '1px solid rgba(201,164,92,0.08)' : 'none',
+          transition: 'background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease',
         }}
       >
         <div className="container-site">
           <div className="flex items-center justify-between" style={{ height: scrolled ? 56 : 64, transition: 'height 0.3s ease' }}>
 
-            {/* Logo */}
             <Link to="/" className="flex flex-col leading-none flex-shrink-0" aria-label="HICKEY Home">
               <span className="font-serif font-light tracking-[0.22em] text-cream-100" style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.35rem)' }}>
                 HICKEY
@@ -75,7 +64,6 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
               </span>
             </Link>
 
-            {/* Desktop nav */}
             <nav className="hidden lg:flex items-center gap-7" aria-label="Main navigation">
               {NAV.map(link =>
                 link.href.startsWith('/#') ? (
@@ -104,16 +92,10 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
               )}
             </nav>
 
-            {/* Right */}
             <div className="flex items-center gap-1">
-              <Link
-                to="/shop"
-                className="btn-gold hidden lg:inline-flex"
-                style={{ fontSize: '0.6rem', padding: '0.55rem 1.3rem' }}
-              >
+              <Link to="/shop" className="btn-gold hidden lg:inline-flex" style={{ fontSize: '0.6rem', padding: '0.55rem 1.3rem' }}>
                 Shop HICKEY
               </Link>
-
               <button
                 aria-label={`Cart — ${cartCount} item${cartCount !== 1 ? 's' : ''}`}
                 onClick={onCartOpen}
@@ -130,7 +112,6 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                   </span>
                 )}
               </button>
-
               <button
                 aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                 onClick={() => setMenuOpen(v => !v)}
@@ -142,42 +123,8 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
             </div>
           </div>
         </div>
-
-        {/* Photo marquee strip — visible when scrolled */}
-        <AnimatePresence>
-          {scrolled && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 52, opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden"
-              style={{ borderTop: '1px solid rgba(201,164,92,0.08)' }}
-            >
-              <div
-                className="flex items-center gap-2 h-full"
-                style={{ animation: 'marqueeLeft 18s linear infinite', width: 'max-content' }}
-              >
-                {MARQUEE_PHOTOS.map((src, i) => (
-                  <div
-                    key={i}
-                    className="flex-shrink-0 overflow-hidden"
-                    style={{
-                      width: 44, height: 44,
-                      border: '1px solid rgba(201,164,92,0.15)',
-                      background: '#321D3D',
-                    }}
-                  >
-                    <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" aria-hidden="true" />
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </header>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -188,14 +135,6 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
             className="fixed inset-0 z-40 lg:hidden flex flex-col"
             style={{ background: '#160D1E', paddingTop: 64 }}
           >
-            {/* Rating strip in mobile menu */}
-            <div className="flex items-center justify-center gap-2 py-3" style={{ borderBottom: '1px solid rgba(201,164,92,0.08)' }}>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => <Star key={i} size={10} fill="var(--color-gold-500)" stroke="none" />)}
-              </div>
-              <span className="font-sans text-cream-400" style={{ fontSize: '0.65rem', opacity: 0.6 }}>4.9 · 14,000+ couples</span>
-            </div>
-
             <nav className="flex flex-col flex-1 justify-center px-8 gap-0" aria-label="Mobile navigation">
               {NAV.map((link, i) => (
                 <motion.div
@@ -217,7 +156,6 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                 </motion.div>
               ))}
             </nav>
-
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
