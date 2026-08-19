@@ -1,3 +1,15 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "redirects": [
+    {
+      "source": "/cart/c/:path*",
+      "destination": "https://checkout.hickey.co.in/cart/c/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/checkouts/:path*",
+      "destination": "https://checkout.hickey.co.in/checkouts/:path*",
+      "permanent": false
+    }
+  ]
 }
