@@ -1,5 +1,5 @@
 const DOMAIN = '2t2ym7-dv.myshopify.com';
-const TOKEN = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN as string;
+const TOKEN = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN || '06850c7ac6b0cf16756b92419ee485e0';
 const ENDPOINT = `https://${DOMAIN}/api/2026-07/graphql.json`;
 
 async function shopifyFetch<T>(query: string): Promise<T> {
