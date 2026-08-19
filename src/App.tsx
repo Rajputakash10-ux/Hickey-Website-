@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import AnnouncementBar from './components/AnnouncementBar';
 import Navbar from './components/Navbar';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
@@ -22,7 +21,6 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen" style={{ overflowX: 'hidden' }}>
-      <AnnouncementBar />
       <Navbar cartCount={cart.totalItems} onCartOpen={() => cart.setIsOpen(true)} />
 
       <Routes>
