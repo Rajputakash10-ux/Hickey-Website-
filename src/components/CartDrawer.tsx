@@ -19,7 +19,8 @@ export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQ
   const handleCheckout = () => {
     if (checkoutUrl) {
       const url = new URL(checkoutUrl);
-      url.hostname = '2t2ym7-dv.myshopify.com';
+      url.hostname = 'checkout.hickey.co.in';
+      url.port = '';
       window.location.href = url.toString();
     }
   };
