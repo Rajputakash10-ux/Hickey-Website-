@@ -1,17 +1,3 @@
 {
-  "redirects": [
-    {
-      "source": "/cart/:path*",
-      "destination": "https://checkout.hickey.co.in/cart/:path*",
-      "permanent": false
-    },
-    {
-      "source": "/checkouts/:path*",
-      "destination": "https://checkout.hickey.co.in/checkouts/:path*",
-      "permanent": false
-    }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
