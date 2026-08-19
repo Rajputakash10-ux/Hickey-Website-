@@ -78,13 +78,6 @@ export interface ShopifyCart {
   checkoutUrl: string;
 }
 
-function toCheckoutDomain(rawUrl: string): string {
-  const url = new URL(rawUrl);
-  url.hostname = 'checkout.hickey.co.in';
-  url.port = '';
-  return url.toString();
-}
-
 export async function createCart(variantId: string, quantity: number): Promise<ShopifyCart> {
   const data = await shopifyFetch<{ cartCreate: { cart: ShopifyCart } }>(`
     mutation {
@@ -93,8 +86,7 @@ export async function createCart(variantId: string, quantity: number): Promise<S
       }
     }
   `);
-  const cart = data.cartCreate.cart;
-  return { ...cart, checkoutUrl: toCheckoutDomain(cart.checkoutUrl) };
+  return data.cartCreate.cart;
 }
 
 export async function addToCart(cartId: string, variantId: string, quantity: number): Promise<ShopifyCart> {
@@ -105,8 +97,7 @@ export async function addToCart(cartId: string, variantId: string, quantity: num
       }
     }
   `);
-  const cart = data.cartLinesAdd.cart;
-  return { ...cart, checkoutUrl: toCheckoutDomain(cart.checkoutUrl) };
+  return data.cartLinesAdd.cart;
 }
 
 // ── Map Shopify product → local Product shape ──────────────────────────────────
