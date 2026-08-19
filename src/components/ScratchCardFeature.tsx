@@ -42,27 +42,35 @@ export default function ScratchCardFeature() {
                 aria-hidden="true"
               />
 
+              {/* Golden shine border wrapper */}
               <motion.div
-                className="relative cursor-pointer overflow-hidden"
+                className="relative cursor-pointer"
                 onHoverStart={() => setHovered(true)}
                 onHoverEnd={() => setHovered(false)}
                 animate={hovered ? { scale: 1.03 } : { scale: 1 }}
                 transition={{ duration: 0.4 }}
-                style={{ filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.6))', border: '1px solid rgba(201,164,92,0.15)' }}
+                style={{ padding: 2, background: 'linear-gradient(135deg, rgba(201,164,92,0.9) 0%, rgba(244,237,227,0.3) 30%, rgba(201,164,92,0.1) 50%, rgba(244,237,227,0.3) 70%, rgba(201,164,92,0.9) 100%)' }}
               >
-                <img
-                  src="/assets/hickey-scratch.jpg"
-                  alt="HICKEY Secret Position Scratch Card — free with every pack"
-                  className="w-full h-auto object-cover"
-                  style={{ aspectRatio: '3/4', objectPosition: 'center' }}
-                />
+                {/* Animated shimmer overlay on border */}
                 <motion.div
                   className="absolute inset-0 pointer-events-none"
-                  animate={hovered ? { opacity: 1 } : { opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ background: 'linear-gradient(135deg, transparent 30%, rgba(201,164,92,0.12) 50%, transparent 70%)' }}
+                  animate={{ backgroundPosition: hovered ? '200% center' : '0% center' }}
+                  transition={{ duration: 0.8, ease: 'easeInOut' }}
+                  style={{
+                    background: 'linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.25) 50%, transparent 70%)',
+                    backgroundSize: '200% 100%',
+                    zIndex: 10,
+                  }}
                   aria-hidden="true"
                 />
+                <div className="overflow-hidden" style={{ filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.7))' }}>
+                  <img
+                    src="/assets/neimage/file_000000003b68821183c2f674559e55d2.png"
+                    alt="HICKEY Secret Position Scratch Card — free with every pack"
+                    className="w-full h-auto object-cover block"
+                    style={{ aspectRatio: '3/4', objectPosition: 'center', display: 'block' }}
+                  />
+                </div>
               </motion.div>
 
               <motion.div
