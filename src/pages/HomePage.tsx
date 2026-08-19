@@ -7,7 +7,6 @@ import ScratchCardFeature from '../components/ScratchCardFeature';
 import IngredientsSection from '../components/IngredientsSection';
 import WhyHickey from '../components/WhyHickey';
 import LifestyleSection from '../components/LifestyleSection';
-import HowItWorks from '../components/HowItWorks';
 import Testimonials from '../components/Testimonials';
 import FAQSection from '../components/FAQSection';
 import FinalCTA from '../components/FinalCTA';
@@ -32,7 +31,6 @@ export default function HomePage({ featured, onAddToCart }: HomePageProps) {
       <IngredientsSection />
       <WhyHickey />
       <LifestyleSection />
-      <HowItWorks />
       <Testimonials />
       <FAQSection />
       <FinalCTA />

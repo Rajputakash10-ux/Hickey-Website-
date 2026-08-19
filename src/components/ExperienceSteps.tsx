@@ -3,12 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const SLIDES = [
-  { img: '/assets/etx-1.png', alt: 'HICKEY product — front view' },
-  { img: '/assets/etx-2.png', alt: 'HICKEY product — detail' },
-  { img: '/assets/etx-3.png', alt: 'HICKEY product — lifestyle' },
-  { img: '/assets/etx-4.png', alt: 'HICKEY product — packaging' },
-  { img: '/assets/etx-5.png', alt: 'HICKEY product — ingredients' },
-  { img: '/assets/etx-6.png', alt: 'HICKEY product — experience' },
+  { img: '/assets/neimage/file_000000004118820b84c9a2baedfca2d6.png', alt: 'HICKEY product — ingredients' },
+  { img: '/assets/neimage/file_00000000823c820b94eb679898635077.png', alt: 'HICKEY product — front view' },
+  { img: '/assets/neimage/file_000000002914820bb4d33fa9e2d3e9ca.png', alt: 'HICKEY product — detail' },
+  { img: '/assets/neimage/file_000000002e64820b860bf6a5eb1ebb67.png', alt: 'HICKEY product — lifestyle' },
+  { img: '/assets/etx-1.png', alt: 'HICKEY product — packaging' },
+  { img: '/assets/etx-2.png', alt: 'HICKEY product — ingredients' },
+  { img: '/assets/etx-3.png', alt: 'HICKEY product — experience' },
+  { img: '/assets/etx-4.png', alt: 'HICKEY product — experience' },
 ];
 
 const STATS = [
@@ -30,7 +32,7 @@ export default function ExperienceSteps() {
 
   return (
     <section
-      id="experience"
+      id="how-it-works"
       ref={ref as React.RefObject<HTMLElement>}
       className="overflow-hidden"
       style={{ background: '#321D3D', paddingTop: 'clamp(4rem, 10vw, 7rem)', paddingBottom: 'clamp(4rem, 10vw, 7rem)' }}
@@ -83,21 +85,30 @@ export default function ExperienceSteps() {
               >
                 {String(activeImg + 1).padStart(2, '0')} / {String(SLIDES.length).padStart(2, '0')}
               </div>
+              {/* Alt label */}
+              <div
+                className="absolute bottom-3 left-3 font-sans"
+                style={{ fontSize: '0.55rem', letterSpacing: '0.12em', color: 'rgba(244,237,227,0.45)', background: 'rgba(22,13,30,0.7)', padding: '4px 8px', textTransform: 'uppercase' }}
+              >
+                {SLIDES[activeImg].alt}
+              </div>
             </div>
 
             {/* Thumbnails */}
-            <div className="flex gap-2 overflow-x-auto scrollbar-none">
+            <div className="flex gap-2 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
               {SLIDES.map((s, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveImg(i)}
-                  aria-label={`View image ${i + 1}`}
+                  aria-label={`View ${s.alt}`}
                   className="flex-shrink-0 overflow-hidden transition-all duration-200"
                   style={{
-                    width: 56, height: 56,
+                    width: 52, height: 52,
                     border: `1px solid ${i === activeImg ? 'var(--color-gold-500)' : 'rgba(201,164,92,0.12)'}`,
                     background: '#40234B',
-                    opacity: i === activeImg ? 1 : 0.55,
+                    opacity: i === activeImg ? 1 : 0.5,
+                    boxShadow: i === activeImg ? '0 0 8px rgba(201,164,92,0.3)' : 'none',
+                    transition: 'all 0.2s ease',
                   }}
                 >
                   <img src={s.img} alt={s.alt} className="w-full h-full object-cover" loading="lazy" />
@@ -117,7 +128,7 @@ export default function ExperienceSteps() {
                   style={{ background: '#321D3D' }}
                 >
                   <span className="font-serif text-gold-400 font-light" style={{ fontSize: 'clamp(1.1rem, 3vw, 1.5rem)', lineHeight: 1 }}>{stat.value}</span>
-                  <span className="font-sans text-cream-400 text-center mt-1" style={{ fontSize: '0.58rem', letterSpacing: '0.1em', opacity: 0.55, textTransform: 'uppercase' }}>{stat.label}</span>
+                  <span className="font-sans text-cream-400 text-center mt-1" style={{ fontSize: '0.55rem', letterSpacing: '0.1em', opacity: 0.55, textTransform: 'uppercase' }}>{stat.label}</span>
                 </motion.div>
               ))}
             </div>
@@ -128,7 +139,7 @@ export default function ExperienceSteps() {
             initial={{ opacity: 0, x: 30 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="flex flex-col gap-8 lg:pt-4"
+            className="flex flex-col gap-10 lg:pt-4"
           >
             {STEPS.map((step, i) => (
               <motion.div
@@ -141,30 +152,24 @@ export default function ExperienceSteps() {
                 <div
                   className="flex-shrink-0 flex items-center justify-center font-serif font-light"
                   style={{
-                    width: 56, height: 56,
+                    width: 58, height: 58,
                     border: '1px solid rgba(201,164,92,0.2)',
                     background: 'rgba(201,164,92,0.05)',
                     fontSize: '1.5rem',
-                    color: 'rgba(201,164,92,0.4)',
+                    color: 'rgba(201,164,92,0.5)',
                     lineHeight: 1,
                   }}
                 >
                   {step.num}
                 </div>
-                <div className="flex flex-col gap-1 pt-1">
+                <div className="flex flex-col gap-1.5 pt-1">
                   <h3 className="font-serif text-xl text-cream-100">{step.title}</h3>
                   <p className="font-sans text-sm text-cream-300 leading-relaxed" style={{ opacity: 0.6 }}>{step.desc}</p>
                 </div>
               </motion.div>
             ))}
-
-            {/* Connector line between steps */}
-            <div
-              className="absolute pointer-events-none"
-              style={{ left: 84, top: 0, bottom: 0, width: 1, background: 'linear-gradient(to bottom, transparent, rgba(201,164,92,0.1), transparent)' }}
-              aria-hidden="true"
-            />
           </motion.div>
+
         </div>
       </div>
     </section>
