@@ -47,17 +47,17 @@ export default function ProductSection({ product: p, onAddToCart }: ProductSecti
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
 
-          {/* Gallery */}
+          {/* Gallery — sticky on desktop */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="flex flex-col gap-3"
+            className="flex flex-col gap-3 lg:sticky lg:top-24"
           >
             {/* Main image */}
             <div
               className="relative overflow-hidden"
-              style={{ aspectRatio: '4/5', border: '1px solid rgba(201,164,92,0.12)', background: '#321D3D' }}
+              style={{ aspectRatio: '4/5', border: '1px solid rgba(201,164,92,0.12)', background: 'linear-gradient(135deg, #321D3D 0%, #24152F 100%)' }}
             >
               <AnimatePresence mode="wait">
                 <motion.img
@@ -73,10 +73,11 @@ export default function ProductSection({ product: p, onAddToCart }: ProductSecti
                 />
               </AnimatePresence>
               {p.badge && (
-                <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full" style={{ background: '#40234B', border: '1px solid rgba(201,164,92,0.2)' }}>
+                <div className="absolute top-4 left-4 px-3 py-1.5" style={{ background: 'rgba(22,13,30,0.85)', border: '1px solid rgba(201,164,92,0.25)', backdropFilter: 'blur(8px)' }}>
                   <span className="font-sans text-[9px] font-semibold tracking-widest uppercase text-gold-400">{p.badge}</span>
                 </div>
               )}
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(201,164,92,0.05) 0%, transparent 70%)' }} aria-hidden="true" />
             </div>
 
             {/* Thumbnails */}
@@ -91,7 +92,7 @@ export default function ProductSection({ product: p, onAddToCart }: ProductSecti
                     width: 64, height: 64,
                     border: `1px solid ${i === imgIndex ? 'var(--color-gold-500)' : 'rgba(201,164,92,0.12)'}`,
                     background: '#321D3D',
-                    opacity: i === imgIndex ? 1 : 0.6,
+                    opacity: i === imgIndex ? 1 : 0.55,
                   }}
                 >
                   <img src={img.src} alt={img.alt} className="w-full h-full object-contain p-1" />
@@ -117,9 +118,10 @@ export default function ProductSection({ product: p, onAddToCart }: ProductSecti
                   {p.subtitle}
                 </p>
               )}
-              <p className="font-sans text-[0.65rem] tracking-widest uppercase text-gold-500 mt-2">
-                Crafted for Connection
-              </p>
+              <div className="flex items-center gap-2 mt-2">
+                <div style={{ height: 1, width: 20, background: 'var(--color-gold-500)', opacity: 0.5 }} />
+                <span className="font-sans text-[0.62rem] tracking-widest uppercase text-gold-500">Crafted for Connection</span>
+              </div>
             </div>
 
             {/* Stars */}
@@ -138,8 +140,8 @@ export default function ProductSection({ product: p, onAddToCart }: ProductSecti
 
             {/* Price */}
             <div
-              className="flex items-baseline gap-3 py-4"
-              style={{ borderTop: '1px solid rgba(201,164,92,0.1)', borderBottom: '1px solid rgba(201,164,92,0.1)' }}
+              className="flex items-baseline gap-3 py-5"
+              style={{ borderTop: '1px solid rgba(201,164,92,0.1)', borderBottom: '1px solid rgba(201,164,92,0.1)', background: 'rgba(201,164,92,0.02)' }}
             >
               <span className="font-serif font-light text-gold-400" style={{ fontSize: 'clamp(2rem, 5vw, 2.8rem)' }}>
                 {CURRENCY}{p.price.toLocaleString('en-IN')}
@@ -149,7 +151,7 @@ export default function ProductSection({ product: p, onAddToCart }: ProductSecti
                   <span className="font-sans text-cream-400 opacity-40 line-through" style={{ fontSize: '1rem' }}>
                     {CURRENCY}{p.compareAtPrice.toLocaleString('en-IN')}
                   </span>
-                  <span className="font-sans text-[9px] tracking-widest uppercase font-semibold text-gold-300 px-2.5 py-1 rounded-full" style={{ background: 'rgba(64,35,75,0.4)', border: '1px solid rgba(64,35,75,0.6)' }}>
+                  <span className="font-sans text-[9px] tracking-widest uppercase font-semibold text-gold-300 px-2.5 py-1" style={{ background: 'rgba(201,164,92,0.08)', border: '1px solid rgba(201,164,92,0.2)' }}>
                     Save {discount}%
                   </span>
                 </>
@@ -182,16 +184,20 @@ export default function ProductSection({ product: p, onAddToCart }: ProductSecti
             <div className="flex flex-col gap-3">
               <motion.button
                 onClick={handleAdd}
-                className="btn-primary gap-2 w-full justify-center"
-                style={{ minHeight: 54, fontSize: '0.7rem' }}
+                className="btn-gold gap-2 w-full justify-center"
+                style={{ minHeight: 56, fontSize: '0.7rem' }}
+                whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.97 }}
               >
-                {added ? <><Check size={15} /> Added to Cart!</> : <><ShoppingBag size={15} /> Add to Cart</>}
+                {added
+                  ? <><Check size={15} /> Added to Cart!</>
+                  : <><ShoppingBag size={15} /> Add to Cart — {CURRENCY}{p.price.toLocaleString('en-IN')}</>
+                }
               </motion.button>
               <motion.button
                 onClick={handleAdd}
-                className="btn-gold gap-2 w-full justify-center"
-                style={{ minHeight: 54, fontSize: '0.7rem' }}
+                className="btn-outline gap-2 w-full justify-center"
+                style={{ minHeight: 52, fontSize: '0.7rem' }}
                 whileTap={{ scale: 0.97 }}
               >
                 Buy Now
@@ -200,8 +206,8 @@ export default function ProductSection({ product: p, onAddToCart }: ProductSecti
 
             {/* Scratch card callout */}
             <div
-              className="flex items-center gap-3 p-4 rounded-lg"
-              style={{ border: '1px solid rgba(201,164,92,0.2)', background: 'rgba(201,164,92,0.05)' }}
+              className="flex items-center gap-3 p-4"
+              style={{ border: '1px solid rgba(201,164,92,0.2)', background: 'rgba(201,164,92,0.04)' }}
             >
               <Gift size={16} className="text-gold-500 flex-shrink-0" />
               <div>

@@ -1,22 +1,33 @@
-import { motion } from 'framer-motion';
-import { Gift } from 'lucide-react';
-
 export default function AnnouncementBar() {
+  const items = [
+    '🎁 Free Secret Position Scratch Card with Every Pack',
+    '🚚 Discreet Delivery Across India',
+    '🍫 Premium Dark Chocolate — 60g',
+    '💛 Loved by 14,000+ Couples',
+  ];
+  const repeated = [...items, ...items];
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="w-full flex items-center justify-center gap-2 px-4 py-2.5"
-      style={{ background: '#40234B', borderBottom: '1px solid rgba(201,164,92,0.15)' }}
+    <div
+      className="w-full overflow-hidden"
+      style={{ background: '#40234B', borderBottom: '1px solid rgba(201,164,92,0.15)', height: 36 }}
       role="banner"
       aria-label="Promotion"
     >
-      <Gift size={11} style={{ color: 'var(--color-gold-500)', flexShrink: 0 }} aria-hidden="true" />
-      <p className="font-sans text-center" style={{ fontSize: '0.65rem', letterSpacing: '0.2em', color: 'var(--color-cream-200)', textTransform: 'uppercase' }}>
-        Free Secret Position Scratch Card with Every Pack
-      </p>
-      <Gift size={11} style={{ color: 'var(--color-gold-500)', flexShrink: 0 }} aria-hidden="true" />
-    </motion.div>
+      <div
+        className="flex items-center h-full whitespace-nowrap"
+        style={{ animation: 'marqueeLeft 28s linear infinite', width: 'max-content' }}
+      >
+        {repeated.map((item, i) => (
+          <span
+            key={i}
+            className="font-sans"
+            style={{ fontSize: '0.62rem', letterSpacing: '0.18em', color: 'var(--color-cream-200)', textTransform: 'uppercase', paddingRight: '4rem' }}
+          >
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }
