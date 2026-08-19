@@ -7,6 +7,7 @@ export function useCart() {
   const [isOpen, setIsOpen] = useState(false);
   const [checkoutUrl, setCheckoutUrl] = useState<string | null>(null);
   const [cartId, setCartId] = useState<string | null>(null);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
 
   const addItem = useCallback(async (product: Product, quantity = 1) => {
     setItems(prev => {
@@ -20,7 +21,12 @@ export function useCart() {
     });
     setIsOpen(true);
 
-    if (!product.variantId) return;
+    if (!product.variantId) {
+      console.warn('No variantId — Shopify cart not created. Check Storefront API token.');
+      return;
+    }
+
+    setCheckoutLoading(true);
     try {
       if (!cartId) {
         const cart = await createCart(product.variantId, quantity);
@@ -32,6 +38,8 @@ export function useCart() {
       }
     } catch (e) {
       console.error('Shopify cart error', e);
+    } finally {
+      setCheckoutLoading(false);
     }
   }, [cartId]);
 
@@ -47,5 +55,5 @@ export function useCart() {
   const totalItems = items.reduce((s, i) => s + i.quantity, 0);
   const subtotal = items.reduce((s, i) => s + i.product.price * i.quantity, 0);
 
-  return { items, isOpen, setIsOpen, addItem, updateQuantity, removeItem, totalItems, subtotal, checkoutUrl };
+  return { items, isOpen, setIsOpen, addItem, updateQuantity, removeItem, totalItems, subtotal, checkoutUrl, checkoutLoading };
 }

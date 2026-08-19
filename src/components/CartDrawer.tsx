@@ -11,9 +11,16 @@ interface CartDrawerProps {
   onUpdateQuantity: (id: string, qty: number) => void;
   onRemove: (id: string) => void;
   checkoutUrl?: string | null;
+  checkoutLoading?: boolean;
 }
 
-export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQuantity, onRemove, checkoutUrl }: CartDrawerProps) {
+export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQuantity, onRemove, checkoutUrl, checkoutLoading }: CartDrawerProps) {
+
+  const handleCheckout = () => {
+    if (checkoutUrl) {
+      window.location.href = checkoutUrl;
+    }
+  };
   return (
     <AnimatePresence>
       {isOpen && (
@@ -115,14 +122,14 @@ export default function CartDrawer({ isOpen, onClose, items, subtotal, onUpdateQ
                   <span className="font-serif text-2xl text-gold-400">{CURRENCY}{subtotal.toLocaleString('en-IN')}</span>
                 </div>
                 <p className="font-sans text-xs text-cream-400 opacity-40">Shipping calculated at checkout</p>
-                <a
-                  href={checkoutUrl ?? '#'}
-                  className="btn-gold w-full py-4 text-center block"
-                  style={{ fontSize: '0.7rem' }}
-                  onClick={!checkoutUrl ? e => e.preventDefault() : undefined}
+                <button
+                  onClick={handleCheckout}
+                  disabled={!checkoutUrl || checkoutLoading}
+                  className="btn-gold w-full py-4"
+                  style={{ fontSize: '0.7rem', opacity: (!checkoutUrl || checkoutLoading) ? 0.6 : 1, cursor: (!checkoutUrl || checkoutLoading) ? 'not-allowed' : 'pointer' }}
                 >
-                  Checkout
-                </a>
+                  {checkoutLoading ? 'Preparing Checkout…' : 'Checkout'}
+                </button>
                 <button onClick={onClose} className="w-full text-center font-sans text-xs tracking-widest uppercase text-cream-300 opacity-40 hover:opacity-80 hover:text-gold-400 transition-all py-2">
                   Continue Shopping
                 </button>

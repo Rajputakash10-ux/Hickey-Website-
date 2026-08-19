@@ -63,6 +63,7 @@ function AppContent() {
         onUpdateQuantity={cart.updateQuantity}
         onRemove={cart.removeItem}
         checkoutUrl={cart.checkoutUrl}
+        checkoutLoading={cart.checkoutLoading}
       />
     </div>
   );
