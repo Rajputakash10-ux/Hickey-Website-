@@ -1,8 +1,22 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
+import { useState, useEffect } from 'react';
+
+const SLIDES = [
+  '/assets/etx-1.png','/assets/etx-2.png','/assets/etx-3.png',
+  '/assets/etx-4.png','/assets/etx-5.png','/assets/etx-6.png',
+  '/assets/hickey-1.png','/assets/hickey-2.png','/assets/hickey-3.png',
+  '/assets/hickey-4.png','/assets/hickey-5.png','/assets/hickey-6.png',
+];
 
 export default function Hero() {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setIdx(i => (i + 1) % SLIDES.length), 1500);
+    return () => clearInterval(t);
+  }, []);
+
   return (
     <section
       className="relative w-full overflow-hidden"
@@ -131,19 +145,24 @@ export default function Hero() {
             aria-hidden="true"
           />
 
-          {/* Main product */}
-          <motion.img
-            src="/assets/hickey-1.png"
-            alt="HICKEY Intimacy Dark Chocolate — 60g premium pack"
-            className="relative z-10 w-auto object-contain"
-            style={{
-              maxHeight: 'clamp(260px, 50vw, 500px)',
-              maxWidth: '65%',
-              filter: 'drop-shadow(0 32px 80px rgba(0,0,0,0.8))',
-            }}
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
-          />
+          {/* Slideshow */}
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={SLIDES[idx]}
+              src={SLIDES[idx]}
+              alt="HICKEY Intimacy Dark Chocolate"
+              className="relative z-10 w-auto object-contain"
+              style={{
+                maxHeight: 'clamp(260px, 50vw, 500px)',
+                maxWidth: '65%',
+                filter: 'drop-shadow(0 32px 80px rgba(0,0,0,0.8))',
+              }}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.04 }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+            />
+          </AnimatePresence>
 
           {/* Scratch card */}
           <motion.div
