@@ -8,9 +8,10 @@ import type { Product } from '../types';
 interface ProductSectionProps {
   product: Product;
   onAddToCart: (product: Product, qty: number) => void;
+  checkoutUrl?: string | null;
 }
 
-export default function ProductSection({ product: p, onAddToCart }: ProductSectionProps) {
+export default function ProductSection({ product: p, onAddToCart, checkoutUrl }: ProductSectionProps) {
   const { ref, isVisible } = useScrollReveal();
   const [imgIndex, setImgIndex] = useState(0);
   const [qty, setQty] = useState(1);
@@ -20,6 +21,14 @@ export default function ProductSection({ product: p, onAddToCart }: ProductSecti
     onAddToCart(p, qty);
     setAdded(true);
     setTimeout(() => setAdded(false), 2200);
+  };
+
+  const handleBuyNow = () => {
+    onAddToCart(p, qty);
+    setTimeout(() => {
+      if (checkoutUrl) window.location.href = checkoutUrl;
+      else document.getElementById('product')?.scrollIntoView({ behavior: 'smooth' });
+    }, 300);
   };
 
   const discount = p.compareAtPrice
@@ -195,7 +204,7 @@ export default function ProductSection({ product: p, onAddToCart }: ProductSecti
                 }
               </motion.button>
               <motion.button
-                onClick={handleAdd}
+                onClick={handleBuyNow}
                 className="btn-outline gap-2 w-full justify-center"
                 style={{ minHeight: 52, fontSize: '0.7rem' }}
                 whileTap={{ scale: 0.97 }}

@@ -60,7 +60,7 @@ export default function AboutPage() {
               style={{ aspectRatio: '4/5', background: '#321D3D', border: '1px solid rgba(201,164,92,0.1)' }}
             >
               <img
-                src="/src/assets/hickey-1.png"
+                src="/assets/hickey-1.png"
                 alt="HICKEY Intimacy Dark Chocolate"
                 className="w-3/4 h-auto object-contain"
                 style={{ filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.5))' }}

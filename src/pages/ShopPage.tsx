@@ -7,9 +7,10 @@ interface ShopPageProps {
   products: Product[];
   loading: boolean;
   onAddToCart: (product: Product, qty: number) => void;
+  checkoutUrl?: string | null;
 }
 
-export default function ShopPage({ onAddToCart }: ShopPageProps) {
+export default function ShopPage({ onAddToCart, checkoutUrl }: ShopPageProps) {
   return (
     <main style={{ paddingTop: 64 }}>
       <div
@@ -21,7 +22,7 @@ export default function ShopPage({ onAddToCart }: ShopPageProps) {
           HICKEY Intimacy Dark Chocolate
         </h1>
       </div>
-      <ProductSection product={MAIN_PRODUCT} onAddToCart={onAddToCart} />
+      <ProductSection product={MAIN_PRODUCT} onAddToCart={onAddToCart} checkoutUrl={checkoutUrl} />
       <FinalCTA />
     </main>
   );

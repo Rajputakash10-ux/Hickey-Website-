@@ -93,6 +93,60 @@ export default function Hero() {
         />
       </div>
 
+      {/* Hero copy */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6" style={{ paddingBottom: '6rem' }}>
+        <motion.span
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="section-label mb-4"
+        >
+          Premium Dark Chocolate
+        </motion.span>
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.35 }}
+          className="heading-display"
+          style={{ fontSize: 'clamp(3rem, 10vw, 7rem)', lineHeight: 1.0, letterSpacing: '-0.02em', textShadow: '0 4px 40px rgba(0,0,0,0.6)' }}
+        >
+          Chocolate made<br />
+          <em style={{ fontStyle: 'italic', color: 'var(--color-gold-400)' }}>for two.</em>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.55 }}
+          className="font-sans text-cream-300 mt-5 max-w-sm"
+          style={{ fontSize: '0.95rem', opacity: 0.7, textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}
+        >
+          60g premium dark chocolate + a free Secret Position Scratch Card in every pack.
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.7 }}
+          className="flex items-center gap-3 mt-8"
+        >
+          <a
+            href="#product"
+            onClick={e => { e.preventDefault(); document.getElementById('product')?.scrollIntoView({ behavior: 'smooth' }); }}
+            className="btn-gold gap-2"
+            style={{ minHeight: 52, fontSize: '0.68rem', paddingLeft: '2rem', paddingRight: '2rem' }}
+          >
+            Shop HICKEY — ₹599
+          </a>
+          <a
+            href="#how-it-works"
+            onClick={e => { e.preventDefault(); document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }); }}
+            className="btn-outline gap-2"
+            style={{ minHeight: 52, fontSize: '0.68rem', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}
+          >
+            How it works
+          </a>
+        </motion.div>
+      </div>
+
       {/* Slide counter + dots */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3">
         {/* Counter */}

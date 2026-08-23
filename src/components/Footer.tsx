@@ -6,9 +6,6 @@ const LINKS = [
   { label: 'About', href: '/about' },
   { label: 'FAQ', href: '/#faq' },
   { label: 'Contact', href: 'mailto:support@hickey.co.in' },
-  { label: 'Shipping', href: '#' },
-  { label: 'Returns', href: '#' },
-  { label: 'Privacy', href: '#' },
 ];
 
 export default function Footer() {

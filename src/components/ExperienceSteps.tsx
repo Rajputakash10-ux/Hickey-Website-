@@ -3,7 +3,6 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const STATS = [
   { value: '14K+', label: 'Happy Couples', icon: '💑' },
-  { value: '4.9★', label: 'Avg Rating', icon: '⭐' },
   { value: '60g', label: 'Dark Chocolate', icon: '🍫' },
   { value: '24h', label: 'Dispatch Time', icon: '🚚' },
 ];
@@ -45,7 +44,7 @@ export default function ExperienceSteps() {
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="grid grid-cols-2 lg:grid-cols-4 mb-16 lg:mb-20"
+          className="grid grid-cols-3 mb-16 lg:mb-20"
           style={{
             border: '1px solid rgba(201,164,92,0.15)',
             background: 'linear-gradient(135deg, rgba(64,35,75,0.5) 0%, rgba(22,13,30,0.8) 100%)',
@@ -59,8 +58,7 @@ export default function ExperienceSteps() {
               transition={{ duration: 0.55, delay: 0.2 + i * 0.1 }}
               className="relative flex flex-col items-center justify-center gap-2 py-8 px-4"
               style={{
-                borderRight: i < 3 ? '1px solid rgba(201,164,92,0.1)' : 'none',
-                borderBottom: i < 2 ? '1px solid rgba(201,164,92,0.1)' : 'none',
+                borderRight: i < 2 ? '1px solid rgba(201,164,92,0.1)' : 'none',
               }}
             >
               {/* Glow dot top */}

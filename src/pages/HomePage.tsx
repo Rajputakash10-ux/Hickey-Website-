@@ -18,14 +18,15 @@ interface HomePageProps {
   loading: boolean;
   onAddToCart: (product: Product, qty: number) => void;
   onCartOpen: () => void;
+  checkoutUrl?: string | null;
 }
 
-export default function HomePage({ featured, onAddToCart }: HomePageProps) {
+export default function HomePage({ featured, onAddToCart, checkoutUrl }: HomePageProps) {
   return (
     <main>
       <Hero />
       <TrustStrip />
-      <ProductSection product={featured} onAddToCart={onAddToCart} />
+      <ProductSection product={featured} onAddToCart={onAddToCart} checkoutUrl={checkoutUrl} />
       <ExperienceSteps />
       <ScratchCardFeature />
       <IngredientsSection />

@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import AnnouncementBar from './components/AnnouncementBar';
 import Navbar from './components/Navbar';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
@@ -21,6 +22,7 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen" style={{ overflowX: 'hidden' }}>
+      <AnnouncementBar />
       <Navbar cartCount={cart.totalItems} onCartOpen={() => cart.setIsOpen(true)} />
 
       <Routes>
@@ -33,6 +35,7 @@ function AppContent() {
               loading={loading}
               onAddToCart={cart.addItem}
               onCartOpen={() => cart.setIsOpen(true)}
+              checkoutUrl={cart.checkoutUrl}
             />
           }
         />
@@ -43,12 +46,13 @@ function AppContent() {
               products={products}
               loading={loading}
               onAddToCart={cart.addItem}
+              checkoutUrl={cart.checkoutUrl}
             />
           }
         />
         <Route path="/about" element={<AboutPage />} />
         {/* Redirect /product to /shop */}
-        <Route path="/product" element={<ShopPage products={products} loading={loading} onAddToCart={cart.addItem} />} />
+        <Route path="/product" element={<ShopPage products={products} loading={loading} onAddToCart={cart.addItem} checkoutUrl={cart.checkoutUrl} />} />
       </Routes>
 
       <Footer />
