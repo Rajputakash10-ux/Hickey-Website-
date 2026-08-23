@@ -5,7 +5,6 @@ import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
-import AboutPage from './pages/AboutPage';
 import { useCart } from './hooks/useCart';
 import { useShopifyProducts } from './hooks/useShopifyProducts';
 
@@ -48,7 +47,6 @@ function AppContent() {
             />
           }
         />
-        <Route path="/about" element={<AboutPage />} />
       </Routes>
 
       <Footer />
