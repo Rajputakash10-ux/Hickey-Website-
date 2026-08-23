@@ -54,15 +54,15 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
           >
             {/* Main image */}
             <div
-              className="relative overflow-hidden"
-              style={{ aspectRatio: '1/1', background: '#FDF6EC', border: '1px solid rgba(184,134,11,0.1)' }}
+              className="relative overflow-hidden mx-auto"
+              style={{ aspectRatio: '4/5', width: '100%', maxWidth: 340, background: '#FDF6EC', border: '1px solid rgba(184,134,11,0.12)', boxShadow: '0 4px 24px rgba(26,10,0,0.07)', borderRadius: 4 }}
             >
               <AnimatePresence mode="wait">
                 <motion.img
                   key={imgIndex}
                   src={p.images[imgIndex]?.src}
                   alt={p.images[imgIndex]?.alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain p-8"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -78,7 +78,7 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
             </div>
 
             {/* Thumbnails below */}
-            <div className="flex gap-2 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
+            <div className="flex gap-2 justify-center overflow-x-auto" style={{ scrollbarWidth: 'none', maxWidth: 340, margin: '0 auto' }}>
               {p.images.map((img, i) => (
                 <button
                   key={i}
@@ -90,8 +90,9 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
                     width: 72, height: 72,
                     border: `2px solid ${i === imgIndex ? 'var(--color-gold-500)' : 'rgba(184,134,11,0.15)'}`,
                     background: '#FDF6EC',
-                    opacity: i === imgIndex ? 1 : 0.65,
-                    boxShadow: i === imgIndex ? '0 0 0 1px rgba(184,134,11,0.25)' : 'none',
+                    opacity: i === imgIndex ? 1 : 0.6,
+                    boxShadow: i === imgIndex ? '0 0 0 1px rgba(184,134,11,0.3), 0 4px 12px rgba(26,10,0,0.08)' : 'none',
+                    transition: 'all 0.2s ease',
                   }}
                 >
                   <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />

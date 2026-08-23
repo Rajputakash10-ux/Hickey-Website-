@@ -11,14 +11,14 @@ function FAQItem({ question, answer, isOpen, onToggle }: {
   onToggle: () => void;
 }) {
   return (
-    <div style={{ borderBottom: '1px solid rgba(184,134,11,0.08)' }}>
+    <div style={{ borderBottom: '1px solid rgba(184,134,11,0.1)' }}>
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 py-5 text-left"
+        className="w-full flex items-center justify-between gap-4 py-5 text-left group"
         aria-expanded={isOpen}
         style={{ background: 'none', border: 'none', cursor: 'pointer' }}
       >
-        <span className="font-serif text-base font-normal text-choc-900" style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.05rem)' }}>
+        <span className="font-serif text-base font-normal text-choc-900 group-hover:text-gold-400 transition-colors duration-200" style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.05rem)' }}>
           {question}
         </span>
         <span

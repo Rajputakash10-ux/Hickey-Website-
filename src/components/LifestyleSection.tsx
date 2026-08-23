@@ -16,7 +16,7 @@ export default function LifestyleSection() {
       {/* Background */}
       <div
         className="absolute inset-0"
-        style={{ background: 'linear-gradient(135deg, #FFFDF9 0%, #2A1713 40%, #FDF6EC 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #FFFDF9 0%, #1A0A00 45%, #FDF6EC 100%)' }}
         aria-hidden="true"
       />
 
@@ -26,24 +26,24 @@ export default function LifestyleSection() {
           src="/assets/hickey-2.png"
           alt=""
           className="h-full w-auto object-contain"
-          style={{ maxWidth: '60%', filter: 'blur(2px)' }}
+          style={{ maxWidth: '60%', filter: 'blur(1px)' }}
           initial={{ opacity: 0, scale: 1.05 }}
-          animate={isVisible ? { opacity: 0.12, scale: 1 } : {}}
-          transition={{ duration: 1.2 }}
+          animate={isVisible ? { opacity: 0.15, scale: 1 } : {}}
+          transition={{ duration: 1.4 }}
         />
       </div>
 
       {/* Overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'linear-gradient(to right, rgba(26,10,0,0.97) 45%, rgba(26,10,0,0.4) 100%)' }}
+        style={{ background: 'linear-gradient(to right, rgba(26,10,0,0.98) 40%, rgba(26,10,0,0.35) 100%)' }}
         aria-hidden="true"
       />
 
       {/* Gold accent line */}
       <div
         className="absolute left-0 top-0 bottom-0 pointer-events-none"
-        style={{ width: 2, background: 'linear-gradient(to bottom, transparent, rgba(184,134,11,0.4), transparent)' }}
+        style={{ width: 3, background: 'linear-gradient(to bottom, transparent, rgba(184,134,11,0.55), transparent)' }}
         aria-hidden="true"
       />
 

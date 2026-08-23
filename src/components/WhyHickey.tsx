@@ -46,17 +46,19 @@ export default function WhyHickey() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(184,134,11,0.06)' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(184,134,11,0.08)' }}>
           {BENEFITS.map((b, i) => (
             <motion.div
               key={b.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex flex-col gap-4 p-8"
-              style={{ background: '#FFFDF9' }}
+              className="flex flex-col gap-4 p-8 group cursor-default"
+              style={{ background: '#FFFDF9', transition: 'background 0.3s ease' }}
+              onMouseEnter={e => (e.currentTarget.style.background = '#FDF6EC')}
+              onMouseLeave={e => (e.currentTarget.style.background = '#FFFDF9')}
             >
-              <span style={{ fontSize: '1.75rem' }} aria-hidden="true">{b.icon}</span>
+              <span className="group-hover:scale-110 transition-transform duration-300 inline-block" style={{ fontSize: '1.75rem' }} aria-hidden="true">{b.icon}</span>
               <div>
                 <h3 className="font-serif text-lg text-choc-900" style={{ lineHeight: 1.3 }}>{b.title}</h3>
                 <p className="font-sans text-sm text-choc-700 mt-2 leading-relaxed" style={{ opacity: 0.6 }}>{b.desc}</p>

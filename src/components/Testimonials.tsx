@@ -61,15 +61,17 @@ export default function Testimonials() {
 
       {/* Desktop: 3-col grid */}
       <div className="container-site hidden lg:block">
-        <div className="grid grid-cols-3 gap-px" style={{ background: 'rgba(184,134,11,0.06)' }}>
+        <div className="grid grid-cols-3 gap-px" style={{ background: 'rgba(184,134,11,0.08)' }}>
           {TOP_REVIEWS.map((review, i) => (
             <motion.article
               key={review.id}
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex flex-col gap-4 p-8"
-              style={{ background: '#FFFDF9' }}
+              className="flex flex-col gap-4 p-8 cursor-default"
+              style={{ background: '#FFFDF9', transition: 'background 0.3s ease' }}
+              onMouseEnter={e => (e.currentTarget.style.background = '#FDF6EC')}
+              onMouseLeave={e => (e.currentTarget.style.background = '#FFFDF9')}
             >
               <ReviewContent review={review} />
             </motion.article>

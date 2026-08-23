@@ -29,15 +29,17 @@ export default function IngredientsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px" style={{ background: 'rgba(184,134,11,0.06)' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px" style={{ background: 'rgba(184,134,11,0.08)' }}>
           {INGREDIENTS.map((ing, i) => (
             <motion.article
               key={ing.id}
               initial={{ opacity: 0, y: 24 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="flex flex-col gap-4 p-6 lg:p-7 group"
-              style={{ background: '#FDF6EC' }}
+              className="flex flex-col gap-4 p-6 lg:p-7 group cursor-default"
+              style={{ background: '#FDF6EC', transition: 'background 0.3s ease' }}
+              onMouseEnter={e => (e.currentTarget.style.background = '#F5E9D6')}
+              onMouseLeave={e => (e.currentTarget.style.background = '#FDF6EC')}
             >
               {/* Icon */}
               <div
@@ -67,8 +69,10 @@ export default function IngredientsSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: INGREDIENTS.length * 0.08 }}
-            className="flex flex-col gap-4 p-6 lg:p-7"
-            style={{ background: '#FDF6EC' }}
+            className="flex flex-col gap-4 p-6 lg:p-7 cursor-default"
+            style={{ background: '#FDF6EC', transition: 'background 0.3s ease' }}
+            onMouseEnter={e => (e.currentTarget.style.background = '#F5E9D6')}
+            onMouseLeave={e => (e.currentTarget.style.background = '#FDF6EC')}
           >
             <div
               className="w-12 h-12 flex items-center justify-center rounded-full text-2xl"

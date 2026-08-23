@@ -34,25 +34,33 @@ export default function ExperienceSteps() {
         </motion.div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px" style={{ background: 'rgba(184,134,11,0.07)' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px" style={{ background: 'rgba(184,134,11,0.09)' }}>
           {STEPS.map((step, i) => (
             <motion.div
               key={step.num}
               initial={{ opacity: 0, y: 24 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 + i * 0.14 }}
-              className="relative flex flex-col gap-5 p-8 lg:p-10 group"
-              style={{ background: '#FFFDF9' }}
+              className="relative flex flex-col gap-5 p-8 lg:p-10 group cursor-default"
+              style={{ background: '#FFFDF9', transition: 'background 0.35s ease' }}
+              onMouseEnter={e => (e.currentTarget.style.background = '#FDF6EC')}
+              onMouseLeave={e => (e.currentTarget.style.background = '#FFFDF9')}
             >
-              {/* Top gold line on hover */}
+              {/* Top gold line — expands on hover */}
+              <motion.div
+                className="absolute top-0 left-0 right-0 h-px"
+                style={{ background: 'linear-gradient(to right, transparent, rgba(184,134,11,0.55), transparent)', transformOrigin: 'center', scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.4 }}
+              />
               <div
                 className="absolute top-0 left-0 right-0 h-px"
-                style={{ background: 'linear-gradient(to right, transparent, rgba(184,134,11,0.4), transparent)' }}
+                style={{ background: 'linear-gradient(to right, transparent, rgba(184,134,11,0.18), transparent)' }}
               />
 
               <span
                 className="font-serif font-light"
-                style={{ fontSize: 'clamp(3.5rem, 7vw, 5.5rem)', color: 'rgba(184,134,11,0.08)', lineHeight: 1 }}
+                style={{ fontSize: 'clamp(3.5rem, 7vw, 5.5rem)', color: 'rgba(184,134,11,0.1)', lineHeight: 1, transition: 'color 0.35s ease' }}
               >
                 {step.num}
               </span>
@@ -64,12 +72,13 @@ export default function ExperienceSteps() {
                 </p>
               </div>
 
-              {/* Gold accent bottom-left */}
+              {/* Gold accent bottom-left — expands on hover */}
               <div
+                className="group-hover:w-14 transition-all duration-500"
                 style={{
                   width: 28, height: 2,
-                  background: 'var(--color-gold-500)',
-                  opacity: 0.4,
+                  background: 'linear-gradient(to right, var(--color-gold-500), rgba(184,134,11,0.3))',
+                  opacity: 0.5,
                 }}
               />
             </motion.div>

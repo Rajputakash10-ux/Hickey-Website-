@@ -59,17 +59,19 @@ export default function TrustStrip() {
       aria-label="Brand benefits"
     >
       <div className="container-site">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(184,134,11,0.06)' }}>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(184,134,11,0.08)' }}>
           {BENEFITS.map((b, i) => (
             <motion.div
               key={b.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="flex flex-col gap-3 p-6 lg:p-8"
-              style={{ background: '#F5E9D6' }}
+              className="flex flex-col gap-3 p-6 lg:p-8 group cursor-default"
+              style={{ background: '#F5E9D6', transition: 'background 0.3s ease' }}
+              onMouseEnter={e => (e.currentTarget.style.background = '#EDD9B8')}
+              onMouseLeave={e => (e.currentTarget.style.background = '#F5E9D6')}
             >
-              <div style={{ color: 'var(--color-gold-500)' }}>{b.icon}</div>
+              <div style={{ color: 'var(--color-gold-500)', transition: 'transform 0.3s ease' }} className="group-hover:scale-110">{b.icon}</div>
               <div>
                 <h3 className="font-sans font-semibold text-choc-900" style={{ fontSize: '0.78rem', letterSpacing: '0.05em' }}>
                   {b.title}

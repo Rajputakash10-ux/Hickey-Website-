@@ -13,7 +13,7 @@ export default function FinalCTA() {
       {/* Soft gold glow center */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(184,134,11,0.05) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse 70% 70% at 50% 50%, rgba(184,134,11,0.07) 0%, transparent 70%)' }}
         aria-hidden="true"
       />
 
@@ -21,10 +21,10 @@ export default function FinalCTA() {
         {/* Top gold line */}
         <motion.div
           className="mx-auto mb-10"
-          style={{ height: 1, background: 'linear-gradient(to right, transparent, rgba(184,134,11,0.35), transparent)' }}
+          style={{ height: 1, background: 'linear-gradient(to right, transparent, rgba(184,134,11,0.45), transparent)' }}
           initial={{ width: 0 }}
           animate={isVisible ? { width: '100%' } : { width: 0 }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
+          transition={{ duration: 1.2, ease: 'easeInOut' }}
         />
 
         <motion.div
@@ -53,10 +53,10 @@ export default function FinalCTA() {
         {/* Bottom gold line */}
         <motion.div
           className="mx-auto mt-10"
-          style={{ height: 1, background: 'linear-gradient(to right, transparent, rgba(184,134,11,0.35), transparent)' }}
+          style={{ height: 1, background: 'linear-gradient(to right, transparent, rgba(184,134,11,0.45), transparent)' }}
           initial={{ width: 0 }}
           animate={isVisible ? { width: '100%' } : { width: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: 'easeInOut' }}
+          transition={{ duration: 1.2, delay: 0.25, ease: 'easeInOut' }}
         />
       </div>
     </section>

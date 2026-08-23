@@ -72,13 +72,13 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Cinematic letterbox bars */}
-      <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: 48, background: 'linear-gradient(to bottom, rgba(26,10,0,0.7), transparent)' }} aria-hidden="true" />
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: 180, background: 'linear-gradient(to bottom, transparent, rgba(26,10,0,0.98))' }} aria-hidden="true" />
+      <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: 80, background: 'linear-gradient(to bottom, rgba(26,10,0,0.75), transparent)' }} aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: 220, background: 'linear-gradient(to bottom, transparent, rgba(26,10,0,0.99))' }} aria-hidden="true" />
 
       {/* Edge vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at center, transparent 35%, rgba(26,10,0,0.5) 100%)' }}
+        style={{ background: 'radial-gradient(ellipse at center, transparent 30%, rgba(26,10,0,0.55) 100%)' }}
         aria-hidden="true"
       />
 
