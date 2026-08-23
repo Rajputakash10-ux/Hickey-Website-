@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
-import ShopPage from './pages/ShopPage';
 import { useCart } from './hooks/useCart';
 import { useShopifyProducts } from './hooks/useShopifyProducts';
 
@@ -36,17 +35,7 @@ function AppContent() {
             />
           }
         />
-        <Route
-          path="/shop"
-          element={
-            <ShopPage
-              products={products}
-              loading={loading}
-              onAddToCart={cart.addItem}
-              checkoutUrl={cart.checkoutUrl}
-            />
-          }
-        />
+        <Route path="*" element={<HomePage featured={featured} products={products} loading={loading} onAddToCart={cart.addItem} onCartOpen={() => cart.setIsOpen(true)} checkoutUrl={cart.checkoutUrl} />} />
       </Routes>
 
       <Footer />

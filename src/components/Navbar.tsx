@@ -9,7 +9,6 @@ interface NavbarProps {
 }
 
 const NAV = [
-  { label: 'Shop', href: '/shop' },
   { label: 'Why HICKEY', href: '/#why-hickey' },
   { label: 'How It Works', href: '/#how-it-works' },
   { label: 'FAQ', href: '/#faq' },
@@ -181,8 +180,8 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
             {/* Right actions */}
             <div className="flex items-center gap-1">
               {/* Shop CTA */}
-              <Link
-                to="/shop"
+              <button
+                onClick={() => document.getElementById('product')?.scrollIntoView({ behavior: 'smooth' })}
                 className="hidden lg:inline-flex items-center font-sans uppercase"
                 style={{
                   fontSize: '0.55rem',
@@ -192,6 +191,7 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                   background: 'rgba(201,164,92,0.05)',
                   color: 'var(--color-cream-100)',
                   transition: 'all 0.22s ease',
+                  cursor: 'pointer',
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLElement;
@@ -207,7 +207,7 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                 }}
               >
                 Shop Now
-              </Link>
+              </button>
 
               {/* Cart icon */}
               <motion.button
@@ -317,8 +317,8 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
               transition={{ delay: 0.3, duration: 0.32 }}
               className="px-8 pb-12"
             >
-              <Link
-                to="/shop"
+              <button
+                onClick={() => { setMenuOpen(false); setTimeout(() => document.getElementById('product')?.scrollIntoView({ behavior: 'smooth' }), 100); }}
                 className="flex items-center justify-center w-full font-sans uppercase"
                 style={{
                   minHeight: 52,
@@ -327,10 +327,12 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                   background: 'var(--color-gold-500)',
                   color: '#160D1E',
                   fontWeight: 700,
+                  border: 'none',
+                  cursor: 'pointer',
                 }}
               >
                 Shop HICKEY
-              </Link>
+              </button>
             </motion.div>
           </motion.div>
         )}
