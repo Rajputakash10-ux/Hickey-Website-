@@ -55,7 +55,7 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
             {/* Main image */}
             <div
               className="relative mx-auto"
-              style={{ aspectRatio: '4/5', width: '100%', maxWidth: 340 }}
+              style={{ aspectRatio: '4/5', width: '100%', maxWidth: 460 }}
             >
               {/* Outer golden border frame */}
               <div
@@ -104,7 +104,7 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
             </div>
 
             {/* Thumbnails below */}
-            <div className="flex gap-2 justify-center overflow-x-auto" style={{ scrollbarWidth: 'none', maxWidth: 340, margin: '0 auto' }}>
+            <div className="flex gap-2 justify-center overflow-x-auto" style={{ scrollbarWidth: 'none', maxWidth: 460, margin: '0 auto' }}>
               {p.images.map((img, i) => (
                 <button
                   key={i}
@@ -183,7 +183,7 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
             <div className="flex items-center gap-2 py-3 px-3" style={{ background: 'rgba(184,134,11,0.03)', border: '1px solid rgba(184,134,11,0.08)' }}>
               <Truck size={13} style={{ color: 'var(--color-gold-500)', flexShrink: 0 }} />
               <span className="font-sans text-choc-700 opacity-60" style={{ fontSize: '0.72rem' }}>
-                Free delivery · Ships within <strong className="text-choc-800 opacity-80">24h</strong> · Discreet packaging
+                Free delivery · Ships within <strong className="text-choc-800 opacity-80">3–4 business days</strong> · Discreet packaging
               </span>
             </div>
 
