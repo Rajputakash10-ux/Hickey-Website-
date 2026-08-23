@@ -16,8 +16,6 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
   const [imgIndex, setImgIndex] = useState(0);
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
-  const [zoom, setZoom] = useState(false);
-  const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
 
   const handleAdd = () => {
     onAddToCart(p, qty);
@@ -30,13 +28,6 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
     setTimeout(() => {
       if (checkoutUrl) window.location.href = checkoutUrl;
     }, 300);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    setZoomPos({ x, y });
   };
 
   const discount = p.compareAtPrice
@@ -54,51 +45,17 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
       <div className="container-site">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
-          {/* ── Gallery ── */}
+          {/* Gallery — main image + thumbnails below */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="flex gap-3 lg:sticky lg:top-20"
+            className="flex flex-col gap-3 lg:sticky lg:top-20"
           >
-            {/* Vertical thumbnail rail */}
-            <div className="flex flex-col gap-2 flex-shrink-0">
-              {p.images.map((img, i) => (
-                <button
-                  key={i}
-                  onMouseEnter={() => setImgIndex(i)}
-                  onClick={() => setImgIndex(i)}
-                  aria-label={img.alt}
-                  className="overflow-hidden transition-all duration-150 flex-shrink-0"
-                  style={{
-                    width: 60, height: 60,
-                    border: `2px solid ${i === imgIndex ? 'var(--color-gold-500)' : 'rgba(184,134,11,0.12)'}`,
-                    background: '#FDF6EC',
-                    outline: i === imgIndex ? '1px solid rgba(184,134,11,0.3)' : 'none',
-                    outlineOffset: 2,
-                  }}
-                >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </button>
-              ))}
-            </div>
-
-            {/* Main image — zoom on hover */}
+            {/* Main image */}
             <div
-              className="relative flex-1 overflow-hidden cursor-crosshair"
-              style={{
-                aspectRatio: '1/1',
-                background: '#FDF6EC',
-                border: '1px solid rgba(184,134,11,0.1)',
-              }}
-              onMouseEnter={() => setZoom(true)}
-              onMouseLeave={() => setZoom(false)}
-              onMouseMove={handleMouseMove}
+              className="relative overflow-hidden"
+              style={{ aspectRatio: '1/1', background: '#FDF6EC', border: '1px solid rgba(184,134,11,0.1)' }}
             >
               <AnimatePresence mode="wait">
                 <motion.img
@@ -106,11 +63,6 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
                   src={p.images[imgIndex]?.src}
                   alt={p.images[imgIndex]?.alt}
                   className="w-full h-full object-cover"
-                  style={{
-                    transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
-                    transform: zoom ? 'scale(2)' : 'scale(1)',
-                    transition: zoom ? 'transform 0.1s ease' : 'transform 0.3s ease, opacity 0.3s ease',
-                  }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -118,22 +70,33 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
                   draggable={false}
                 />
               </AnimatePresence>
-
-              {/* Zoom hint */}
-              {!zoom && (
-                <div
-                  className="absolute bottom-2 right-2 font-sans pointer-events-none"
-                  style={{ fontSize: '0.5rem', letterSpacing: '0.1em', color: 'rgba(244,237,227,0.3)', textTransform: 'uppercase' }}
-                >
-                  Hover to zoom
-                </div>
-              )}
-
               {p.badge && (
-                <div className="absolute top-3 left-3 px-2.5 py-1" style={{ background: 'rgba(26,10,0,0.9)', border: '1px solid rgba(184,134,11,0.3)' }}>
-                  <span className="font-sans text-[8px] font-bold tracking-widest uppercase text-gold-400">{p.badge}</span>
+                <div className="absolute top-3 left-3 px-2.5 py-1" style={{ background: 'rgba(26,10,0,0.85)', border: '1px solid rgba(184,134,11,0.3)' }}>
+                  <span className="font-sans text-[8px] font-bold tracking-widest uppercase" style={{ color: 'var(--color-gold-400)' }}>{p.badge}</span>
                 </div>
               )}
+            </div>
+
+            {/* Thumbnails below */}
+            <div className="flex gap-2 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
+              {p.images.map((img, i) => (
+                <button
+                  key={i}
+                  onMouseEnter={() => setImgIndex(i)}
+                  onClick={() => setImgIndex(i)}
+                  aria-label={img.alt}
+                  className="flex-shrink-0 overflow-hidden transition-all duration-150"
+                  style={{
+                    width: 72, height: 72,
+                    border: `2px solid ${i === imgIndex ? 'var(--color-gold-500)' : 'rgba(184,134,11,0.15)'}`,
+                    background: '#FDF6EC',
+                    opacity: i === imgIndex ? 1 : 0.65,
+                    boxShadow: i === imgIndex ? '0 0 0 1px rgba(184,134,11,0.25)' : 'none',
+                  }}
+                >
+                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
+                </button>
+              ))}
             </div>
           </motion.div>
 
