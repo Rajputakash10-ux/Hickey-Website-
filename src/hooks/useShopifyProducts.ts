@@ -21,11 +21,15 @@ export function useShopifyProducts(): UseShopifyProductsResult {
     getProducts()
       .then(nodes => {
         if (nodes.length > 0) {
-          const mapped = nodes.map(shopifyToProduct);
+          const mapped = nodes.map(shopifyToProduct).map(p => ({
+            ...p,
+            // Shopify only has 1 image — use local etx images, keep variantId
+            images: MAIN_PRODUCT.images,
+            badge: MAIN_PRODUCT.badge,
+          }));
           setProducts(mapped);
           setFeatured(mapped[0]);
         }
-        // If Shopify returns empty, keep local fallback
       })
       .catch(err => {
         const safeMessage = String(err.message).replace(/[\r\n]/g, ' ');
