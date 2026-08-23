@@ -1,12 +1,6 @@
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-const STATS = [
-  { value: '14K+', label: 'Happy Couples', icon: '💑' },
-  { value: '60g', label: 'Dark Chocolate', icon: '🍫' },
-  { value: '24h', label: 'Dispatch Time', icon: '🚚' },
-];
-
 const STEPS = [
   { num: '01', title: 'Order', desc: 'Place your order. Arrives in discreet, premium packaging within 24–48h.' },
   { num: '02', title: 'Share', desc: 'Open it together. Savour the rich dark chocolate and let the moment slow down.' },
@@ -37,68 +31,6 @@ export default function ExperienceSteps() {
           <h2 className="heading-display mt-3" style={{ fontSize: 'clamp(2.2rem, 6vw, 4rem)' }}>
             How it works.
           </h2>
-        </motion.div>
-
-        {/* Stats row */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="grid grid-cols-3 mb-16 lg:mb-20"
-          style={{
-            border: '1px solid rgba(201,164,92,0.15)',
-            background: 'linear-gradient(135deg, rgba(64,35,75,0.5) 0%, rgba(22,13,30,0.8) 100%)',
-          }}
-        >
-          {STATS.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 16 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.55, delay: 0.2 + i * 0.1 }}
-              className="relative flex flex-col items-center justify-center gap-2 py-8 px-4"
-              style={{
-                borderRight: i < 2 ? '1px solid rgba(201,164,92,0.1)' : 'none',
-              }}
-            >
-              {/* Glow dot top */}
-              <div
-                className="absolute top-0 left-1/2 -translate-x-1/2"
-                style={{
-                  width: 40, height: 1,
-                  background: 'linear-gradient(to right, transparent, rgba(201,164,92,0.5), transparent)',
-                }}
-              />
-
-              <span style={{ fontSize: '1.4rem', lineHeight: 1 }}>{stat.icon}</span>
-
-              <motion.span
-                className="font-serif text-gold-400 font-light"
-                style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', lineHeight: 1 }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + i * 0.1, ease: [0.34, 1.56, 0.64, 1] }}
-              >
-                {stat.value}
-              </motion.span>
-
-              <span
-                className="font-sans text-cream-400 text-center uppercase tracking-widest"
-                style={{ fontSize: '0.55rem', opacity: 0.5, letterSpacing: '0.18em' }}
-              >
-                {stat.label}
-              </span>
-
-              {/* Glow dot bottom */}
-              <div
-                className="absolute bottom-0 left-1/2 -translate-x-1/2"
-                style={{
-                  width: 40, height: 1,
-                  background: 'linear-gradient(to right, transparent, rgba(201,164,92,0.3), transparent)',
-                }}
-              />
-            </motion.div>
-          ))}
         </motion.div>
 
         {/* Steps */}
