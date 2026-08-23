@@ -54,27 +54,53 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
           >
             {/* Main image */}
             <div
-              className="relative overflow-hidden mx-auto"
-              style={{ aspectRatio: '4/5', width: '100%', maxWidth: 340, background: '#FDF6EC', border: '1px solid rgba(184,134,11,0.12)', boxShadow: '0 4px 24px rgba(26,10,0,0.07)', borderRadius: 4 }}
+              className="relative mx-auto"
+              style={{ aspectRatio: '4/5', width: '100%', maxWidth: 340 }}
             >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={imgIndex}
-                  src={p.images[imgIndex]?.src}
-                  alt={p.images[imgIndex]?.alt}
-                  className="w-full h-full object-contain p-8"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.25 }}
-                  draggable={false}
+              {/* Outer golden border frame */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(184,134,11,0.9) 0%, rgba(244,237,227,0.4) 25%, rgba(184,134,11,0.2) 50%, rgba(244,237,227,0.4) 75%, rgba(184,134,11,0.9) 100%)',
+                  padding: 2,
+                  zIndex: 2,
+                }}
+                aria-hidden="true"
+              />
+              {/* Corner accents */}
+              {[['top-0 left-0', 'border-t-2 border-l-2'], ['top-0 right-0', 'border-t-2 border-r-2'], ['bottom-0 left-0', 'border-b-2 border-l-2'], ['bottom-0 right-0', 'border-b-2 border-r-2']].map(([pos, borders]) => (
+                <div
+                  key={pos}
+                  className={`absolute ${pos} ${borders} pointer-events-none`}
+                  style={{ width: 24, height: 24, borderColor: 'var(--color-gold-500)', zIndex: 3 }}
+                  aria-hidden="true"
                 />
-              </AnimatePresence>
-              {p.badge && (
-                <div className="absolute top-3 left-3 px-2.5 py-1" style={{ background: 'rgba(26,10,0,0.85)', border: '1px solid rgba(184,134,11,0.3)' }}>
-                  <span className="font-sans text-[8px] font-bold tracking-widest uppercase" style={{ color: 'var(--color-gold-400)' }}>{p.badge}</span>
-                </div>
-              )}
+              ))}
+              {/* Image container */}
+              <div
+                className="absolute inset-0 overflow-hidden"
+                style={{ background: 'linear-gradient(160deg, #FFFDF9 0%, #FDF6EC 60%, #F5E9D6 100%)', boxShadow: '0 8px 40px rgba(26,10,0,0.1), inset 0 0 0 1px rgba(184,134,11,0.15)', zIndex: 1 }}
+              >
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={imgIndex}
+                    src={p.images[imgIndex]?.src}
+                    alt={p.images[imgIndex]?.alt}
+                    className="w-full h-full object-contain p-8"
+                    initial={{ opacity: 0, scale: 1.03 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.97 }}
+                    transition={{ duration: 0.35 }}
+                    draggable={false}
+                  />
+                </AnimatePresence>
+                {/* Subtle inner glow */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(184,134,11,0.06) 0%, transparent 60%)' }}
+                  aria-hidden="true"
+                />
+              </div>
             </div>
 
             {/* Thumbnails below */}

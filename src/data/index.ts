@@ -61,7 +61,7 @@ export const MAIN_PRODUCT: Product = {
     { src: '/assets/etx-5.png', alt: 'HICKEY — ingredients' },
   ],
   category: 'consumables',
-  badge: 'Bestseller',
+  badge: undefined,
   available: true,
   weight: '60g',
   whatsInside: [
