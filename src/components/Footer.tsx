@@ -3,6 +3,7 @@ import { Mail } from 'lucide-react';
 
 const LINKS = [
   { label: 'FAQ', href: '/#faq' },
+  { label: 'Track Order', href: '/track-order' },
   { label: 'Contact', href: 'mailto:support@hickey.co.in' },
 ];
 

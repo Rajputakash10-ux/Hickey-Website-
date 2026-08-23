@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
+import TrackOrderPage from './pages/TrackOrderPage';
 import { useCart } from './hooks/useCart';
 import { useShopifyProducts } from './hooks/useShopifyProducts';
 
@@ -35,6 +36,7 @@ function AppContent() {
             />
           }
         />
+        <Route path="/track-order" element={<TrackOrderPage />} />
         <Route path="*" element={<HomePage featured={featured} products={products} loading={loading} onAddToCart={cart.addItem} onCartOpen={() => cart.setIsOpen(true)} checkoutUrl={cart.checkoutUrl} />} />
       </Routes>
 

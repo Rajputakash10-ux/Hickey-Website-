@@ -12,6 +12,7 @@ const NAV = [
   { label: 'Why HICKEY', href: '/#why-hickey' },
   { label: 'How It Works', href: '/#how-it-works' },
   { label: 'FAQ', href: '/#faq' },
+  { label: 'Track Order', href: '/track-order' },
 ];
 
 function NavLink({ label, href, isActive, onClick }: {
