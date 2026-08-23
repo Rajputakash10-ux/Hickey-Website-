@@ -32,8 +32,7 @@ export default function MobileShopCTA() {
               <span>Shop HICKEY</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="font-sans line-through opacity-50" style={{ fontSize: '0.65rem' }}>₹799</span>
-              <span className="font-serif font-light" style={{ fontSize: '1rem' }}>₹599</span>
+              <span className="font-serif font-light" style={{ fontSize: '1rem' }}>₹799</span>
             </div>
           </button>
         </motion.div>
