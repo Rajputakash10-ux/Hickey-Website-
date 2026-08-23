@@ -45,85 +45,100 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
       <div className="container-site">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
-          {/* Gallery — main image + thumbnails below */}
+          {/* Gallery — main image with side thumbnails + arrows */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="flex flex-col gap-3 lg:sticky lg:top-20"
+            className="flex gap-3 lg:sticky lg:top-20"
           >
-            {/* Main image */}
-            <div
-              className="relative mx-auto"
-              style={{ aspectRatio: '4/5', width: '100%', maxWidth: 460 }}
-            >
-              {/* Outer golden border frame */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(184,134,11,0.9) 0%, rgba(244,237,227,0.4) 25%, rgba(184,134,11,0.2) 50%, rgba(244,237,227,0.4) 75%, rgba(184,134,11,0.9) 100%)',
-                  padding: 2,
-                  zIndex: 2,
-                }}
-                aria-hidden="true"
-              />
-              {/* Corner accents */}
-              {[['top-0 left-0', 'border-t-2 border-l-2'], ['top-0 right-0', 'border-t-2 border-r-2'], ['bottom-0 left-0', 'border-b-2 border-l-2'], ['bottom-0 right-0', 'border-b-2 border-r-2']].map(([pos, borders]) => (
-                <div
-                  key={pos}
-                  className={`absolute ${pos} ${borders} pointer-events-none`}
-                  style={{ width: 24, height: 24, borderColor: 'var(--color-gold-500)', zIndex: 3 }}
-                  aria-hidden="true"
-                />
+            {/* Left thumbnail rail */}
+            <div className="hidden sm:flex flex-col gap-2 justify-center">
+              {p.images.slice(0, 4).map((img, i) => (
+                <button
+                  key={i}
+                  onClick={() => setImgIndex(i)}
+                  onMouseEnter={() => setImgIndex(i)}
+                  aria-label={img.alt}
+                  className="flex-shrink-0 overflow-hidden"
+                  style={{
+                    width: 64, height: 64,
+                    border: `1px solid ${i === imgIndex ? 'var(--color-gold-500)' : 'rgba(184,134,11,0.15)'}`,
+                    background: '#FDF6EC',
+                    opacity: i === imgIndex ? 1 : 0.55,
+                    boxShadow: i === imgIndex ? '0 0 0 1px rgba(184,134,11,0.25), 0 4px 12px rgba(26,10,0,0.07)' : 'none',
+                    transition: 'all 0.2s ease',
+                    outline: 'none',
+                  }}
+                >
+                  <img src={img.src} alt={img.alt} className="w-full h-full object-contain p-1" loading="lazy" />
+                </button>
               ))}
-              {/* Image container */}
-              <div
-                className="absolute inset-0 overflow-hidden"
-                style={{ background: 'linear-gradient(160deg, #FFFDF9 0%, #FDF6EC 60%, #F5E9D6 100%)', boxShadow: '0 8px 40px rgba(26,10,0,0.1), inset 0 0 0 1px rgba(184,134,11,0.15)', zIndex: 1 }}
-              >
+            </div>
+
+            {/* Main image */}
+            <div className="relative flex-1" style={{ aspectRatio: '4/5', maxWidth: 420 }}>
+              {/* Corner accents */}
+              {(['top-0 left-0 border-t-2 border-l-2', 'top-0 right-0 border-t-2 border-r-2', 'bottom-0 left-0 border-b-2 border-l-2', 'bottom-0 right-0 border-b-2 border-r-2']).map(cls => (
+                <div key={cls} className={`absolute ${cls} pointer-events-none`} style={{ width: 22, height: 22, borderColor: 'var(--color-gold-500)', zIndex: 3 }} aria-hidden="true" />
+              ))}
+
+              {/* Frame border */}
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(184,134,11,0.85) 0%, rgba(244,237,227,0.3) 30%, rgba(184,134,11,0.15) 50%, rgba(244,237,227,0.3) 70%, rgba(184,134,11,0.85) 100%)', padding: 2, zIndex: 2 }} aria-hidden="true" />
+
+              {/* Image area */}
+              <div className="absolute inset-0 overflow-hidden" style={{ background: 'linear-gradient(160deg, #FFFDF9 0%, #FDF6EC 60%, #F5E9D6 100%)', boxShadow: '0 8px 48px rgba(26,10,0,0.1), inset 0 0 0 1px rgba(184,134,11,0.12)', zIndex: 1 }}>
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={imgIndex}
                     src={p.images[imgIndex]?.src}
                     alt={p.images[imgIndex]?.alt}
                     className="w-full h-full object-contain p-8"
-                    initial={{ opacity: 0, scale: 1.03 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.97 }}
-                    transition={{ duration: 0.35 }}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
                     draggable={false}
                   />
                 </AnimatePresence>
-                {/* Subtle inner glow */}
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(184,134,11,0.06) 0%, transparent 60%)' }}
-                  aria-hidden="true"
-                />
+                <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(184,134,11,0.06) 0%, transparent 60%)' }} aria-hidden="true" />
               </div>
-            </div>
 
-            {/* Thumbnails below */}
-            <div className="flex gap-2 justify-center overflow-x-auto" style={{ scrollbarWidth: 'none', maxWidth: 460, margin: '0 auto' }}>
-              {p.images.map((img, i) => (
-                <button
-                  key={i}
-                  onMouseEnter={() => setImgIndex(i)}
-                  onClick={() => setImgIndex(i)}
-                  aria-label={img.alt}
-                  className="flex-shrink-0 overflow-hidden transition-all duration-150"
-                  style={{
-                    width: 72, height: 72,
-                    border: `2px solid ${i === imgIndex ? 'var(--color-gold-500)' : 'rgba(184,134,11,0.15)'}`,
-                    background: '#FDF6EC',
-                    opacity: i === imgIndex ? 1 : 0.6,
-                    boxShadow: i === imgIndex ? '0 0 0 1px rgba(184,134,11,0.3), 0 4px 12px rgba(26,10,0,0.08)' : 'none',
-                    transition: 'all 0.2s ease',
-                  }}
-                >
-                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
-                </button>
-              ))}
+              {/* Prev / Next arrows */}
+              <button
+                onClick={() => setImgIndex(i => (i - 1 + p.images.slice(0,4).length) % p.images.slice(0,4).length)}
+                aria-label="Previous image"
+                className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center z-10 transition-all duration-200 hover:scale-110"
+                style={{ width: 32, height: 32, background: 'rgba(253,246,236,0.92)', border: '1px solid rgba(184,134,11,0.25)', backdropFilter: 'blur(4px)' }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-500)" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
+              </button>
+              <button
+                onClick={() => setImgIndex(i => (i + 1) % p.images.slice(0,4).length)}
+                aria-label="Next image"
+                className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center z-10 transition-all duration-200 hover:scale-110"
+                style={{ width: 32, height: 32, background: 'rgba(253,246,236,0.92)', border: '1px solid rgba(184,134,11,0.25)', backdropFilter: 'blur(4px)' }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-500)" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
+              </button>
+
+              {/* Dot indicators */}
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                {p.images.slice(0, 4).map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setImgIndex(i)}
+                    aria-label={`Image ${i + 1}`}
+                    style={{
+                      width: i === imgIndex ? 18 : 5, height: 5,
+                      borderRadius: 3,
+                      background: i === imgIndex ? 'var(--color-gold-500)' : 'rgba(184,134,11,0.3)',
+                      border: 'none', cursor: 'pointer', padding: 0,
+                      transition: 'all 0.3s ease',
+                    }}
+                  />
+                ))}
+              </div>
             </div>
           </motion.div>
 
