@@ -84,6 +84,21 @@ export default function FAQSection() {
             <p className="font-sans text-choc-700 opacity-60 leading-relaxed mt-4" style={{ fontSize: '0.9rem' }}>
               Everything you need to know about HICKEY.
             </p>
+
+            {/* Trust nudge */}
+            <div className="flex flex-col gap-3 mt-8 pt-8" style={{ borderTop: '1px solid rgba(184,134,11,0.1)' }}>
+              {[
+                { icon: '🔒', text: 'Secure checkout' },
+                { icon: '📦', text: 'Discreet packaging' },
+                { icon: '🚚', text: 'Ships within 24h' },
+                { icon: '💬', text: 'support@hickey.co.in' },
+              ].map(({ icon, text }) => (
+                <div key={text} className="flex items-center gap-2.5">
+                  <span style={{ fontSize: '0.85rem' }}>{icon}</span>
+                  <span className="font-sans text-choc-700" style={{ fontSize: '0.72rem', opacity: 0.55 }}>{text}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
           {/* Right — accordion */}

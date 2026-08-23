@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { REVIEWS } from '../data';
 
-const TOP_REVIEWS = REVIEWS.slice(0, 3);
+const TOP_REVIEWS = REVIEWS.slice(0, 5);
 
 export default function Testimonials() {
   const { ref, isVisible } = useScrollReveal();
@@ -20,12 +20,45 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12"
         >
-          <span className="section-label">Reviews</span>
-          <h2 className="heading-display mt-3" style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)' }}>
-            Real couples,<br />real moments.
-          </h2>
+          <div>
+            <span className="section-label">Reviews</span>
+            <h2 className="heading-display mt-3" style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)' }}>
+              Real couples,<br />real moments.
+            </h2>
+          </div>
+
+          {/* Aggregate rating */}
+          <div className="flex flex-col gap-3 lg:items-end">
+            <div className="flex items-center gap-3">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="var(--color-gold-500)" aria-hidden="true">
+                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                  </svg>
+                ))}
+              </div>
+              <span className="font-serif text-choc-900" style={{ fontSize: '1.6rem', lineHeight: 1 }}>4.9</span>
+            </div>
+            <div className="flex flex-col gap-1.5">
+              {[5,4,3].map((star, i) => (
+                <div key={star} className="flex items-center gap-2">
+                  <span className="font-sans text-choc-600" style={{ fontSize: '0.6rem', width: 8, opacity: 0.5 }}>{star}</span>
+                  <div className="relative h-1 rounded-full overflow-hidden" style={{ width: 80, background: 'rgba(184,134,11,0.12)' }}>
+                    <motion.div
+                      className="absolute inset-y-0 left-0 rounded-full"
+                      style={{ background: 'var(--color-gold-500)' }}
+                      initial={{ width: 0 }}
+                      animate={isVisible ? { width: i === 0 ? '92%' : i === 1 ? '6%' : '2%' } : { width: 0 }}
+                      transition={{ duration: 0.9, delay: 0.3 + i * 0.1 }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <span className="font-sans text-choc-600" style={{ fontSize: '0.65rem', opacity: 0.4 }}>200+ verified reviews</span>
+          </div>
         </motion.div>
       </div>
 
@@ -59,7 +92,7 @@ export default function Testimonials() {
         ))}
       </div>
 
-      {/* Desktop: 3-col grid */}
+      {/* Desktop: reviews grid */}
       <div className="container-site hidden lg:block">
         <div className="grid grid-cols-3 gap-px" style={{ background: 'rgba(184,134,11,0.08)' }}>
           {TOP_REVIEWS.map((review, i) => (
@@ -67,7 +100,7 @@ export default function Testimonials() {
               key={review.id}
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
               className="flex flex-col gap-4 p-8 cursor-default"
               style={{ background: '#FFFDF9', transition: 'background 0.3s ease' }}
               onMouseEnter={e => (e.currentTarget.style.background = '#FDF6EC')}

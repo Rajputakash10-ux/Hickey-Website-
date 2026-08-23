@@ -48,6 +48,38 @@ export default function FinalCTA() {
           >
             Premium Intimacy Dark Chocolate · India
           </p>
+
+          {/* Micro stats */}
+          <div className="flex items-center gap-8 mt-4">
+            {[
+              { value: '14K+', label: 'Couples' },
+              { value: '4.9★', label: 'Rating' },
+              { value: '60g', label: 'Chocolate' },
+            ].map(({ value, label }, i) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
+                className="flex flex-col items-center gap-0.5"
+              >
+                <span className="font-serif font-light text-gold-400" style={{ fontSize: '1.4rem', lineHeight: 1 }}>{value}</span>
+                <span className="font-sans text-choc-600" style={{ fontSize: '0.55rem', letterSpacing: '0.2em', textTransform: 'uppercase', opacity: 0.4 }}>{label}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <motion.button
+            onClick={() => document.getElementById('product')?.scrollIntoView({ behavior: 'smooth' })}
+            className="btn-gold gap-2 mt-2"
+            style={{ minHeight: 52, fontSize: '0.68rem' }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            Shop HICKEY
+          </motion.button>
         </motion.div>
 
         {/* Bottom gold line */}
