@@ -34,8 +34,8 @@ export interface Event {
 export const CURRENCY = '₹';
 
 // ── Configurable product price — change here to update everywhere ──────────────
-export const PRODUCT_PRICE = 599;
-export const PRODUCT_COMPARE_PRICE = 799;
+export const PRODUCT_PRICE = 799;
+export const PRODUCT_COMPARE_PRICE = undefined as number | undefined;
 
 export const NAV_LINKS: NavLink[] = [
   { label: 'Shop', href: '/shop' },
