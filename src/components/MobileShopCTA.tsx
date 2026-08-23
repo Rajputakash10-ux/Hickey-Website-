@@ -20,7 +20,7 @@ export default function MobileShopCTA() {
           exit={{ y: 90, opacity: 0 }}
           transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="fixed bottom-0 left-0 right-0 z-40 lg:hidden px-4"
-          style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))', background: 'linear-gradient(to top, rgba(22,13,30,0.98) 60%, transparent)' }}
+          style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))', background: 'linear-gradient(to top, rgba(253,246,236,0.98) 60%, transparent)' }}
         >
           <button
             onClick={() => document.getElementById('product')?.scrollIntoView({ behavior: 'smooth' })}

@@ -13,7 +13,7 @@ export default function ScratchCardFeature() {
       ref={ref as React.RefObject<HTMLElement>}
       className="overflow-hidden relative"
       style={{
-        background: 'linear-gradient(135deg, #160D1E 0%, #24152F 60%, #2A1713 100%)',
+        background: 'linear-gradient(135deg, #FFFDF9 0%, #FDF6EC 60%, #2A1713 100%)',
         paddingTop: 'clamp(4rem, 10vw, 7rem)',
         paddingBottom: 'clamp(4rem, 10vw, 7rem)',
       }}
@@ -21,7 +21,7 @@ export default function ScratchCardFeature() {
     >
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 50% 60% at 50% 50%, rgba(201,164,92,0.06) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse 50% 60% at 50% 50%, rgba(184,134,11,0.06) 0%, transparent 70%)' }}
         aria-hidden="true"
       />
 
@@ -38,7 +38,7 @@ export default function ScratchCardFeature() {
             <div className="relative" style={{ maxWidth: 380, width: '100%' }}>
               <div
                 className="absolute inset-0 pointer-events-none"
-                style={{ background: 'radial-gradient(circle, rgba(201,164,92,0.15) 0%, transparent 70%)', filter: 'blur(30px)', transform: 'scale(1.2)' }}
+                style={{ background: 'radial-gradient(circle, rgba(184,134,11,0.15) 0%, transparent 70%)', filter: 'blur(30px)', transform: 'scale(1.2)' }}
                 aria-hidden="true"
               />
 
@@ -49,7 +49,7 @@ export default function ScratchCardFeature() {
                 onHoverEnd={() => setHovered(false)}
                 animate={hovered ? { scale: 1.03 } : { scale: 1 }}
                 transition={{ duration: 0.4 }}
-                style={{ padding: 2, background: 'linear-gradient(135deg, rgba(201,164,92,0.9) 0%, rgba(244,237,227,0.3) 30%, rgba(201,164,92,0.1) 50%, rgba(244,237,227,0.3) 70%, rgba(201,164,92,0.9) 100%)' }}
+                style={{ padding: 2, background: 'linear-gradient(135deg, rgba(184,134,11,0.9) 0%, rgba(244,237,227,0.3) 30%, rgba(184,134,11,0.1) 50%, rgba(244,237,227,0.3) 70%, rgba(184,134,11,0.9) 100%)' }}
               >
                 {/* Animated shimmer overlay on border */}
                 <motion.div
@@ -80,12 +80,12 @@ export default function ScratchCardFeature() {
                   width: 72, height: 72,
                   background: 'var(--color-gold-500)',
                   border: '3px solid rgba(244,237,227,0.2)',
-                  boxShadow: '0 8px 24px rgba(201,164,92,0.4)',
+                  boxShadow: '0 8px 24px rgba(184,134,11,0.4)',
                 }}
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               >
-                <span className="font-sans font-bold text-center leading-tight" style={{ fontSize: '0.5rem', letterSpacing: '0.08em', color: '#160D1E', textTransform: 'uppercase' }}>
+                <span className="font-sans font-bold text-center leading-tight" style={{ fontSize: '0.5rem', letterSpacing: '0.08em', color: '#FFFDF9', textTransform: 'uppercase' }}>
                   FREE<br />WITH<br />EVERY<br />PACK
                 </span>
               </motion.div>
@@ -116,7 +116,7 @@ export default function ScratchCardFeature() {
               </h2>
             </div>
 
-            <p className="font-sans text-cream-300 leading-relaxed max-w-md" style={{ fontSize: '0.95rem', opacity: 0.75 }}>
+            <p className="font-sans text-choc-700 leading-relaxed max-w-md" style={{ fontSize: '0.95rem', opacity: 0.75 }}>
               Every HICKEY pack comes with a FREE Secret Position Scratch Card. It's not an add-on. It's not extra. It's part of the experience.
             </p>
 
@@ -135,13 +135,13 @@ export default function ScratchCardFeature() {
                 >
                   <div
                     className="flex items-center justify-center rounded-full flex-shrink-0 font-sans font-bold"
-                    style={{ width: 36, height: 36, background: 'rgba(201,164,92,0.1)', border: '1px solid rgba(201,164,92,0.25)', fontSize: '0.65rem', color: 'var(--color-gold-500)', letterSpacing: '0.05em' }}
+                    style={{ width: 36, height: 36, background: 'rgba(184,134,11,0.1)', border: '1px solid rgba(184,134,11,0.25)', fontSize: '0.65rem', color: 'var(--color-gold-500)', letterSpacing: '0.05em' }}
                   >
                     {String(i + 1).padStart(2, '0')}
                   </div>
                   <div>
-                    <span className="font-serif text-base text-cream-100">{item.step}. </span>
-                    <span className="font-sans text-sm text-cream-300 opacity-60">{item.desc}</span>
+                    <span className="font-serif text-base text-choc-900">{item.step}. </span>
+                    <span className="font-sans text-sm text-choc-700 opacity-60">{item.desc}</span>
                   </div>
                 </motion.div>
               ))}

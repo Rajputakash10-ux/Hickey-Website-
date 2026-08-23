@@ -45,7 +45,7 @@ export default function Hero() {
   return (
     <section
       className="relative w-full overflow-hidden"
-      style={{ height: '100svh', background: '#060309' }}
+      style={{ height: '100svh', background: '#1A0A00' }}
       aria-label="Hero"
     >
       {/* Ken Burns layer */}
@@ -72,13 +72,13 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Cinematic letterbox bars */}
-      <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: 48, background: 'linear-gradient(to bottom, rgba(6,3,9,0.7), transparent)' }} aria-hidden="true" />
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: 180, background: 'linear-gradient(to bottom, transparent, rgba(22,13,30,0.98))' }} aria-hidden="true" />
+      <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: 48, background: 'linear-gradient(to bottom, rgba(26,10,0,0.7), transparent)' }} aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: 180, background: 'linear-gradient(to bottom, transparent, rgba(26,10,0,0.98))' }} aria-hidden="true" />
 
       {/* Edge vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at center, transparent 35%, rgba(6,3,9,0.5) 100%)' }}
+        style={{ background: 'radial-gradient(ellipse at center, transparent 35%, rgba(26,10,0,0.5) 100%)' }}
         aria-hidden="true"
       />
 
@@ -87,7 +87,7 @@ export default function Hero() {
         <motion.div
           style={{
             height: '100%',
-            background: 'linear-gradient(to right, rgba(201,164,92,0.6), var(--color-gold-500))',
+            background: 'linear-gradient(to right, rgba(184,134,11,0.6), var(--color-gold-500))',
             width: `${progress * 100}%`,
           }}
         />
@@ -110,7 +110,7 @@ export default function Hero() {
               {String(idx + 1).padStart(2, '0')}
             </motion.span>
           </AnimatePresence>
-          <span className="font-sans text-cream-400" style={{ fontSize: '0.55rem', opacity: 0.35 }}>
+          <span className="font-sans text-choc-600" style={{ fontSize: '0.55rem', opacity: 0.35 }}>
             / {String(SLIDES.length).padStart(2, '0')}
           </span>
         </div>
@@ -131,7 +131,7 @@ export default function Hero() {
                 cursor: 'pointer',
                 transition: 'all 0.4s cubic-bezier(0.4,0,0.2,1)',
                 padding: 0,
-                boxShadow: i === idx ? '0 0 8px rgba(201,164,92,0.5)' : 'none',
+                boxShadow: i === idx ? '0 0 8px rgba(184,134,11,0.5)' : 'none',
               }}
             />
           ))}

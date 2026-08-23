@@ -10,7 +10,7 @@ export default function AnnouncementBar() {
   return (
     <div
       className="w-full overflow-hidden"
-      style={{ background: '#40234B', borderBottom: '1px solid rgba(201,164,92,0.15)', height: 36 }}
+      style={{ background: '#E8D0B0', borderBottom: '1px solid rgba(184,134,11,0.15)', height: 36 }}
       role="banner"
       aria-label="Promotion"
     >
@@ -22,7 +22,7 @@ export default function AnnouncementBar() {
           <span
             key={i}
             className="font-sans"
-            style={{ fontSize: '0.62rem', letterSpacing: '0.18em', color: 'var(--color-cream-200)', textTransform: 'uppercase', paddingRight: '4rem' }}
+            style={{ fontSize: '0.62rem', letterSpacing: '0.18em', color: 'var(--color-choc-800)', textTransform: 'uppercase', paddingRight: '4rem' }}
           >
             {item}
           </span>

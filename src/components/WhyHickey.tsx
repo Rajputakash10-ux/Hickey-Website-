@@ -31,7 +31,7 @@ export default function WhyHickey() {
     <section
       id="why-hickey"
       ref={ref as React.RefObject<HTMLElement>}
-      style={{ background: '#160D1E', paddingTop: 'clamp(4rem, 10vw, 7rem)', paddingBottom: 'clamp(4rem, 10vw, 7rem)' }}
+      style={{ background: '#FFFDF9', paddingTop: 'clamp(4rem, 10vw, 7rem)', paddingBottom: 'clamp(4rem, 10vw, 7rem)' }}
     >
       <div className="container-site">
         <motion.div
@@ -46,7 +46,7 @@ export default function WhyHickey() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(201,164,92,0.06)' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(184,134,11,0.06)' }}>
           {BENEFITS.map((b, i) => (
             <motion.div
               key={b.title}
@@ -54,12 +54,12 @@ export default function WhyHickey() {
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="flex flex-col gap-4 p-8"
-              style={{ background: '#160D1E' }}
+              style={{ background: '#FFFDF9' }}
             >
               <span style={{ fontSize: '1.75rem' }} aria-hidden="true">{b.icon}</span>
               <div>
-                <h3 className="font-serif text-lg text-cream-100" style={{ lineHeight: 1.3 }}>{b.title}</h3>
-                <p className="font-sans text-sm text-cream-300 mt-2 leading-relaxed" style={{ opacity: 0.6 }}>{b.desc}</p>
+                <h3 className="font-serif text-lg text-choc-900" style={{ lineHeight: 1.3 }}>{b.title}</h3>
+                <p className="font-sans text-sm text-choc-700 mt-2 leading-relaxed" style={{ opacity: 0.6 }}>{b.desc}</p>
               </div>
             </motion.div>
           ))}

@@ -15,7 +15,7 @@ export default function ShopPage({ products, loading, onAddToCart, checkoutUrl }
   if (loading || !product) {
     return (
       <main style={{ paddingTop: 64, minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <span className="font-sans text-cream-400 opacity-40" style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+        <span className="font-sans text-choc-600 opacity-40" style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
           Loading…
         </span>
       </main>
@@ -26,7 +26,7 @@ export default function ShopPage({ products, loading, onAddToCart, checkoutUrl }
     <main style={{ paddingTop: 64 }}>
       <div
         className="py-10 text-center"
-        style={{ background: '#24152F', borderBottom: '1px solid rgba(201,164,92,0.08)' }}
+        style={{ background: '#FDF6EC', borderBottom: '1px solid rgba(184,134,11,0.08)' }}
       >
         <span className="section-label">Shop</span>
         <h1 className="heading-display mt-2" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>

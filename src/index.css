@@ -4,44 +4,44 @@
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
-  /* Deep royal purple / dark plum */
-  --color-plum-950: #160D1E;
-  --color-plum-900: #24152F;
-  --color-plum-800: #321D3D;
-  --color-plum-700: #40234B;
-  --color-plum-600: #523060;
+  /* Chocolate browns */
+  --color-choc-950: #1A0A00;
+  --color-choc-900: #2C1200;
+  --color-choc-800: #3D1A00;
+  --color-choc-700: #5C2800;
+  --color-choc-600: #7A3800;
+  --color-choc-500: #9B4A00;
 
-  /* Chocolate brown */
-  --color-choc-950: #1A0E0B;
-  --color-choc-900: #2A1713;
-  --color-choc-800: #4A281E;
-  --color-choc-700: #6B3A2C;
+  /* Warm whites / creams */
+  --color-cream-50:  #FFFDF9;
+  --color-cream-100: #FDF6EC;
+  --color-cream-200: #F5E9D6;
+  --color-cream-300: #E8D0B0;
+  --color-cream-400: #D4B48A;
+  --color-cream-500: #B8926A;
 
-  /* Luxury gold — use sparingly */
-  --color-gold-500: #C9A45C;
-  --color-gold-400: #D8B873;
-  --color-gold-300: #E8CE9A;
+  /* Gold */
+  --color-gold-500: #B8860B;
+  --color-gold-400: #C9960E;
+  --color-gold-300: #DBA830;
 
-  /* Warm cream */
-  --color-cream-100: #F4EDE3;
-  --color-cream-200: #EDE0D2;
-  --color-cream-300: #D9C8B4;
-  --color-cream-400: #BFA98E;
-  --color-cream-500: #9E8468;
-
-  /* Legacy aliases — kept so existing Tailwind classes still resolve */
-  --color-ink-950: #160D1E;
-  --color-ink-900: #24152F;
-  --color-ink-800: #321D3D;
-  --color-ink-700: #40234B;
-
-  --color-wine-900: #24152F;
-  --color-wine-800: #321D3D;
-  --color-wine-700: #40234B;
-  --color-wine-600: #523060;
-  --color-wine-500: #6B3A72;
-  --color-wine-400: #C9A45C;
-  --color-wine-300: #D8B873;
+  /* Legacy aliases */
+  --color-plum-950: #1A0A00;
+  --color-plum-900: #2C1200;
+  --color-plum-800: #3D1A00;
+  --color-plum-700: #5C2800;
+  --color-plum-600: #7A3800;
+  --color-ink-950:  #1A0A00;
+  --color-ink-900:  #2C1200;
+  --color-ink-800:  #3D1A00;
+  --color-ink-700:  #5C2800;
+  --color-wine-900: #2C1200;
+  --color-wine-800: #3D1A00;
+  --color-wine-700: #5C2800;
+  --color-wine-600: #7A3800;
+  --color-wine-500: #9B4A00;
+  --color-wine-400: #B8860B;
+  --color-wine-300: #C9960E;
 
   --tracking-ultra: 0.25em;
   --tracking-wide-xl: 0.15em;
@@ -53,13 +53,13 @@
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
   body {
-    background-color: var(--color-plum-900);
-    color: var(--color-cream-200);
+    background-color: var(--color-cream-50);
+    color: var(--color-choc-900);
     font-family: var(--font-sans);
     overflow-x: hidden;
   }
 
-  ::selection { background: var(--color-plum-700); color: var(--color-cream-100); }
+  ::selection { background: var(--color-choc-700); color: var(--color-cream-50); }
 
   :focus-visible {
     outline: 2px solid var(--color-gold-500);
@@ -68,34 +68,31 @@
 }
 
 @layer components {
-  /* Primary button — deep plum */
   .btn-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     padding: 0.75rem 2rem;
-    background: var(--color-plum-700);
-    color: var(--color-cream-100);
+    background: var(--color-choc-800);
+    color: var(--color-cream-50);
     font-family: var(--font-sans);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     border-radius: 9999px;
-    border: 1px solid var(--color-plum-600);
+    border: 1px solid var(--color-choc-700);
     cursor: pointer;
     transition: all 0.25s ease;
     white-space: nowrap;
     text-decoration: none;
   }
   .btn-primary:hover {
-    background: var(--color-plum-600);
-    border-color: rgba(201,164,92,0.4);
+    background: var(--color-choc-700);
     transform: translateY(-1px);
   }
 
-  /* Outline button */
   .btn-outline {
     display: inline-flex;
     align-items: center;
@@ -103,14 +100,14 @@
     gap: 0.5rem;
     padding: 0.75rem 2rem;
     background: transparent;
-    color: var(--color-cream-200);
+    color: var(--color-choc-800);
     font-family: var(--font-sans);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     border-radius: 9999px;
-    border: 1px solid rgba(244,237,227,0.22);
+    border: 1px solid rgba(60,26,0,0.3);
     cursor: pointer;
     transition: all 0.25s ease;
     white-space: nowrap;
@@ -118,19 +115,18 @@
   }
   .btn-outline:hover {
     border-color: var(--color-gold-500);
-    color: var(--color-cream-100);
+    color: var(--color-choc-900);
     transform: translateY(-1px);
   }
 
-  /* Gold CTA — used sparingly */
   .btn-gold {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     padding: 0.75rem 2rem;
-    background: var(--color-gold-500);
-    color: var(--color-plum-950);
+    background: var(--color-choc-800);
+    color: var(--color-cream-50);
     font-family: var(--font-sans);
     font-size: 0.7rem;
     font-weight: 700;
@@ -144,7 +140,7 @@
     text-decoration: none;
   }
   .btn-gold:hover {
-    background: var(--color-gold-400);
+    background: var(--color-choc-700);
     transform: translateY(-1px);
   }
 
@@ -161,7 +157,7 @@
   .heading-display {
     font-family: var(--font-serif);
     font-weight: 400;
-    color: var(--color-cream-100);
+    color: var(--color-choc-900);
     line-height: 1.05;
     letter-spacing: -0.01em;
   }
@@ -175,7 +171,6 @@
     padding-right: 1.5rem;
   }
 
-  /* Cormorant Garamond alias for display headings */
   .font-display {
     font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
   }
@@ -195,7 +190,6 @@
   .scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
 
   .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
-
   .overflow-x-clip { overflow-x: clip; }
 
   .line-clamp-2 {

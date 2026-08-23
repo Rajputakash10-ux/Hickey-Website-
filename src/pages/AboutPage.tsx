@@ -7,7 +7,7 @@ export default function AboutPage() {
       <section
         className="relative overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, #160D1E 0%, #24152F 60%, #321D3D 100%)',
+          background: 'linear-gradient(135deg, #FFFDF9 0%, #FDF6EC 60%, #F5E9D6 100%)',
           paddingTop: 'clamp(5rem, 12vw, 9rem)',
           paddingBottom: 'clamp(4rem, 10vw, 7rem)',
         }}
@@ -36,14 +36,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section style={{ background: '#24152F', paddingTop: 'clamp(4rem, 8vw, 6rem)', paddingBottom: 'clamp(4rem, 8vw, 6rem)' }}>
+      <section style={{ background: '#FDF6EC', paddingTop: 'clamp(4rem, 8vw, 6rem)', paddingBottom: 'clamp(4rem, 8vw, 6rem)' }}>
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="flex flex-col gap-6">
               <h2 className="heading-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
                 Why HICKEY exists.
               </h2>
-              <div className="flex flex-col gap-4 font-sans text-cream-300 leading-relaxed" style={{ fontSize: '0.95rem', opacity: 0.75 }}>
+              <div className="flex flex-col gap-4 font-sans text-choc-700 leading-relaxed" style={{ fontSize: '0.95rem', opacity: 0.75 }}>
                 <p>
                   HICKEY was born from a simple observation: modern couples are busier than ever, yet the moments that matter most — the slow evenings, the shared rituals, the playful surprises — are the first things to disappear.
                 </p>
@@ -57,7 +57,7 @@ export default function AboutPage() {
             </div>
             <div
               className="relative overflow-hidden flex items-center justify-center"
-              style={{ aspectRatio: '4/5', background: '#321D3D', border: '1px solid rgba(201,164,92,0.1)' }}
+              style={{ aspectRatio: '4/5', background: '#F5E9D6', border: '1px solid rgba(184,134,11,0.1)' }}
             >
               <img
                 src="/assets/hickey-1.png"
@@ -70,18 +70,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section style={{ background: '#321D3D', paddingTop: 'clamp(4rem, 8vw, 6rem)', paddingBottom: 'clamp(4rem, 8vw, 6rem)' }}>
+      <section style={{ background: '#F5E9D6', paddingTop: 'clamp(4rem, 8vw, 6rem)', paddingBottom: 'clamp(4rem, 8vw, 6rem)' }}>
         <div className="container-site">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(201,164,92,0.06)' }}>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(184,134,11,0.06)' }}>
             {[
               { value: '14k+', label: 'Couples' },
               { value: '4.9★', label: 'Average Rating' },
               { value: '100%', label: 'Discreet Shipping' },
               { value: 'India', label: 'Made With Love' },
             ].map(stat => (
-              <div key={stat.label} className="flex flex-col gap-2 p-8 lg:p-10" style={{ background: '#321D3D' }}>
+              <div key={stat.label} className="flex flex-col gap-2 p-8 lg:p-10" style={{ background: '#F5E9D6' }}>
                 <span className="font-serif font-light text-gold-400" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>{stat.value}</span>
-                <span className="font-sans text-xs tracking-widest uppercase text-cream-400 opacity-60">{stat.label}</span>
+                <span className="font-sans text-xs tracking-widest uppercase text-choc-600 opacity-60">{stat.label}</span>
               </div>
             ))}
           </div>

@@ -10,13 +10,13 @@ export default function LifestyleSection() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="relative overflow-hidden"
-      style={{ minHeight: 'clamp(500px, 80vw, 750px)', background: '#160D1E' }}
+      style={{ minHeight: 'clamp(500px, 80vw, 750px)', background: '#FFFDF9' }}
       aria-label="HICKEY lifestyle"
     >
       {/* Background */}
       <div
         className="absolute inset-0"
-        style={{ background: 'linear-gradient(135deg, #160D1E 0%, #2A1713 40%, #24152F 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #FFFDF9 0%, #2A1713 40%, #FDF6EC 100%)' }}
         aria-hidden="true"
       />
 
@@ -36,14 +36,14 @@ export default function LifestyleSection() {
       {/* Overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'linear-gradient(to right, rgba(22,13,30,0.97) 45%, rgba(22,13,30,0.4) 100%)' }}
+        style={{ background: 'linear-gradient(to right, rgba(26,10,0,0.97) 45%, rgba(26,10,0,0.4) 100%)' }}
         aria-hidden="true"
       />
 
       {/* Gold accent line */}
       <div
         className="absolute left-0 top-0 bottom-0 pointer-events-none"
-        style={{ width: 2, background: 'linear-gradient(to bottom, transparent, rgba(201,164,92,0.4), transparent)' }}
+        style={{ width: 2, background: 'linear-gradient(to bottom, transparent, rgba(184,134,11,0.4), transparent)' }}
         aria-hidden="true"
       />
 
@@ -65,7 +65,7 @@ export default function LifestyleSection() {
                 initial={{ opacity: 0, x: -32 }}
                 animate={isVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.8, delay }}
-                className="font-serif text-cream-100"
+                className="font-serif text-choc-900"
                 style={{
                   fontSize: 'clamp(3rem, 9vw, 7rem)',
                   lineHeight: 1.0,
@@ -89,7 +89,7 @@ export default function LifestyleSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.55 }}
-            className="font-sans text-cream-300 leading-relaxed max-w-sm"
+            className="font-sans text-choc-700 leading-relaxed max-w-sm"
             style={{ fontSize: '1rem', opacity: 0.75, fontWeight: 500 }}
           >
             HICKEY is designed for the moments between the ordinary — when you choose to be present, together.

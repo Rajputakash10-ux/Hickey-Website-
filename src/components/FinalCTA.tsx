@@ -8,12 +8,12 @@ export default function FinalCTA() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="relative overflow-hidden"
-      style={{ background: '#0e0816', paddingTop: 'clamp(4rem, 10vw, 7rem)', paddingBottom: 'clamp(4rem, 10vw, 7rem)' }}
+      style={{ background: '#FFFDF9', paddingTop: 'clamp(4rem, 10vw, 7rem)', paddingBottom: 'clamp(4rem, 10vw, 7rem)' }}
     >
       {/* Soft gold glow center */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201,164,92,0.05) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(184,134,11,0.05) 0%, transparent 70%)' }}
         aria-hidden="true"
       />
 
@@ -21,7 +21,7 @@ export default function FinalCTA() {
         {/* Top gold line */}
         <motion.div
           className="mx-auto mb-10"
-          style={{ height: 1, background: 'linear-gradient(to right, transparent, rgba(201,164,92,0.35), transparent)' }}
+          style={{ height: 1, background: 'linear-gradient(to right, transparent, rgba(184,134,11,0.35), transparent)' }}
           initial={{ width: 0 }}
           animate={isVisible ? { width: '100%' } : { width: 0 }}
           transition={{ duration: 1, ease: 'easeInOut' }}
@@ -43,7 +43,7 @@ export default function FinalCTA() {
           </h2>
 
           <p
-            className="font-sans text-cream-400"
+            className="font-sans text-choc-600"
             style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', opacity: 0.4 }}
           >
             Premium Intimacy Dark Chocolate · India
@@ -53,7 +53,7 @@ export default function FinalCTA() {
         {/* Bottom gold line */}
         <motion.div
           className="mx-auto mt-10"
-          style={{ height: 1, background: 'linear-gradient(to right, transparent, rgba(201,164,92,0.35), transparent)' }}
+          style={{ height: 1, background: 'linear-gradient(to right, transparent, rgba(184,134,11,0.35), transparent)' }}
           initial={{ width: 0 }}
           animate={isVisible ? { width: '100%' } : { width: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: 'easeInOut' }}

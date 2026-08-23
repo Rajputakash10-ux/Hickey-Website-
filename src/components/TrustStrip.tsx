@@ -55,11 +55,11 @@ export default function TrustStrip() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="py-12 lg:py-16"
-      style={{ background: '#321D3D', borderTop: '1px solid rgba(201,164,92,0.08)', borderBottom: '1px solid rgba(201,164,92,0.08)' }}
+      style={{ background: '#F5E9D6', borderTop: '1px solid rgba(184,134,11,0.08)', borderBottom: '1px solid rgba(184,134,11,0.08)' }}
       aria-label="Brand benefits"
     >
       <div className="container-site">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(201,164,92,0.06)' }}>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(184,134,11,0.06)' }}>
           {BENEFITS.map((b, i) => (
             <motion.div
               key={b.title}
@@ -67,14 +67,14 @@ export default function TrustStrip() {
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="flex flex-col gap-3 p-6 lg:p-8"
-              style={{ background: '#321D3D' }}
+              style={{ background: '#F5E9D6' }}
             >
               <div style={{ color: 'var(--color-gold-500)' }}>{b.icon}</div>
               <div>
-                <h3 className="font-sans font-semibold text-cream-100" style={{ fontSize: '0.78rem', letterSpacing: '0.05em' }}>
+                <h3 className="font-sans font-semibold text-choc-900" style={{ fontSize: '0.78rem', letterSpacing: '0.05em' }}>
                   {b.title}
                 </h3>
-                <p className="font-sans text-cream-300 leading-relaxed mt-1.5" style={{ fontSize: '0.78rem', opacity: 0.6 }}>
+                <p className="font-sans text-choc-700 leading-relaxed mt-1.5" style={{ fontSize: '0.78rem', opacity: 0.6 }}>
                   {b.desc}
                 </p>
               </div>

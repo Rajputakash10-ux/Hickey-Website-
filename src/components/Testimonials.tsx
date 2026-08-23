@@ -12,7 +12,7 @@ export default function Testimonials() {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      style={{ background: '#160D1E', paddingTop: 'clamp(4rem, 10vw, 7rem)', paddingBottom: 'clamp(4rem, 10vw, 7rem)' }}
+      style={{ background: '#FFFDF9', paddingTop: 'clamp(4rem, 10vw, 7rem)', paddingBottom: 'clamp(4rem, 10vw, 7rem)' }}
       aria-label="Customer reviews"
     >
       <div className="container-site">
@@ -50,8 +50,8 @@ export default function Testimonials() {
             style={{
               width: 'min(calc(100vw - 3rem), 300px)',
               scrollSnapAlign: 'start',
-              border: '1px solid rgba(201,164,92,0.1)',
-              background: '#1A1025',
+              border: '1px solid rgba(184,134,11,0.1)',
+              background: '#FFFDF9',
             }}
           >
             <ReviewContent review={review} />
@@ -61,7 +61,7 @@ export default function Testimonials() {
 
       {/* Desktop: 3-col grid */}
       <div className="container-site hidden lg:block">
-        <div className="grid grid-cols-3 gap-px" style={{ background: 'rgba(201,164,92,0.06)' }}>
+        <div className="grid grid-cols-3 gap-px" style={{ background: 'rgba(184,134,11,0.06)' }}>
           {TOP_REVIEWS.map((review, i) => (
             <motion.article
               key={review.id}
@@ -69,7 +69,7 @@ export default function Testimonials() {
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="flex flex-col gap-4 p-8"
-              style={{ background: '#160D1E' }}
+              style={{ background: '#FFFDF9' }}
             >
               <ReviewContent review={review} />
             </motion.article>
@@ -90,20 +90,20 @@ function ReviewContent({ review }: { review: typeof REVIEWS[0] }) {
           </svg>
         ))}
       </div>
-      <blockquote className="font-serif text-base text-cream-200 leading-relaxed flex-1" style={{ opacity: 0.9 }}>
+      <blockquote className="font-serif text-base text-choc-800 leading-relaxed flex-1" style={{ opacity: 0.9 }}>
         "{review.text}"
       </blockquote>
-      <footer className="flex items-center gap-3 pt-3" style={{ borderTop: '1px solid rgba(201,164,92,0.08)' }}>
+      <footer className="flex items-center gap-3 pt-3" style={{ borderTop: '1px solid rgba(184,134,11,0.08)' }}>
         <div
-          className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-sans text-xs font-semibold text-cream-100"
-          style={{ background: '#321D3D', border: '1px solid rgba(201,164,92,0.15)' }}
+          className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-sans text-xs font-semibold text-choc-900"
+          style={{ background: '#F5E9D6', border: '1px solid rgba(184,134,11,0.15)' }}
           aria-hidden="true"
         >
           {review.initials}
         </div>
         <div>
-          <p className="font-sans text-xs font-semibold text-cream-200">{review.name}</p>
-          <p className="font-sans text-[10px] text-cream-400" style={{ opacity: 0.5 }}>{review.city}</p>
+          <p className="font-sans text-xs font-semibold text-choc-800">{review.name}</p>
+          <p className="font-sans text-[10px] text-choc-600" style={{ opacity: 0.5 }}>{review.city}</p>
         </div>
       </footer>
     </>

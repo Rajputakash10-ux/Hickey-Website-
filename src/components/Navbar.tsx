@@ -45,7 +45,7 @@ function NavLink({ label, href, isActive, onClick }: {
             animate={{ opacity: 0, scale: 2.2 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.55, ease: 'easeOut' }}
-            style={{ background: 'rgba(201,164,92,0.18)', borderRadius: 4 }}
+            style={{ background: 'rgba(184,134,11,0.18)', borderRadius: 4 }}
           />
         )}
       </AnimatePresence>
@@ -71,7 +71,7 @@ function NavLink({ label, href, isActive, onClick }: {
           height: 1,
           background: 'var(--color-gold-500)',
           borderRadius: 1,
-          boxShadow: isLocked ? '0 0 6px rgba(201,164,92,0.6)' : 'none',
+          boxShadow: isLocked ? '0 0 6px rgba(184,134,11,0.6)' : 'none',
         }}
         animate={{ width: isLocked ? '100%' : '0%', opacity: isLocked ? 1 : 0 }}
         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
@@ -137,9 +137,9 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
       <header
         className="fixed left-0 right-0 top-0 z-50"
         style={{
-          background: scrolled ? 'rgba(14,8,20,0.94)' : 'transparent',
+          background: scrolled ? 'rgba(253,246,236,0.96)' : 'transparent',
           backdropFilter: scrolled ? 'blur(22px) saturate(1.4)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(201,164,92,0.09)' : 'none',
+          borderBottom: scrolled ? '1px solid rgba(184,134,11,0.09)' : 'none',
           transition: 'all 0.35s ease',
         }}
       >
@@ -152,7 +152,7 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
             <Link to="/" className="flex flex-col leading-none flex-shrink-0 group" aria-label="HICKEY Home">
               <span
                 className="font-serif font-light tracking-[0.3em] group-hover:text-gold-400 transition-colors duration-300"
-                style={{ fontSize: 'clamp(1.05rem, 3vw, 1.25rem)', color: 'var(--color-cream-100)' }}
+                style={{ fontSize: 'clamp(1.05rem, 3vw, 1.25rem)', color: 'var(--color-choc-900)' }}
               >
                 HICKEY
               </span>
@@ -187,22 +187,22 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                   fontSize: '0.55rem',
                   letterSpacing: '0.22em',
                   padding: '0.45rem 1.2rem',
-                  border: '1px solid rgba(201,164,92,0.3)',
-                  background: 'rgba(201,164,92,0.05)',
-                  color: 'var(--color-cream-100)',
+                  border: '1px solid rgba(184,134,11,0.3)',
+                  background: 'rgba(184,134,11,0.05)',
+                  color: 'var(--color-choc-900)',
                   transition: 'all 0.22s ease',
                   cursor: 'pointer',
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.background = 'rgba(201,164,92,0.12)';
-                  el.style.borderColor = 'rgba(201,164,92,0.55)';
+                  el.style.background = 'rgba(184,134,11,0.12)';
+                  el.style.borderColor = 'rgba(184,134,11,0.55)';
                   el.style.color = 'var(--color-gold-400)';
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.background = 'rgba(201,164,92,0.05)';
-                  el.style.borderColor = 'rgba(201,164,92,0.3)';
+                  el.style.background = 'rgba(184,134,11,0.05)';
+                  el.style.borderColor = 'rgba(184,134,11,0.3)';
                   el.style.color = 'var(--color-cream-100)';
                 }}
               >
@@ -214,7 +214,7 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                 aria-label={`Cart — ${cartCount} item${cartCount !== 1 ? 's' : ''}`}
                 onClick={onCartOpen}
                 className="relative flex items-center justify-center"
-                style={{ width: 46, height: 46, color: 'var(--color-cream-200)' }}
+                style={{ width: 46, height: 46, color: 'var(--color-choc-800)' }}
                 whileHover={{ color: 'var(--color-gold-400)' }}
                 whileTap={{ scale: 0.88 }}
                 transition={{ duration: 0.15 }}
@@ -232,8 +232,8 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                         width: 17, height: 17,
                         fontSize: 8.5,
                         background: 'var(--color-gold-500)',
-                        color: '#160D1E',
-                        boxShadow: '0 0 8px rgba(201,164,92,0.5)',
+                        color: '#FFFDF9',
+                        boxShadow: '0 0 8px rgba(184,134,11,0.5)',
                       }}
                     >
                       {cartCount}
@@ -247,7 +247,7 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                 aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                 onClick={() => setMenuOpen(v => !v)}
                 className="lg:hidden flex items-center justify-center"
-                style={{ width: 46, height: 46, color: 'var(--color-cream-200)' }}
+                style={{ width: 46, height: 46, color: 'var(--color-choc-800)' }}
                 whileHover={{ color: 'var(--color-gold-400)' }}
                 whileTap={{ scale: 0.88 }}
                 transition={{ duration: 0.15 }}
@@ -281,9 +281,9 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="fixed inset-0 z-40 lg:hidden flex flex-col"
-            style={{ background: 'rgba(10,6,16,0.97)', backdropFilter: 'blur(28px)', paddingTop: 62 }}
+            style={{ background: 'rgba(253,246,236,0.98)', backdropFilter: 'blur(28px)', paddingTop: 62 }}
           >
-            <div style={{ height: 1, background: 'linear-gradient(to right, transparent, rgba(201,164,92,0.35), transparent)' }} />
+            <div style={{ height: 1, background: 'linear-gradient(to right, transparent, rgba(184,134,11,0.35), transparent)' }} />
 
             <nav className="flex flex-col flex-1 justify-center px-8 gap-0" aria-label="Mobile navigation">
               {NAV.map((link, i) => (
@@ -292,17 +292,17 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                   initial={{ opacity: 0, x: 28 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.065, duration: 0.32 }}
-                  style={{ borderBottom: '1px solid rgba(201,164,92,0.07)' }}
+                  style={{ borderBottom: '1px solid rgba(184,134,11,0.07)' }}
                 >
                   {link.href.startsWith('/#') ? (
                     <button onClick={() => handleAnchor(link.href)} className="w-full text-left py-5 bg-transparent border-none cursor-pointer group">
-                      <span className="font-serif font-light text-cream-100 group-hover:text-gold-400 transition-colors duration-200" style={{ fontSize: 'clamp(1.6rem, 6vw, 2.2rem)' }}>
+                      <span className="font-serif font-light text-choc-900 group-hover:text-gold-400 transition-colors duration-200" style={{ fontSize: 'clamp(1.6rem, 6vw, 2.2rem)' }}>
                         {link.label}
                       </span>
                     </button>
                   ) : (
                     <Link to={link.href} className="block py-5 group">
-                      <span className="font-serif font-light text-cream-100 group-hover:text-gold-400 transition-colors duration-200" style={{ fontSize: 'clamp(1.6rem, 6vw, 2.2rem)' }}>
+                      <span className="font-serif font-light text-choc-900 group-hover:text-gold-400 transition-colors duration-200" style={{ fontSize: 'clamp(1.6rem, 6vw, 2.2rem)' }}>
                         {link.label}
                       </span>
                     </Link>
@@ -325,7 +325,7 @@ export default function Navbar({ cartCount, onCartOpen }: NavbarProps) {
                   fontSize: '0.62rem',
                   letterSpacing: '0.25em',
                   background: 'var(--color-gold-500)',
-                  color: '#160D1E',
+                  color: '#FFFDF9',
                   fontWeight: 700,
                   border: 'none',
                   cursor: 'pointer',

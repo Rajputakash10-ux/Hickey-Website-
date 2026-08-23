@@ -15,7 +15,7 @@ export default function ExperienceSteps() {
       id="how-it-works"
       ref={ref as React.RefObject<HTMLElement>}
       className="overflow-hidden"
-      style={{ background: '#160D1E', paddingTop: 'clamp(4rem, 10vw, 7rem)', paddingBottom: 'clamp(4rem, 10vw, 7rem)' }}
+      style={{ background: '#FFFDF9', paddingTop: 'clamp(4rem, 10vw, 7rem)', paddingBottom: 'clamp(4rem, 10vw, 7rem)' }}
       aria-label="How it works"
     >
       <div className="container-site">
@@ -34,7 +34,7 @@ export default function ExperienceSteps() {
         </motion.div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px" style={{ background: 'rgba(201,164,92,0.07)' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px" style={{ background: 'rgba(184,134,11,0.07)' }}>
           {STEPS.map((step, i) => (
             <motion.div
               key={step.num}
@@ -42,24 +42,24 @@ export default function ExperienceSteps() {
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 + i * 0.14 }}
               className="relative flex flex-col gap-5 p-8 lg:p-10 group"
-              style={{ background: '#160D1E' }}
+              style={{ background: '#FFFDF9' }}
             >
               {/* Top gold line on hover */}
               <div
                 className="absolute top-0 left-0 right-0 h-px"
-                style={{ background: 'linear-gradient(to right, transparent, rgba(201,164,92,0.4), transparent)' }}
+                style={{ background: 'linear-gradient(to right, transparent, rgba(184,134,11,0.4), transparent)' }}
               />
 
               <span
                 className="font-serif font-light"
-                style={{ fontSize: 'clamp(3.5rem, 7vw, 5.5rem)', color: 'rgba(201,164,92,0.08)', lineHeight: 1 }}
+                style={{ fontSize: 'clamp(3.5rem, 7vw, 5.5rem)', color: 'rgba(184,134,11,0.08)', lineHeight: 1 }}
               >
                 {step.num}
               </span>
 
               <div>
-                <h3 className="font-serif text-xl text-cream-100 mb-2">{step.title}</h3>
-                <p className="font-sans text-sm text-cream-300 leading-relaxed" style={{ opacity: 0.6 }}>
+                <h3 className="font-serif text-xl text-choc-900 mb-2">{step.title}</h3>
+                <p className="font-sans text-sm text-choc-700 leading-relaxed" style={{ opacity: 0.6 }}>
                   {step.desc}
                 </p>
               </div>

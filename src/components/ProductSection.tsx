@@ -48,7 +48,7 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
       id="product"
       ref={ref as React.RefObject<HTMLElement>}
       className="overflow-hidden"
-      style={{ background: '#160D1E', paddingTop: 'clamp(3rem, 7vw, 5rem)', paddingBottom: 'clamp(3rem, 7vw, 5rem)' }}
+      style={{ background: '#FFFDF9', paddingTop: 'clamp(3rem, 7vw, 5rem)', paddingBottom: 'clamp(3rem, 7vw, 5rem)' }}
       aria-label="Product"
     >
       <div className="container-site">
@@ -72,9 +72,9 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
                   className="overflow-hidden transition-all duration-150 flex-shrink-0"
                   style={{
                     width: 60, height: 60,
-                    border: `2px solid ${i === imgIndex ? 'var(--color-gold-500)' : 'rgba(201,164,92,0.12)'}`,
-                    background: '#24152F',
-                    outline: i === imgIndex ? '1px solid rgba(201,164,92,0.3)' : 'none',
+                    border: `2px solid ${i === imgIndex ? 'var(--color-gold-500)' : 'rgba(184,134,11,0.12)'}`,
+                    background: '#FDF6EC',
+                    outline: i === imgIndex ? '1px solid rgba(184,134,11,0.3)' : 'none',
                     outlineOffset: 2,
                   }}
                 >
@@ -93,8 +93,8 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
               className="relative flex-1 overflow-hidden cursor-crosshair"
               style={{
                 aspectRatio: '1/1',
-                background: '#24152F',
-                border: '1px solid rgba(201,164,92,0.1)',
+                background: '#FDF6EC',
+                border: '1px solid rgba(184,134,11,0.1)',
               }}
               onMouseEnter={() => setZoom(true)}
               onMouseLeave={() => setZoom(false)}
@@ -130,7 +130,7 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
               )}
 
               {p.badge && (
-                <div className="absolute top-3 left-3 px-2.5 py-1" style={{ background: 'rgba(22,13,30,0.9)', border: '1px solid rgba(201,164,92,0.3)' }}>
+                <div className="absolute top-3 left-3 px-2.5 py-1" style={{ background: 'rgba(26,10,0,0.9)', border: '1px solid rgba(184,134,11,0.3)' }}>
                   <span className="font-sans text-[8px] font-bold tracking-widest uppercase text-gold-400">{p.badge}</span>
                 </div>
               )}
@@ -146,21 +146,21 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
           >
             {/* Title */}
             <div>
-              <p className="font-sans text-cream-400 opacity-50 mb-1" style={{ fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+              <p className="font-sans text-choc-600 opacity-50 mb-1" style={{ fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                 HICKEY · 60g Dark Chocolate
               </p>
               <h2 className="heading-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', lineHeight: 1.1 }}>
                 {p.title}
               </h2>
               {p.subtitle && (
-                <p className="font-serif italic text-cream-300 opacity-55 mt-1" style={{ fontSize: '0.95rem' }}>
+                <p className="font-serif italic text-choc-700 opacity-55 mt-1" style={{ fontSize: '0.95rem' }}>
                   {p.subtitle}
                 </p>
               )}
             </div>
 
             {/* Rating row */}
-            <div className="flex items-center gap-2 pb-4" style={{ borderBottom: '1px solid rgba(201,164,92,0.08)' }}>
+            <div className="flex items-center gap-2 pb-4" style={{ borderBottom: '1px solid rgba(184,134,11,0.08)' }}>
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="var(--color-gold-500)" aria-hidden="true">
@@ -169,7 +169,7 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
                 ))}
               </div>
               <span className="font-sans text-gold-400" style={{ fontSize: '0.7rem' }}>4.9</span>
-              <span className="font-sans text-cream-400 opacity-40" style={{ fontSize: '0.7rem' }}>· 200+ reviews · 14K+ couples</span>
+              <span className="font-sans text-choc-600 opacity-40" style={{ fontSize: '0.7rem' }}>· 200+ reviews · 14K+ couples</span>
             </div>
 
             {/* Price */}
@@ -179,10 +179,10 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
               </span>
               {p.compareAtPrice && (
                 <>
-                  <span className="font-sans text-cream-400 opacity-35 line-through" style={{ fontSize: '0.95rem' }}>
+                  <span className="font-sans text-choc-600 opacity-35 line-through" style={{ fontSize: '0.95rem' }}>
                     {CURRENCY}{p.compareAtPrice.toLocaleString('en-IN')}
                   </span>
-                  <span className="font-sans text-[8px] tracking-widest uppercase font-bold px-2 py-0.5" style={{ background: 'rgba(201,164,92,0.1)', border: '1px solid rgba(201,164,92,0.25)', color: 'var(--color-gold-400)' }}>
+                  <span className="font-sans text-[8px] tracking-widest uppercase font-bold px-2 py-0.5" style={{ background: 'rgba(184,134,11,0.1)', border: '1px solid rgba(184,134,11,0.25)', color: 'var(--color-gold-400)' }}>
                     {discount}% off
                   </span>
                 </>
@@ -190,22 +190,22 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
             </div>
 
             {/* Delivery */}
-            <div className="flex items-center gap-2 py-3 px-3" style={{ background: 'rgba(201,164,92,0.03)', border: '1px solid rgba(201,164,92,0.08)' }}>
+            <div className="flex items-center gap-2 py-3 px-3" style={{ background: 'rgba(184,134,11,0.03)', border: '1px solid rgba(184,134,11,0.08)' }}>
               <Truck size={13} style={{ color: 'var(--color-gold-500)', flexShrink: 0 }} />
-              <span className="font-sans text-cream-300 opacity-60" style={{ fontSize: '0.72rem' }}>
-                Free delivery · Ships within <strong className="text-cream-200 opacity-80">24h</strong> · Discreet packaging
+              <span className="font-sans text-choc-700 opacity-60" style={{ fontSize: '0.72rem' }}>
+                Free delivery · Ships within <strong className="text-choc-800 opacity-80">24h</strong> · Discreet packaging
               </span>
             </div>
 
             {/* Quantity */}
             <div className="flex items-center gap-4">
-              <span className="font-sans text-cream-400 opacity-50" style={{ fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Quantity</span>
-              <div className="flex items-center" style={{ border: '1px solid rgba(201,164,92,0.2)' }}>
-                <button onClick={() => setQty(q => Math.max(1, q - 1))} aria-label="Decrease" className="w-9 h-9 flex items-center justify-center text-cream-300 hover:text-gold-400 transition-colors">
+              <span className="font-sans text-choc-600 opacity-50" style={{ fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Quantity</span>
+              <div className="flex items-center" style={{ border: '1px solid rgba(184,134,11,0.2)' }}>
+                <button onClick={() => setQty(q => Math.max(1, q - 1))} aria-label="Decrease" className="w-9 h-9 flex items-center justify-center text-choc-700 hover:text-gold-400 transition-colors">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12" /></svg>
                 </button>
-                <span className="w-10 text-center font-sans text-sm font-semibold text-cream-100">{qty}</span>
-                <button onClick={() => setQty(q => q + 1)} aria-label="Increase" className="w-9 h-9 flex items-center justify-center text-cream-300 hover:text-gold-400 transition-colors">
+                <span className="w-10 text-center font-sans text-sm font-semibold text-choc-900">{qty}</span>
+                <button onClick={() => setQty(q => q + 1)} aria-label="Increase" className="w-9 h-9 flex items-center justify-center text-choc-700 hover:text-gold-400 transition-colors">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
                 </button>
               </div>
@@ -237,11 +237,11 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
 
             {/* Scratch card + trust */}
             <div className="flex flex-col gap-3 pt-1">
-              <div className="flex items-center gap-3 p-3" style={{ border: '1px solid rgba(201,164,92,0.18)', background: 'rgba(201,164,92,0.03)' }}>
+              <div className="flex items-center gap-3 p-3" style={{ border: '1px solid rgba(184,134,11,0.18)', background: 'rgba(184,134,11,0.03)' }}>
                 <Gift size={14} className="text-gold-500 flex-shrink-0" />
                 <div>
                   <p className="font-sans text-[0.6rem] tracking-widest uppercase font-semibold text-gold-500">Free Secret Position Scratch Card</p>
-                  <p className="font-sans text-xs text-cream-300 opacity-45 mt-0.5">Included in every pack. Scratch. Reveal. Connect.</p>
+                  <p className="font-sans text-xs text-choc-700 opacity-45 mt-0.5">Included in every pack. Scratch. Reveal. Connect.</p>
                 </div>
               </div>
 
@@ -253,7 +253,7 @@ export default function ProductSection({ product: p, onAddToCart, checkoutUrl }:
                 ].map(b => (
                   <div key={b.label} className="flex items-center gap-1.5">
                     <span style={{ color: 'var(--color-gold-500)' }}>{b.icon}</span>
-                    <span className="font-sans text-cream-400 opacity-45" style={{ fontSize: '0.6rem' }}>{b.label}</span>
+                    <span className="font-sans text-choc-600 opacity-45" style={{ fontSize: '0.6rem' }}>{b.label}</span>
                   </div>
                 ))}
               </div>
