@@ -65,7 +65,7 @@ export default function ScratchCardFeature() {
                 />
                 <div className="overflow-hidden" style={{ filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.7))' }}>
                   <img
-                    src="/assets/neimage/file_000000003b68821183c2f674559e55d2.png"
+                    src="/assets/images/file_000000003b68821183c2f674559e55d2.png"
                     alt="HICKEY Secret Position Scratch Card — free with every pack"
                     className="w-full h-auto object-cover block"
                     style={{ aspectRatio: '3/4', objectPosition: 'center', display: 'block' }}
