@@ -2,10 +2,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 
 const SLIDES = [
-  '/assets/neimage/file_000000002914820bb4d33fa9e2d3e9ca.png',
-  '/assets/neimage/file_000000002e64820b860bf6a5eb1ebb67.png',
-  '/assets/neimage/file_000000004118820b84c9a2baedfca2d6.png',
-  '/assets/neimage/file_00000000823c820b94eb679898635077.png',
+  '/assets/images/1f3113873ef4e5d845d1872fe65118b5.jpg',
+  '/assets/images/336e2c66274460917a0746122bdc789e.jpg',
+  '/assets/images/37035c954d0396a387503694565abcb1.jpg',
+  '/assets/images/a6e29e59ba38beb414c0d96d54a08e7b.jpg',
 ];
 
 const KB = [
